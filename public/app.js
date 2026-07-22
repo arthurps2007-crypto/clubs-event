@@ -1,13 +1,17 @@
 // ─── Contador regressivo ──────────────────────────────────────────────────────
 function startCountdown() {
   const eventDate = new Date('2026-08-29T20:00:00-03:00');
+  const countdownEl = document.getElementById('countdown');
+  const diasEl = document.getElementById('dias');
+
+  if (!countdownEl || !diasEl) return; // Prevent JS from crashing if countdown is missing
 
   function update() {
     const now = new Date();
     const diff = eventDate - now;
 
     if (diff <= 0) {
-      document.getElementById('countdown').innerHTML = '<div class="countdown__ended">O evento está acontecendo agora! 🎉</div>';
+      countdownEl.innerHTML = '<div class="countdown__ended">O evento está acontecendo agora! 🎉</div>';
       return;
     }
 
@@ -16,7 +20,7 @@ function startCountdown() {
     const minutos  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.getElementById('dias').textContent     = String(dias).padStart(2, '0');
+    diasEl.textContent     = String(dias).padStart(2, '0');
     document.getElementById('horas').textContent    = String(horas).padStart(2, '0');
     document.getElementById('minutos').textContent  = String(minutos).padStart(2, '0');
     document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');

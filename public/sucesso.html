@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vale Duplo Chopp — CLUBS Drinks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="page--success">
+
+  <div class="success-wrapper">
+    <div class="success-card">
+      <div class="success__brand">CLUBS</div>
+      <div class="success__checkmark">✅</div>
+      <h1 class="success__title">Cadastro confirmado!</h1>
+      <p class="success__name">Olá, <strong id="success-nome">Visitante</strong>!</p>
+      <p class="success__desc">Seu Vale Duplo Chopp está pronto. Salve o QR Code abaixo e apresente no evento.</p>
+
+      <!-- QR Code -->
+      <div class="qr-wrapper">
+        <img id="qr-image" src="" alt="Seu QR Code Vale Duplo Chopp" class="qr-code" />
+        <div class="qr-code-label" id="qr-codigo"></div>
+      </div>
+
+      <!-- Ações -->
+      <div class="success__actions">
+        <button class="btn btn--primary" id="btn-download">⬇ Salvar QR Code</button>
+        <a class="btn btn--whatsapp" id="btn-whatsapp" href="#" target="_blank">
+          💬 Entrar no Grupo VIP
+        </a>
+      </div>
+
+      <!-- Instruções -->
+      <div class="success__info">
+        <h3>Como usar no evento?</h3>
+        <ol>
+          <li>Chegue no <strong>Empório Ibiti</strong> no dia 29/08</li>
+          <li>Apresente este QR Code na entrada</li>
+          <li>Tome o primeiro chopp e ganhe outro de brinde 🍺</li>
+        </ol>
+      </div>
+
+      <p class="success__warn">⚠️ Este QR Code é pessoal e intransferível. Só pode ser utilizado uma vez.</p>
+    </div>
+  </div>
+
+  <script src="/sucesso.js"></script>
+</body>
+</html>

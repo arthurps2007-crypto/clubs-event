@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — CLUBS Draft Night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="page--admin">
+
+  <!-- LOGIN -->
+  <div class="admin-login" id="admin-login">
+    <div class="admin-login__card">
+      <div class="success__brand">CLUBS</div>
+      <h2>Painel Admin</h2>
+      <p>Acesso restrito ao time CLUBS</p>
+      <input type="password" id="admin-senha" placeholder="Senha do evento" class="admin-input" />
+      <button class="btn btn--primary btn--full" id="btn-login">Entrar</button>
+      <div class="admin-error" id="admin-error" style="display:none;">Senha incorreta.</div>
+    </div>
+  </div>
+
+  <!-- PAINEL PRINCIPAL -->
+  <div class="admin-panel" id="admin-panel" style="display:none;">
+    <header class="admin-header">
+      <div class="success__brand">CLUBS</div>
+      <span>Painel do Evento — 29/08/2026</span>
+      <button class="btn btn--outline btn--sm" id="btn-logout">Sair</button>
+    </header>
+
+    <!-- Stats -->
+    <div class="admin-stats" id="admin-stats">
+      <div class="stat-card stat-card--total">
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-label">Cadastrados</div>
+      </div>
+      <div class="stat-card stat-card--used">
+        <div class="stat-value" id="stat-usados">—</div>
+        <div class="stat-label">Utilizados</div>
+      </div>
+      <div class="stat-card stat-card--available">
+        <div class="stat-value" id="stat-disponiveis">—</div>
+        <div class="stat-label">Disponíveis</div>
+      </div>
+    </div>
+
+    <!-- Leitor de QR Code manual (código digitado) -->
+    <div class="admin-scanner">
+      <h3>Validar QR Code</h3>
+      <p>Digite ou cole o código do QR Code para validar manualmente</p>
+      <div class="scanner__input-row">
+        <input type="text" id="input-codigo" placeholder="CLUBS-XXXXXXXX" class="admin-input" />
+        <button class="btn btn--primary" id="btn-validar">Validar</button>
+      </div>
+
+      <!-- Resultado da validação -->
+      <div class="scan-result" id="scan-result" style="display:none;">
+        <div class="scan-result__icon" id="scan-icon"></div>
+        <div class="scan-result__status" id="scan-status"></div>
+        <div class="scan-result__name" id="scan-name"></div>
+      </div>
+    </div>
+
+    <!-- Lista de Leads -->
+    <div class="admin-leads">
+      <div class="admin-leads__header">
+        <h3>Lista de Cadastrados</h3>
+        <input type="text" id="search-leads" placeholder="Buscar por nome ou e-mail..." class="admin-input admin-input--search" />
+      </div>
+      <div class="leads-table-wrapper">
+        <table class="leads-table" id="leads-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>WhatsApp</th>
+              <th>E-mail</th>
+              <th>Cidade</th>
+              <th>Código</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

@@ -266,24 +266,17 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   margin: 0 auto 4rem;
 }
 
-.col-left {
+.col-left, .col-right {
   display: flex;
   flex-direction: column;
-  text-align: right;
-  align-items: flex-end;
+  text-align: center;
+  align-items: center;
 }
 
 .col-center {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.col-right {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  align-items: flex-start;
 }
 
 .cards-grid {

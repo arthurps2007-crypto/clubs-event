@@ -76,6 +76,15 @@ body {
   box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
 }
 
+.btn--share {
+  background: var(--purple);
+  color: var(--white);
+}
+.btn--share:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--purple-glow);
+}
+
 .btn--outline {
   background: transparent;
   color: var(--white);

@@ -2,7 +2,6 @@
 const lead = JSON.parse(sessionStorage.getItem('clubs_lead'));
 
 if (!lead) {
-  // Se não tem dados, redirecionar para a landing page
   window.location.href = '/';
 }
 
@@ -27,3 +26,17 @@ document.getElementById('btn-download').addEventListener('click', () => {
 // Botão WhatsApp — Grupo VIP
 const LINK_GRUPO_VIP = '#'; // Substitua pelo link real do grupo VIP
 document.getElementById('btn-whatsapp').href = LINK_GRUPO_VIP;
+
+// ─── Compartilhamento social no WhatsApp ──────────────────────────────────────
+const LANDING_PAGE_URL = window.location.origin;
+const mensagemCompartilhar = encodeURIComponent(
+  `🍺 *CLUBS Draft Night — Sorocaba!*\n\n` +
+  `Vai rolar o lançamento da CLUBS Drinks no *Empório Ibiti* no dia *29/08*!\n\n` +
+  `Eu já garantí meu *Vale Duplo Chopp* — você já garantiu o seu?\n\n` +
+  `👉 Cadastre-se aqui: ${LANDING_PAGE_URL}\n\n` +
+  `Vagas limitadas! Corre! 🔥`
+);
+
+document.getElementById('btn-compartilhar').href =
+  `https://api.whatsapp.com/send?text=${mensagemCompartilhar}`;
+

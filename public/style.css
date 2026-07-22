@@ -64,6 +64,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .bg-yellow { background-color: var(--pop-yellow); color: var(--pop-black); }
 .bg-pink { background-color: var(--pop-pink); color: var(--pop-black); }
 .bg-white { background-color: var(--pop-white); color: var(--pop-black); }
+.bg-green { background-color: #00A859; color: var(--pop-white); }
 
 .text-shadow-black { text-shadow: var(--text-3d-black); }
 .text-shadow-pink { text-shadow: var(--text-3d-pink); }
@@ -271,6 +272,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   flex-direction: column;
   text-align: center;
   align-items: center;
+  line-height: 0.85;
 }
 
 .col-center {

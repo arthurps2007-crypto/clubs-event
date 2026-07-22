@@ -266,10 +266,20 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .sticker-card {
   border: var(--border-fat);
   border-radius: 12px;
-  padding: 2.5rem 2rem;
+  padding: 0;
+  overflow: hidden;
   text-align: left;
   box-shadow: var(--shadow-block);
   transition: var(--transition-pop);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .sticker-card:hover {
@@ -281,16 +291,16 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-radius: 8px;
-  border: var(--border-fat);
-  margin-bottom: 1rem;
-  box-shadow: var(--shadow-block);
-  transition: var(--transition-pop);
+  border-radius: 0;
+  border: none;
+  border-bottom: var(--border-fat);
+  margin-bottom: 0;
+  box-shadow: none;
+  display: block;
 }
 
 .sticker-card:hover .flavor-img {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 0 var(--pop-black);
+  filter: brightness(1.1);
 }
 
 .sticker-card h3 {

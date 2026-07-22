@@ -102,6 +102,15 @@ app.post('/api/cadastro', async (req, res) => {
       },
     });
 
+    // Avisar a ANA (assíncrono, não trava a resposta para o usuário)
+    if (process.env.ANA_WEBHOOK_URL) {
+      fetch(`${process.env.ANA_WEBHOOK_URL}/webhook/event-lead`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, telefone, email, codigo })
+      }).catch(err => console.error('⚠️ Erro ao disparar webhook para ANA:', err.message));
+    }
+
     res.json({
       success: true,
       nome,

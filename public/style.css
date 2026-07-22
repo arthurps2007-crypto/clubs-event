@@ -282,11 +282,10 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .cards-grid {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 2rem; /* space for scrollbar/shadows */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  padding-bottom: 2rem;
   padding-top: 1rem;
 }
 
@@ -309,8 +308,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   transition: var(--transition-pop);
   display: flex;
   flex-direction: column;
-  flex: 0 0 calc(25% - 1.5rem);
-  scroll-snap-align: start;
 }
 
 .card-content {
@@ -614,8 +611,14 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   .hero-content h1 { font-size: 4rem; }
   .section-title { font-size: 3rem; }
   
+  .cards-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
   .sticker-card {
-    flex: 0 0 calc(50% - 1rem); /* 2 items per row on tablet */
+    flex: 0 0 calc(50% - 0.75rem); /* Shows exactly 2 items on screen */
+    scroll-snap-align: start;
   }
 }
 
@@ -631,7 +634,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   .input-row { flex-direction: column; gap: 1.5rem; }
   
   .sticker-card {
-    flex: 0 0 85%; /* Carousel takes 85% width on mobile so next card peeks in */
+    flex: 0 0 calc(50% - 0.75rem); /* Ensures exactly 2 items on screen for mobile too */
   }
 }
 

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const QRCode = require('qrcode');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
-
+const cron = require('node-cron');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
@@ -31,6 +31,7 @@ const leadSchema = new mongoose.Schema({
   usado:         { type: Boolean, default: false },
   dataCadastro:  { type: Date, default: Date.now },
   dataUso:       { type: Date, default: null },
+  npsEnviado:    { type: Boolean, default: false },
 });
 
 const Lead = mongoose.model('EventLead', leadSchema);
@@ -193,6 +194,76 @@ app.get('/api/stats', async (req, res) => {
     res.status(500).json({ error: 'Erro ao buscar stats.' });
   }
 });
+
+// ─── Cron Jobs (Automações do Evento) ─────────────────────────────────────────
+if (process.env.ANA_WEBHOOK_URL) {
+  // 1. Pesquisa NPS (Roda a cada hora)
+  cron.schedule('0 * * * *', async () => {
+    console.log('[CRON] Verificando NPS de evento...');
+    try {
+      const vinteQuatroHorasAtras = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      const leads = await Lead.find({
+        usado: true,
+        npsEnviado: false,
+        dataUso: { $lte: vinteQuatroHorasAtras }
+      });
+      
+      for (const lead of leads) {
+        // Acionar webhook na ANA
+        fetch(`${process.env.ANA_WEBHOOK_URL}/webhook/event-nps`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ telefone: lead.telefone, nome: lead.nome })
+        }).catch(err => console.error('Erro NPS:', err.message));
+        
+        lead.npsEnviado = true;
+        await lead.save();
+      }
+      if (leads.length > 0) console.log(`[CRON] NPS enviado para ${leads.length} pessoas.`);
+    } catch (err) {
+      console.error('[CRON] Erro no NPS:', err.message);
+    }
+  });
+
+  // 2. Recuperação de quem faltou (Roda todo dia as 10h da manhã)
+  // Como o evento é dia 29/08/2026, vamos focar em quem tem criado > 24h e usado: false
+  cron.schedule('0 10 * * *', async () => {
+    console.log('[CRON] Verificando faltantes do evento...');
+    try {
+      // Como o evento é uma data fixa, a checagem real faria sentido no dia 30/08.
+      // Para fins gerais: 
+      const ontem = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      
+      // Essa query busca os leads que NÃO usaram, já passou do prazo e ainda não processamos
+      // Para simplificar e rodar amanhã do evento (30/08):
+      const dataEvento = new Date('2026-08-30T00:00:00.000Z'); // Dia pós-evento
+      if (new Date() >= dataEvento) {
+        const leadsFaltantes = await Lead.find({
+          usado: false,
+          dataCadastro: { $lte: dataEvento }
+        });
+        
+        // Vamos precisar de uma tag no schema ou apagar a base dps do dia. 
+        // Aqui assumimos que ele enviará para todos não usados.
+        // Cuidado com duplicidade: vamos usar o próprio schema ou deletar após uso
+        for (const lead of leadsFaltantes) {
+          fetch(`${process.env.ANA_WEBHOOK_URL}/webhook/event-noshow`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ telefone: lead.telefone, nome: lead.nome })
+          }).catch(err => console.error('Erro No-Show:', err.message));
+          
+          // Pra não enviar de novo, podemos marcar `npsEnviado = true` tb ou um campo novo.
+          lead.npsEnviado = true; 
+          await lead.save();
+        }
+        if (leadsFaltantes.length > 0) console.log(`[CRON] Cupom no-show enviado para ${leadsFaltantes.length} pessoas.`);
+      }
+    } catch (err) {
+      console.error('[CRON] Erro no No-Show:', err.message);
+    }
+  });
+}
 
 // ─── Iniciar servidor ─────────────────────────────────────────────────────────
 app.listen(PORT, () => {

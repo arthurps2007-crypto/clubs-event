@@ -143,9 +143,9 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   align-items: center;
   text-align: center;
   position: relative;
-  background-image: linear-gradient(rgba(73, 43, 113, 0.3), rgba(8, 7, 6, 0.5)), url('/banner.jpeg');
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(rgba(73, 43, 113, 0.3), rgba(8, 7, 6, 0.5)), url('banner.jpeg') !important;
+  background-size: cover !important;
+  background-position: center !important;
   border-bottom: var(--border-fat);
 }
 

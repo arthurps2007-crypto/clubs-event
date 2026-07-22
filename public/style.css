@@ -12,7 +12,7 @@
   --pop-white: #FFFEF0;
 
   /* Fontes */
-  --font-display: 'SUGO PRO CLASSIC TRIAL', 'Anton', sans-serif;
+  --font-display: 'Anton', sans-serif;
   --font-sub: 'Cartograph Mono CF', monospace;
   --font-body: 'Laqonic 4F', 'Inter', sans-serif;
 
@@ -143,7 +143,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   align-items: center;
   text-align: center;
   position: relative;
-  background-image: linear-gradient(rgba(73, 43, 113, 0.7), rgba(8, 7, 6, 0.9)), url('/banner.jpeg');
+  background-image: linear-gradient(rgba(73, 43, 113, 0.3), rgba(8, 7, 6, 0.5)), url('/banner.jpeg');
   background-size: cover;
   background-position: center;
   border-bottom: var(--border-fat);

@@ -82,12 +82,17 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
    HEADER & LOGOS
    ========================================================================= */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding: 2rem 1rem;
-  background: var(--pop-white);
+  padding: 1.5rem 1rem;
+  background: rgba(255, 254, 240, 0.85); /* Efeito translúcido (pop-white) */
+  backdrop-filter: blur(12px); /* Desfoque de vidro (Glassmorphism) */
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--border-fat);
   box-shadow: 0 8px 0px rgba(0,0,0,0.2);
 }

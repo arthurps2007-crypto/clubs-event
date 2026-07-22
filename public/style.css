@@ -655,6 +655,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     padding-left: 1rem;
     padding-right: 1rem;
+    scrollbar-width: none; /* Firefox: hide scrollbar */
+    -ms-overflow-style: none; /* IE/Edge: hide scrollbar */
+  }
+  .cards-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari: hide scrollbar on mobile */
   }
   .sticker-card {
     flex: 0 0 calc(50% - 0.75rem); /* Shows exactly 2 items on screen */
@@ -695,24 +700,29 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   .section-title { font-size: 2.5rem; }
   .pop-form { padding: 1.5rem; }
   .input-row { flex-direction: column; gap: 1.5rem; }
-  .sticker-form { padding: 2rem 1.5rem; }
+  .sticker-form { padding: 2rem 1.5rem; transform: rotate(0deg); }
   
   /* Fix title overflow on small screens */
   .title-three-cols {
-    gap: 0.8rem;
-    font-size: clamp(1.8rem, 6vw, 3rem);
+    gap: 0.5rem;
+    font-size: clamp(1.5rem, 5.5vw, 3rem);
+    transform: rotate(0deg);
   }
   
   .sticker-card {
-    flex: 0 0 calc(50% - 0.75rem); /* Ensures exactly 2 items on screen for mobile too */
+    flex: 0 0 calc(50% - 0.75rem);
   }
   
   .sticker-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .card-content {
-    padding: 1rem;
+    padding: 0.8rem;
+  }
+  
+  .sticker-card p {
+    font-size: 0.8rem;
   }
   
   .btn-pop {
@@ -721,7 +731,20 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   }
   
   .lineup {
-    padding: 2rem 0.5rem 4rem;
+    padding: 2rem 0 4rem;
+  }
+  
+  .footer-event-logo.large-logo {
+    height: 80px;
+  }
+  
+  .bottom-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .social-bar-link {
+    font-size: 1.2rem;
+    padding: 1rem;
   }
 }
 

@@ -12,8 +12,9 @@
   --pop-white: #FFFEF0;
 
   /* Fontes */
-  --font-display: 'Anton', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'SUGO PRO CLASSIC TRIAL', 'Anton', sans-serif;
+  --font-sub: 'Cartograph Mono CF', monospace;
+  --font-body: 'Laqonic 4F', 'Inter', sans-serif;
 
   /* Sombras e Bordas (Efeito Adesivo / Quadrinhos) */
   --border-fat: 4px solid var(--pop-black);
@@ -21,7 +22,7 @@
   --shadow-block-hover: 2px 2px 0px var(--pop-black);
   
   /* Text Shadows para 3D Text */
-  --text-3d-black: 4px 4px 0px var(--pop-black);
+  --text-3d-black: 6px 6px 0px var(--pop-black), -2px -2px 0 var(--pop-black), 2px -2px 0 var(--pop-black), -2px 2px 0 var(--pop-black), 2px 2px 0 var(--pop-black);
   --text-3d-pink: 4px 4px 0px var(--pop-pink);
   
   --transition-pop: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -118,7 +119,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .mono-text {
-  font-family: 'Cartograph Mono CF', monospace;
+  font-family: var(--font-sub);
   font-weight: 700;
 }
 
@@ -487,7 +488,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .footer-event-logo {
   height: 80px;
   width: auto;
-  filter: drop-shadow(2px 2px 0px #fff);
+  filter: drop-shadow(2px 2px 0px #000);
+}
+
+.footer-event-logo.large-logo {
+  height: 140px;
 }
 
 .footer-org-logo {

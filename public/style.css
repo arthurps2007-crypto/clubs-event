@@ -257,24 +257,33 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   transform: rotate(-2deg);
 }
 
-.title-two-cols {
+.title-three-cols {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto 4rem;
+}
+
+.col-left {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto 4rem;
-  text-align: left;
+  text-align: right;
+  align-items: flex-end;
 }
 
-.title-row {
+.col-center {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
-.indent-chopp {
-  margin-left: 15%;
+.col-right {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
 }
 
 .cards-grid {

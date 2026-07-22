@@ -252,10 +252,22 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 
 .section-title {
   font-size: clamp(3rem, 8vw, 5rem);
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 4rem;
   transform: rotate(-2deg);
 }
+
+.staggered-title {
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+  margin: 0 auto 4rem;
+  text-align: left;
+}
+
+.stagger-1 { align-self: flex-start; }
+.stagger-2 { align-self: flex-start; }
+.stagger-3 { align-self: flex-end; }
 
 .cards-grid {
   display: flex;

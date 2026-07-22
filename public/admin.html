@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
 </head>
 <body class="page--admin">
 
@@ -50,7 +51,15 @@
     <!-- Leitor de QR Code manual (código digitado) -->
     <div class="admin-scanner">
       <h3>Validar QR Code</h3>
-      <p>Digite ou cole o código do QR Code para validar manualmente</p>
+      
+      <!-- Câmera do Leitor -->
+      <div class="scanner__camera">
+        <div id="camera-loading" class="camera-loading">Carregando câmera...</div>
+        <canvas id="canvas" hidden></canvas>
+        <button class="btn btn--outline btn--sm" id="btn-camera-toggle">Ligar Câmera</button>
+      </div>
+
+      <p style="margin-top: 16px;">Ou digite o código manualmente:</p>
       <div class="scanner__input-row">
         <input type="text" id="input-codigo" placeholder="CLUBS-XXXXXXXX" class="admin-input" />
         <button class="btn btn--primary" id="btn-validar">Validar</button>

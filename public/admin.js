@@ -135,3 +135,79 @@ document.getElementById('btn-validar').addEventListener('click', async () => {
 document.getElementById('input-codigo').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') document.getElementById('btn-validar').click();
 });
+
+// ─── Câmera Scanner ───────────────────────────────────────────────────────────
+const video = document.createElement("video");
+const canvasElement = document.getElementById("canvas");
+const canvas = canvasElement.getContext("2d");
+const loadingMessage = document.getElementById("camera-loading");
+const btnCameraToggle = document.getElementById("btn-camera-toggle");
+let scanning = false;
+let stream = null;
+
+function tick() {
+  if (!scanning) return;
+  
+  if (video.readyState === video.HAVE_ENOUGH_DATA) {
+    loadingMessage.hidden = true;
+    canvasElement.hidden = false;
+
+    canvasElement.height = video.videoHeight;
+    canvasElement.width = video.videoWidth;
+    canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+    
+    var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+    var code = jsQR(imageData.data, imageData.width, imageData.height, {
+      inversionAttempts: "dontInvert",
+    });
+    
+    if (code) {
+      console.log("QR Encontrado", code.data);
+      // Validar se começar com CLUBS
+      if (code.data.includes("CLUBS-")) {
+        const codigo = code.data.split("CLUBS-")[1];
+        if (codigo) {
+           document.getElementById('input-codigo').value = `CLUBS-${codigo}`;
+           document.getElementById('btn-validar').click();
+           
+           // Pausar um pouco para não ler várias vezes
+           scanning = false;
+           setTimeout(() => { 
+             if (stream) scanning = true;
+             requestAnimationFrame(tick);
+           }, 2000);
+           return;
+        }
+      }
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+btnCameraToggle.addEventListener('click', () => {
+  if (stream) {
+    // Parar
+    stream.getTracks().forEach(track => track.stop());
+    stream = null;
+    scanning = false;
+    canvasElement.hidden = true;
+    loadingMessage.hidden = false;
+    loadingMessage.textContent = 'Câmera desligada';
+    btnCameraToggle.textContent = 'Ligar Câmera';
+  } else {
+    // Iniciar
+    loadingMessage.textContent = 'Carregando câmera...';
+    btnCameraToggle.textContent = 'Desligar Câmera';
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(s) {
+      stream = s;
+      scanning = true;
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true);
+      video.play();
+      requestAnimationFrame(tick);
+    }).catch(err => {
+      loadingMessage.textContent = 'Erro ao acessar câmera: ' + err.message;
+      btnCameraToggle.textContent = 'Ligar Câmera';
+    });
+  }
+});

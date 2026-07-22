@@ -702,6 +702,36 @@ body.page--admin {
 .badge--available { background: rgba(42,181,35,.15); color: #4cdb44; border: 1px solid rgba(42,181,35,.3); }
 .badge--used      { background: rgba(250,255,0,.1);  color: var(--yellow); border: 1px solid rgba(250,255,0,.3); }
 
+/* ─── Câmera Scanner ─────────────────────────────────────────────────────────── */
+.scanner__camera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  background: var(--dark);
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+#canvas {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 2px solid var(--purple);
+}
+
+.camera-loading {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  padding: 24px;
+  text-align: center;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  width: 100%;
+}
+
 /* ─── Responsive ─────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .how__arrow { display: none; }

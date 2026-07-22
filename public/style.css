@@ -257,17 +257,25 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   transform: rotate(-2deg);
 }
 
-.staggered-title {
+.title-two-cols {
   display: flex;
   flex-direction: column;
-  max-width: max-content;
+  width: 100%;
+  max-width: 850px;
   margin: 0 auto 4rem;
   text-align: left;
 }
 
-.stagger-1 { align-self: flex-start; }
-.stagger-2 { align-self: flex-start; }
-.stagger-3 { align-self: flex-end; }
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.indent-chopp {
+  margin-left: 15%;
+}
 
 .cards-grid {
   display: flex;

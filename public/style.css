@@ -501,144 +501,167 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 /* =========================================================================
-   FOOTER JOÃO ROCK STYLE
+   FOOTER — MINIMAL DARK STYLE
    ========================================================================= */
-.footer-jr {
+.footer-new {
   width: 100%;
-  font-family: var(--font-body);
-}
-
-/* Barra de Redes Sociais */
-.social-bars {
-  display: flex;
-  width: 100%;
-}
-
-.social-bar-link {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 1.5rem 1rem;
-  color: var(--pop-black);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  text-decoration: none;
-  border-top: var(--border-fat);
-  border-bottom: var(--border-fat);
-  transition: var(--transition-pop);
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Evitar borda dupla interna */
-.social-bar-link + .social-bar-link {
-  border-left: var(--border-fat);
-}
-
-.social-bar-link:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 0px rgba(0,0,0,0.5);
-}
-
-.social-bar-link:active {
-  transform: translateY(2px);
-  box-shadow: none;
-  filter: brightness(0.95);
-}
-
-.bg-purple { background-color: var(--bg-purple); color: var(--pop-white); }
-
-/* Barra Preta Inferior */
-.bottom-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: var(--pop-black);
   color: var(--pop-white);
-  padding: 2rem 4rem;
-  gap: 2rem;
-}
-
-.bottom-logo-left, .bottom-logo-right {
-  flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  padding: 4rem 2rem 2rem;
+  gap: 2.5rem;
+  border-top: var(--border-fat);
 }
 
-.bottom-logo-left {
-  justify-content: flex-start;
+/* Logo */
+.footer-logo-area {
+  display: flex;
+  justify-content: center;
 }
 
-.bottom-logo-right {
-  justify-content: flex-end;
-  gap: 10px;
-  font-family: var(--font-display);
-  color: #ccc;
-  font-size: 1rem;
-}
-
-.footer-event-logo {
-  height: 80px;
-  width: auto;
-  filter: drop-shadow(2px 2px 0px #000);
-}
-
-.footer-event-logo.large-logo {
+.footer-main-logo {
   height: 140px;
-}
-
-.footer-org-logo {
-  height: 60px;
   width: auto;
-  filter: drop-shadow(2px 2px 0px #000) grayscale(1);
+  filter: drop-shadow(2px 2px 0px rgba(255,255,255,0.1));
 }
 
-/* Info Central */
-.bottom-info {
-  flex: 2;
+/* Data e Local */
+.footer-event-info {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
-.bottom-info h3 {
-  font-size: 2rem;
-  margin: 0;
+.footer-event-info h3 {
+  font-size: 2.2rem;
   line-height: 1;
-}
-
-.bottom-info p {
-  font-weight: 700;
   margin: 0;
-  letter-spacing: 1px;
 }
 
-.sponsors-inline {
+.footer-event-info p {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Redes Sociais */
+.footer-socials {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: #aaa;
+  gap: 1rem;
 }
 
-.sponsor-mini {
-  height: 30px;
-  width: auto;
+.social-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--pop-white);
+  color: var(--pop-white);
+  text-decoration: none;
+  transition: var(--transition-pop);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.age-warning {
-  margin-top: 1.5rem !important;
-  font-size: 0.65rem !important;
-  color: var(--pop-yellow) !important;
-  font-weight: 900 !important;
+.social-circle:hover {
+  background: var(--pop-white);
+  color: var(--pop-black);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+.social-circle:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 1.5rem;
+  border-radius: 26px;
+  border: 2px solid #25D366;
+  color: #25D366;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: var(--transition-pop);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.social-pill:hover {
+  background: #25D366;
+  color: var(--pop-black);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+}
+
+.social-pill:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Patrocinadores */
+.footer-sponsors {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
   max-width: 800px;
+}
+
+.sponsors-label {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.sponsors-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.sponsor-logo-footer {
+  height: 45px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.sponsor-logo-footer:hover {
+  opacity: 1;
+}
+
+/* Aviso Legal */
+.footer-legal {
+  font-size: 0.6rem;
+  color: var(--pop-yellow);
+  font-weight: 900;
+  text-align: center;
+  max-width: 700px;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 /* =========================================================================
@@ -671,18 +694,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
    RESPONSIVE — FOOTER MOBILE (max-width: 900px)
    ========================================================================= */
 @media (max-width: 900px) {
-  .social-bars { flex-direction: column; }
-  .social-bar-link + .social-bar-link { border-left: none; }
-  
-  .bottom-bar {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    text-align: center;
+  .footer-new {
+    padding: 3rem 1.5rem 2rem;
   }
-  
-  .bottom-logo-left, .bottom-logo-right {
-    justify-content: center;
-    width: 100%;
+  .footer-main-logo {
+    height: 100px;
   }
 }
 
@@ -734,17 +750,23 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
     padding: 2rem 0 4rem;
   }
   
-  .footer-event-logo.large-logo {
+  .footer-main-logo {
     height: 80px;
   }
   
-  .bottom-info h3 {
-    font-size: 1.5rem;
+  .footer-event-info h3 {
+    font-size: 1.6rem;
   }
   
-  .social-bar-link {
-    font-size: 1.2rem;
-    padding: 1rem;
+  .social-circle {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .social-pill {
+    height: 44px;
+    font-size: 0.85rem;
+    padding: 0 1rem;
   }
 }
 

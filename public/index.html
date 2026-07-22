@@ -20,7 +20,7 @@
   <!-- Fontes: preload a mais crítica e carregar com display=swap -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
 
   <!-- Lucide: carregado de forma diferida para não bloquear renderização -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -163,15 +163,19 @@
 
     <!-- FOOTER -->
     <footer class="footer-new">
-      <!-- Logo Grande -->
-      <div class="footer-logo-area">
-        <img src="/logo-clubs.svg" alt="CLUBS" class="footer-main-logo" loading="lazy" />
-      </div>
+      <!-- Logo Grande na Esquerda e Data no Centro -->
+      <div class="footer-top-row">
+        <div class="footer-logo-area">
+          <img src="/logo-clubs.svg" alt="CLUBS" class="footer-main-logo" loading="lazy" />
+        </div>
 
-      <!-- Data e Local -->
-      <div class="footer-event-info">
-        <h3 class="text-yellow font-numbers">29 DE AGOSTO</h3>
-        <p class="mono-text">EMPÓRIO IBITI - SOROCABA/SP</p>
+        <div class="footer-event-info">
+          <h3 class="text-yellow font-numbers">29 DE AGOSTO</h3>
+          <p class="mono-text">EMPÓRIO IBITI - SOROCABA/SP</p>
+        </div>
+        
+        <!-- Espaço vazio para manter a data centralizada via flexbox -->
+        <div class="footer-spacer"></div>
       </div>
 
       <!-- Redes Sociais -->
@@ -204,7 +208,7 @@
     </footer>
   </main>
 
-  <script src="/app.js?v=22" defer></script>
+  <script src="/app.js?v=23" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();

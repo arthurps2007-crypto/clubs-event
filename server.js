@@ -14,7 +14,18 @@ const MAX_QR_CODES = parseInt(process.env.MAX_QR_CODES) || 0;
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Cache headers for static assets (performance boost)
+app.use(express.static(path.join(__dirname, 'public'), {
+  maxAge: '1d',
+  setHeaders: (res, filePath) => {
+    if (filePath.match(/\.(jpeg|jpg|png|svg|webp|ico)$/i)) {
+      res.setHeader('Cache-Control', 'public, max-age=2592000'); // 30 days for images
+    } else if (filePath.match(/\.(css|js)$/i)) {
+      res.setHeader('Cache-Control', 'public, max-age=86400'); // 1 day for CSS/JS (we use ?v= busting)
+    }
+  },
+}));
 
 // ─── Banco de Dados ───────────────────────────────────────────────────────────
 mongoose.connect(process.env.MONGODB_URI)

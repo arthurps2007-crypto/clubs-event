@@ -3,26 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLUBS Draft Night | A Rua Vira Festa</title>
-  <meta name="description" content="O Caminhão da CLUBS invadiu a cidade. 8 torneiras de puro sabor. Garanta seu Passe VIP." />
-  
+  <title>CLUBS Draft Night | A Rua Vira Festa — 29/08 Sorocaba</title>
+  <meta name="description" content="Chopp em dobro + entrada gratuita. 5 sabores insanos. 29 de agosto no Empório Ibiti, Sorocaba. Garanta seu Passe VIP agora!" />
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CLUBS Draft Night — Chopp em Dobro + Entrada Gratuita" />
+  <meta property="og:description" content="A noite em que a rua vira festa. 5 sabores insanos de chopp, entrada gratuita e muito mais. 29/08 no Empório Ibiti, Sorocaba." />
+  <meta property="og:image" content="/banner.jpeg" />
+  <meta property="og:url" content="https://clubs-event.onrender.com" />
+
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Fontes Pop-Art: Anton para Títulos GIGANTES, e Inter para textos -->
+
+  <!-- Fontes: preload a mais crítica e carregar com display=swap -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="style.css?v=15" />
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css?v=20" />
+
+  <!-- Lucide: carregado de forma diferida para não bloquear renderização -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
 
   <!-- CABEÇALHO COM LOGO -->
   <header class="header">
     <div class="org-box mono-text">ORG.</div>
-    <img src="/logo-clubs.svg" alt="CLUBS Logo" class="logo-img" />
+    <img src="/logo-clubs.svg" alt="CLUBS Logo" class="logo-img" width="180" height="60" />
     <div class="patroc-box">
       <span class="mono-text">PATROC.</span>
-      <img src="/logo-ibiti.svg" alt="Empório Ibiti" class="sponsor-logo" />
+      <img src="/logo-ibiti.svg" alt="Empório Ibiti" class="sponsor-logo" width="180" height="60" />
     </div>
   </header>
 
@@ -31,7 +42,7 @@
     <section class="hero observe-me">
       <div class="hero-content">
         <!-- SVG Título: "A NOITE EM QUE A RUA VIRA FESTA" -->
-        <img src="/a-noite.svg" alt="A noite em que a rua vira festa" class="hero-title-svg" />
+        <img src="/a-noite.svg" alt="A noite em que a rua vira festa" class="hero-title-svg" width="600" height="200" />
         
         <!-- Bloco Flutuante Explicativo -->
         <div class="sticker-box hero-text-box">
@@ -40,7 +51,7 @@
 
         <div class="cta-wrapper">
           <a href="#portal-vip" class="btn-pop magnetic-btn">QUERO MEU CHOPP!</a>
-          <div class="marquee-urgency">
+          <div class="marquee-urgency" aria-hidden="true">
             <p>🔥 VAGAS LIMITADÍSSIMAS • 29/08 • EMPÓRIO IBITI 🔥 VAGAS LIMITADÍSSIMAS • 29/08 • EMPÓRIO IBITI 🔥</p>
           </div>
         </div>
@@ -62,7 +73,7 @@
       </h2>
       <div class="cards-grid">
         <div class="sticker-card bg-yellow">
-          <img src="can-vinho.jpeg?v=1" alt="Chopp de Vinho" class="flavor-img" />
+          <img src="can-vinho.jpeg" alt="Chopp de Vinho" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
           <div class="card-content">
             <h3 class="text-shadow-black text-white">CHOPP DE VINHO</h3>
             <p>O queridinho da galera, com muito sabor.</p>
@@ -70,7 +81,7 @@
         </div>
         
         <div class="sticker-card bg-white">
-          <img src="can-abacaxi.jpeg?v=1" alt="Chopp de Abacaxi" class="flavor-img" />
+          <img src="can-abacaxi.jpeg" alt="Chopp de Abacaxi" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
           <div class="card-content">
             <h3 class="text-shadow-black text-black">CHOPP DE ABACAXI</h3>
             <p>Extremamente leve e refrescante.</p>
@@ -78,7 +89,7 @@
         </div>
 
         <div class="sticker-card bg-blue">
-          <img src="can-ultra.jpeg?v=1" alt="Ultra Sem Glúten" class="flavor-img" />
+          <img src="can-ultra.jpeg" alt="Ultra Sem Glúten" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
           <div class="card-content">
             <h3 class="text-shadow-black text-white">ULTRA SEM GLÚTEN</h3>
             <p>Para quem quer beber sem preocupação.</p>
@@ -86,7 +97,7 @@
         </div>
         
         <div class="sticker-card bg-red">
-          <img src="can-zero.jpeg?v=1" alt="Zero Álcool" class="flavor-img" />
+          <img src="can-zero.jpeg" alt="Zero Álcool" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
           <div class="card-content">
             <h3 class="text-shadow-black text-white">ZERO ÁLCOOL</h3>
             <p>Todo o sabor da cevada, 0% álcool.</p>
@@ -94,7 +105,7 @@
         </div>
 
         <div class="sticker-card bg-green">
-          <img src="can-reggae.png?v=1" alt="Reggae Mate" class="flavor-img" />
+          <img src="can-reggae.png" alt="Reggae Mate" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
           <div class="card-content">
             <h3 class="text-shadow-black text-white">REGGAE MATE</h3>
             <p>Mate, rum e limão. Refrescância absurda.</p>
@@ -112,32 +123,32 @@
           <p class="subtitle-bold">Preencha e gere o código. O link de acesso será entregue no grupo VIP.</p>
         </div>
 
-        <form id="form-cadastro" class="pop-form">
+        <form id="form-cadastro" class="pop-form" novalidate>
           <div class="input-row">
             <div class="input-group">
               <label for="nome">Nome Completo</label>
-              <input type="text" id="nome" required placeholder="Digite seu nome" />
+              <input type="text" id="nome" name="nome" required placeholder="Digite seu nome" autocomplete="name" />
             </div>
             
             <div class="input-group">
               <label for="telefone">WhatsApp (com DDD)</label>
-              <input type="tel" id="telefone" required placeholder="(15) 99999-9999" />
+              <input type="tel" id="telefone" name="telefone" required placeholder="(15) 99999-9999" inputmode="tel" autocomplete="tel" />
             </div>
           </div>
 
           <div class="input-row">
             <div class="input-group">
               <label for="email">E-mail</label>
-              <input type="email" id="email" required placeholder="seu@email.com" />
+              <input type="email" id="email" name="email" required placeholder="seu@email.com" autocomplete="email" />
             </div>
             
             <div class="input-group">
               <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" required placeholder="Ex: Sorocaba" />
+              <input type="text" id="cidade" name="cidade" required placeholder="Ex: Sorocaba" autocomplete="address-level2" />
             </div>
           </div>
 
-          <div id="form-error" class="error-msg sticker-error" style="display: none;"></div>
+          <div id="form-error" class="error-msg sticker-error" style="display: none;" role="alert"></div>
 
           <button type="submit" id="btn-submit" class="btn-pop btn-submit-pop full-width">
             GERAR PASSE VIP 🎫
@@ -154,13 +165,13 @@
     <footer class="footer-jr">
       <!-- Barra de Redes Sociais Coloridas -->
       <div class="social-bars">
-        <a href="#" class="social-bar-link bg-pink">
+        <a href="#" class="social-bar-link bg-pink" aria-label="Instagram da CLUBS">
           <i data-lucide="instagram"></i> @clubsoficial
         </a>
-        <a href="#" class="social-bar-link bg-purple">
+        <a href="#" class="social-bar-link bg-purple" aria-label="TikTok da CLUBS">
           <i data-lucide="music-2"></i> @clubsoficial
         </a>
-        <a href="#" class="social-bar-link bg-yellow">
+        <a href="#" class="social-bar-link bg-yellow" aria-label="Grupo VIP no WhatsApp">
           <i data-lucide="message-circle"></i> Grupo VIP
         </a>
       </div>
@@ -169,7 +180,7 @@
       <div class="bottom-bar">
         <!-- Logo do Evento -->
         <div class="bottom-logo-left">
-          <img src="/logo-clubs.svg" alt="CLUBS" class="footer-event-logo large-logo" />
+          <img src="/logo-clubs.svg" alt="CLUBS" class="footer-event-logo large-logo" loading="lazy" width="140" height="140" />
         </div>
 
         <!-- Data e Local -->
@@ -178,7 +189,7 @@
           <p class="mono-text">EMPÓRIO IBITI - SOROCABA/SP</p>
           <div class="sponsors-inline">
             <span class="mono-text">PATROCINADORES:</span>
-            <img src="/logo-ibiti.svg" alt="Empório Ibiti" class="sponsor-mini" />
+            <img src="/logo-ibiti.svg" alt="Empório Ibiti" class="sponsor-mini" loading="lazy" width="90" height="30" />
             <strong class="mono-text">BARBEARIA PARCEIRA</strong> • 
             <strong class="mono-text">ESTÉTICA AUTOMOTIVA</strong>
           </div>
@@ -192,9 +203,12 @@
     </footer>
   </main>
 
-  <script src="/app.js?v=2"></script>
+  <script src="/app.js?v=20" defer></script>
   <script>
-    lucide.createIcons();
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
   </script>
+
 </body>
 </html>

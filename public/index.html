@@ -3,71 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLUBS Draft Night | O Caminhão Chegou</title>
-  <meta name="description" content="O lançamento da CLUBS em Sorocaba com nosso caminhão de chopp. Vários estilos on tap. Cadastre-se e ganhe seu Chopp Duplo VIP." />
+  <title>CLUBS Draft Night | A Rua Vira Festa</title>
+  <meta name="description" content="O Caminhão da CLUBS invadiu a cidade. 8 torneiras de puro sabor. Garanta seu Passe VIP." />
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <!-- Fontes Pop-Art: Anton para Títulos GIGANTES, e Inter para textos -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="/style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- Background Animado (Aurora) -->
-  <div class="aurora-bg">
-    <div class="aurora-orb purple-orb"></div>
-    <div class="aurora-orb yellow-orb"></div>
-  </div>
+  <!-- CABEÇALHO COM LOGO -->
+  <header class="header">
+    <div class="org-box">ORG.</div>
+    <img src="/logo-clubs.svg" alt="CLUBS Logo" class="logo-img" />
+    <div class="patroc-box">
+      <span>PATROC.</span>
+      <div class="sponsor-circle">EMPÓRIO<br><strong>IBITI</strong><br><span>DISTRIBUIDORA</span></div>
+    </div>
+  </header>
 
   <main>
     <!-- HERO SECTION -->
     <section class="hero observe-me">
       <div class="hero-content">
-        <div class="badge-glow">
-          <i data-lucide="map-pin" class="icon-small"></i> ESTACIONAMENTO EMPÓRIO IBITI • 29 DE AGOSTO
-        </div>
+        <!-- SVG Título: "A NOITE EM QUE A RUA VIRA FESTA" -->
+        <img src="/a-noite.svg" alt="A noite em que a rua vira festa" class="hero-title-svg" />
         
-        <h1 class="title-monumental">A NOITE EM QUE A<br><span class="highlight-yellow">RUA VIRA FESTA.</span></h1>
-        
-        <p class="subtitle">O nosso caminhão de chopp invadiu a cidade. 8 torneiras insanas. Food trucks. Vibe de rua. E o seu primeiro chopp é por nossa conta.</p>
-        
-        <!-- Contador Regressivo (Aproveitando o script antigo) -->
-        <div class="countdown-premium" id="countdown">
-          <div class="cd-item"><span id="dias">00</span><small>DIAS</small></div>
-          <div class="cd-item"><span id="horas">00</span><small>HORAS</small></div>
-          <div class="cd-item"><span id="minutos">00</span><small>MIN</small></div>
-          <div class="cd-item"><span id="segundos">00</span><small>SEG</small></div>
+        <!-- Bloco Flutuante Explicativo -->
+        <div class="sticker-box hero-text-box">
+          <p>Nosso caminhão de chopp estacionou. <strong>8 torneiras insanas.</strong> Vibe de rua. E o seu primeiro chopp é por nossa conta!</p>
         </div>
 
         <div class="cta-wrapper">
-          <a href="#portal-vip" class="btn-primary magnetic-btn">GARANTIR PASSE VIP + CHOPP</a>
-          <p class="urgency-text"><i data-lucide="alert-circle" class="icon-small"></i> Capacidade super limitada no evento.</p>
+          <a href="#portal-vip" class="btn-pop magnetic-btn">QUERO MEU CHOPP!</a>
+          <div class="marquee-urgency">
+            <p>🔥 VAGAS LIMITADÍSSIMAS • 29/08 • EMPÓRIO IBITI 🔥 VAGAS LIMITADÍSSIMAS • 29/08 • EMPÓRIO IBITI 🔥</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- TAP LIST / LINEUP SECTION -->
     <section class="lineup observe-me">
-      <h2 class="section-title">NÃO É SÓ CHOPP.<br>É UM ARSENAL.</h2>
+      <h2 class="section-title text-shadow-pink">O ARSENAL DE<br><span class="text-yellow text-shadow-black">TORNEIRAS</span></h2>
       
       <div class="cards-grid">
-        <div class="glass-card">
+        <div class="sticker-card bg-yellow">
           <div class="card-icon"><i data-lucide="grape"></i></div>
-          <h3>Vinho & Frutas</h3>
-          <p>O nosso aclamado Chopp de Vinho e o inusitado Chopp de Abacaxi, extremamente refrescantes.</p>
+          <h3 class="text-shadow-black text-white">FRUTADOS</h3>
+          <p>O aclamado <strong>Chopp de Vinho</strong> e o refrescante <strong>Chopp de Abacaxi</strong>.</p>
         </div>
         
-        <div class="glass-card">
+        <div class="sticker-card bg-pink">
           <div class="card-icon"><i data-lucide="beer"></i></div>
-          <h3>Os Clássicos</h3>
-          <p>Pilsen Puro Malte geladíssimo e nossa clássica IPA pra quem curte amargor de verdade.</p>
+          <h3 class="text-shadow-black text-white">CLÁSSICOS</h3>
+          <p><strong>Pilsen Puro Malte</strong> trincando e a nossa <strong>IPA</strong> pra quem ama lúpulo.</p>
         </div>
         
-        <div class="glass-card">
-          <div class="card-icon"><i data-lucide="flame"></i></div>
-          <h3>Os Diferentões</h3>
-          <p>Mate + Rum + Limão, Whisky + Coco. E pra todos curtirem: Ultra Sem Glúten e Zero Álcool.</p>
+        <div class="sticker-card bg-white">
+          <div class="card-icon text-purple"><i data-lucide="zap"></i></div>
+          <h3 class="text-shadow-pink text-black">INSANOS</h3>
+          <p><strong>Mate+Rum</strong>, <strong>Whisky+Coco</strong>. E pra todos: <strong>Zero Álcool</strong> e <strong>Ultra S/ Glúten</strong>.</p>
         </div>
       </div>
     </section>
@@ -75,20 +75,13 @@
     <!-- ACESSO VIP FORM SECTION -->
     <section id="portal-vip" class="portal observe-me">
       
-      <div class="marquee-container">
-        <div class="marquee-content">
-          <span>ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • </span>
-          <span>ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • </span>
-        </div>
-      </div>
-
-      <div class="form-wrapper glass-panel">
+      <div class="form-wrapper sticker-form">
         <div class="form-header">
-          <h2>DESTRAVAR ACESSO</h2>
-          <p>Preencha seus dados reais para gerar o QR Code. O link final de acesso será liberado apenas no Grupo VIP oficial do WhatsApp.</p>
+          <h2 class="text-shadow-black text-yellow">ENCONTRE A SUA EXCURSÃO</h2>
+          <p class="subtitle-bold">Preencha e gere o código. O link de acesso será entregue no grupo VIP.</p>
         </div>
 
-        <form id="form-cadastro" class="premium-form">
+        <form id="form-cadastro" class="pop-form">
           <div class="input-row">
             <div class="input-group">
               <label for="nome">Nome Completo</label>
@@ -113,28 +106,27 @@
             </div>
           </div>
 
-          <div id="form-error" class="error-msg" style="display: none;"></div>
+          <div id="form-error" class="error-msg sticker-error" style="display: none;"></div>
 
-          <button type="submit" id="btn-submit" class="btn-primary full-width">
-            GERAR MEU QR CODE (GRATUITO) <i data-lucide="arrow-right"></i>
+          <button type="submit" id="btn-submit" class="btn-pop btn-submit-pop full-width">
+            GERAR PASSE VIP 🎫
           </button>
         </form>
         
         <div class="security-seal">
-          <i data-lucide="lock" class="icon-small"></i> Seus dados estão 100% seguros. Prometemos não enviar spam.
+          <i data-lucide="shield-check"></i> Sem Spam. Garantido.
         </div>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>© 2026 CLUBS Drinks. Beba com moderação.</p>
+      <p><strong>© 2026 CLUBS Drinks.</strong><br>Se for dirigir, não beba.</p>
     </footer>
   </main>
 
   <script src="/app.js"></script>
   <script>
-    // Inicia os ícones do Lucide
     lucide.createIcons();
   </script>
 </body>

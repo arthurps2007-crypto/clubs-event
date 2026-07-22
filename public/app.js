@@ -70,7 +70,7 @@ function initForm() {
       formError.textContent  = err.message;
       formError.style.display = 'block';
       btnSubmit.disabled     = false;
-      btnSubmit.textContent  = 'GERAR MEU QR CODE (GRATUITO)';
+      btnSubmit.textContent  = 'GERAR PASSE VIP 🎫';
     }
   });
 }

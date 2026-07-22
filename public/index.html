@@ -3,135 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLUBS Draft Night — Sorocaba</title>
-  <meta name="description" content="O lançamento da CLUBS Drinks em Sorocaba. Cadastre-se e ganhe seu Vale Duplo Chopp." />
+  <title>CLUBS Draft Night | O Caminhão Chegou</title>
+  <meta name="description" content="O lançamento da CLUBS em Sorocaba com nosso caminhão de chopp. Vários estilos on tap. Cadastre-se e ganhe seu Chopp Duplo VIP." />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <div class="hero__badge">29 de Agosto • Sorocaba</div>
-      <h1 class="hero__title">CLUBS<br/><span>DRAFT NIGHT</span></h1>
-      <p class="hero__sub">O Verdadeiro Chopp de Vinho em Lata chega a Sorocaba.<br/>Cadastre-se e garanta seu <strong>Vale Duplo Chopp.</strong></p>
+  <!-- Background Animado (Aurora) -->
+  <div class="aurora-bg">
+    <div class="aurora-orb purple-orb"></div>
+    <div class="aurora-orb yellow-orb"></div>
+  </div>
 
-      <!-- Contador Regressivo -->
-      <div class="countdown" id="countdown">
-        <div class="countdown__item"><span id="dias">00</span><small>dias</small></div>
-        <div class="countdown__sep">:</div>
-        <div class="countdown__item"><span id="horas">00</span><small>horas</small></div>
-        <div class="countdown__sep">:</div>
-        <div class="countdown__item"><span id="minutos">00</span><small>min</small></div>
-        <div class="countdown__sep">:</div>
-        <div class="countdown__item"><span id="segundos">00</span><small>seg</small></div>
-      </div>
-
-      <a href="#cadastro" class="btn btn--primary">Quero meu Vale Duplo Chopp</a>
-    </div>
-  </section>
-
-  <!-- COMO FUNCIONA -->
-  <section class="how" id="como-funciona">
-    <div class="container">
-      <h2 class="section-title">Como funciona?</h2>
-      <div class="how__steps">
-        <div class="how__step">
-          <div class="how__icon">01</div>
-          <h3>Cadastre-se</h3>
-          <p>Preencha o formulário abaixo e garanta sua vaga no evento.</p>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero observe-me">
+      <div class="hero-content">
+        <div class="badge-glow">
+          <i data-lucide="map-pin" class="icon-small"></i> ESTACIONAMENTO EMPÓRIO IBITI • 29 DE AGOSTO
         </div>
-        <div class="how__arrow">→</div>
-        <div class="how__step">
-          <div class="how__icon">02</div>
-          <h3>Receba seu QR Code</h3>
-          <p>Você receberá um QR Code exclusivo e intransferível.</p>
+        
+        <h1 class="title-monumental">A NOITE EM QUE A<br><span class="highlight-yellow">RUA VIRA FESTA.</span></h1>
+        
+        <p class="subtitle">O nosso caminhão de chopp invadiu a cidade. 8 torneiras insanas. Food trucks. Vibe de rua. E o seu primeiro chopp é por nossa conta.</p>
+        
+        <!-- Contador Regressivo (Aproveitando o script antigo) -->
+        <div class="countdown-premium" id="countdown">
+          <div class="cd-item"><span id="dias">00</span><small>DIAS</small></div>
+          <div class="cd-item"><span id="horas">00</span><small>HORAS</small></div>
+          <div class="cd-item"><span id="minutos">00</span><small>MIN</small></div>
+          <div class="cd-item"><span id="segundos">00</span><small>SEG</small></div>
         </div>
-        <div class="how__arrow">→</div>
-        <div class="how__step">
-          <div class="how__icon">03</div>
-          <h3>Resgate no evento</h3>
-          <p>Apresente o QR Code no dia e ganhe o primeiro chopp + um brinde.</p>
+
+        <div class="cta-wrapper">
+          <a href="#portal-vip" class="btn-primary magnetic-btn">GARANTIR PASSE VIP + CHOPP</a>
+          <p class="urgency-text"><i data-lucide="alert-circle" class="icon-small"></i> Capacidade super limitada no evento.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PARCEIROS -->
-  <section class="partners" id="parceiros">
-    <div class="container">
-      <h2 class="section-title">Uma noite com os melhores</h2>
-      <div class="partners__grid">
-        <div class="partner__card">
-          <div class="partner__icon">🍷</div>
-          <h3>Empório Ibiti</h3>
-          <p>O melhor espaço de bebidas e gastronomia de Sorocaba</p>
+    <!-- TAP LIST / LINEUP SECTION -->
+    <section class="lineup observe-me">
+      <h2 class="section-title">NÃO É SÓ CHOPP.<br>É UM ARSENAL.</h2>
+      
+      <div class="cards-grid">
+        <div class="glass-card">
+          <div class="card-icon"><i data-lucide="grape"></i></div>
+          <h3>Vinho & Frutas</h3>
+          <p>O nosso aclamado Chopp de Vinho e o inusitado Chopp de Abacaxi, extremamente refrescantes.</p>
         </div>
-        <div class="partner__card">
-          <div class="partner__icon">✂️</div>
-          <h3>Barbearia Parceira</h3>
-          <p>Estilo e presença garantidos para a noite</p>
+        
+        <div class="glass-card">
+          <div class="card-icon"><i data-lucide="beer"></i></div>
+          <h3>Os Clássicos</h3>
+          <p>Pilsen Puro Malte geladíssimo e nossa clássica IPA pra quem curte amargor de verdade.</p>
         </div>
-        <div class="partner__card">
-          <div class="partner__icon">🚗</div>
-          <h3>Estética Automotiva</h3>
-          <p>Porque estilo vai além da aparência pessoal</p>
+        
+        <div class="glass-card">
+          <div class="card-icon"><i data-lucide="flame"></i></div>
+          <h3>Os Diferentões</h3>
+          <p>Mate + Rum + Limão, Whisky + Coco. E pra todos curtirem: Ultra Sem Glúten e Zero Álcool.</p>
         </div>
       </div>
-      <div class="partners__location">
-        <div class="location__icon">📍</div>
-        <div>
-          <strong>Empório Ibiti</strong><br/>
-          Av. Tadao Yoshida, 250 — Salão 2, Sorocaba - SP
+    </section>
+
+    <!-- ACESSO VIP FORM SECTION -->
+    <section id="portal-vip" class="portal observe-me">
+      
+      <div class="marquee-container">
+        <div class="marquee-content">
+          <span>ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • </span>
+          <span>ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • ÚLTIMOS PASSES VIP • CHOPP DUPLO • </span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- FORMULÁRIO DE CADASTRO -->
-  <section class="register" id="cadastro">
-    <div class="container">
-      <h2 class="section-title">Garanta sua vaga</h2>
-      <p class="section-sub">Vagas limitadas. Cadastre-se agora e receba seu Vale Duplo Chopp.</p>
+      <div class="form-wrapper glass-panel">
+        <div class="form-header">
+          <h2>DESTRAVAR ACESSO</h2>
+          <p>Preencha seus dados reais para gerar o QR Code. O link final de acesso será liberado apenas no Grupo VIP oficial do WhatsApp.</p>
+        </div>
 
-      <form class="register__form" id="form-cadastro">
-        <div class="form__group">
-          <label for="nome">Nome completo</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
-        </div>
-        <div class="form__group">
-          <label for="telefone">WhatsApp</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(15) 99999-9999" required />
-        </div>
-        <div class="form__group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="seu@email.com" required />
-        </div>
-        <div class="form__group">
-          <label for="cidade">Cidade</label>
-          <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required />
-        </div>
-        <button type="submit" class="btn btn--primary btn--full" id="btn-submit">
-          Quero meu Vale Duplo Chopp 🍺
-        </button>
-        <div class="form__error" id="form-error" style="display:none;"></div>
-      </form>
-    </div>
-  </section>
+        <form id="form-cadastro" class="premium-form">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="nome">Nome Completo</label>
+              <input type="text" id="nome" required placeholder="Digite seu nome" />
+            </div>
+            
+            <div class="input-group">
+              <label for="telefone">WhatsApp (com DDD)</label>
+              <input type="tel" id="telefone" required placeholder="(15) 99999-9999" />
+            </div>
+          </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__logo">CLUBS</div>
-      <p>O Verdadeiro Chopp de Vinho em Lata</p>
-      <p class="footer__legal">© 2026 Clubs Drinks. Todos os direitos reservados. | Beba com moderação.</p>
-    </div>
-  </footer>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" required placeholder="seu@email.com" />
+            </div>
+            
+            <div class="input-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" required placeholder="Ex: Sorocaba" />
+            </div>
+          </div>
+
+          <div id="form-error" class="error-msg" style="display: none;"></div>
+
+          <button type="submit" id="btn-submit" class="btn-primary full-width">
+            GERAR MEU QR CODE (GRATUITO) <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+        
+        <div class="security-seal">
+          <i data-lucide="lock" class="icon-small"></i> Seus dados estão 100% seguros. Prometemos não enviar spam.
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© 2026 CLUBS Drinks. Beba com moderação.</p>
+    </footer>
+  </main>
 
   <script src="/app.js"></script>
+  <script>
+    // Inicia os ícones do Lucide
+    lucide.createIcons();
+  </script>
 </body>
 </html>

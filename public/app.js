@@ -70,7 +70,7 @@ function initForm() {
       formError.textContent  = err.message;
       formError.style.display = 'block';
       btnSubmit.disabled     = false;
-      btnSubmit.textContent  = 'Quero meu Vale Duplo Chopp 🍺';
+      btnSubmit.textContent  = 'GERAR MEU QR CODE (GRATUITO)';
     }
   });
 }
@@ -86,7 +86,22 @@ function initSmoothScroll() {
   });
 }
 
+// ─── Intersection Observer para animações no Scroll ───────────
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.observe-me').forEach(el => observer.observe(el));
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 startCountdown();
 initForm();
 initSmoothScroll();
+initScrollAnimations();
+

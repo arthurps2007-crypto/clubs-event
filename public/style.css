@@ -12,7 +12,7 @@
   --pop-white: #FFFEF0;
 
   /* Fontes */
-  --font-display: 'Anton', sans-serif;
+  --font-display: 'SUGO PRO CLASSIC TRIAL', 'Anton', sans-serif;
   --font-sub: 'Cartograph Mono CF', monospace;
   --font-body: 'Laqonic 4F', 'Inter', sans-serif;
 
@@ -121,6 +121,10 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .mono-text {
   font-family: var(--font-sub);
   font-weight: 700;
+}
+
+.font-numbers {
+  font-family: 'Anton', sans-serif !important;
 }
 
 .sponsor-logo {

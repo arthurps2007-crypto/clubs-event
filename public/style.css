@@ -78,6 +78,12 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   paint-order: stroke fill;
 }
 
+.text-shadow-extreme {
+  text-shadow: 4px 4px 0px var(--pop-black), 8px 8px 0px var(--pop-black), 12px 12px 0px var(--pop-black), 16px 16px 0px var(--pop-black);
+  -webkit-text-stroke: 5px var(--pop-black);
+  paint-order: stroke fill;
+}
+
 .mono-text { font-family: var(--font-sub); font-weight: 700; }
 .font-numbers { font-family: 'Anton', sans-serif !important; }
 

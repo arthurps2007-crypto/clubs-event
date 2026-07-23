@@ -6,10 +6,13 @@
 :root {
   /* Paleta Pop-Art */
   --bg-purple: #492B71;
-  --pop-yellow: #FFFF00;
+  --pop-yellow: #FFEA00;
   --pop-pink: #FF66CC;
   --pop-black: #080706;
   --pop-white: #FFFEF0;
+  --pop-blue: #003F90;
+  --pop-red: #C20000;
+  --pop-green: #156533;
 
   /* Fontes */
   --font-display: 'SUGO PRO CLASSIC TRIAL', 'Anton', sans-serif;
@@ -75,9 +78,9 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .bg-yellow { background-color: var(--pop-yellow); color: var(--pop-black); }
 .bg-pink { background-color: var(--pop-pink); color: var(--pop-black); }
 .bg-white { background-color: var(--pop-white); color: var(--pop-black); }
-.bg-green { background-color: #00A859; color: var(--pop-white); }
-.bg-blue { background-color: #0033CC; color: var(--pop-white); }
-.bg-red { background-color: #FF1100; color: var(--pop-white); }
+.bg-green { background-color: var(--pop-green); color: var(--pop-white); }
+.bg-blue { background-color: var(--pop-blue); color: var(--pop-white); }
+.bg-red { background-color: var(--pop-red); color: var(--pop-white); }
 
 .text-shadow-black {
   text-shadow: var(--text-3d-black);
@@ -483,7 +486,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .sticker-error {
   background: var(--pop-white);
   border: var(--border-fat);
-  color: #ff0000;
+  color: var(--pop-red);
   padding: 1rem;
   font-weight: 800;
   text-align: center;
@@ -607,7 +610,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   height: 52px;
   padding: 0 1.5rem;
   border-radius: 26px;
-  background-color: #25D366;
+  background-color: var(--pop-green);
   color: var(--pop-white);
   text-decoration: none;
   font-family: var(--font-display);
@@ -618,9 +621,10 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .social-pill:hover {
-  background: #20b038;
+  background: var(--pop-green);
+  filter: brightness(0.9);
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+  box-shadow: 0 4px 12px rgba(21, 101, 51, 0.3);
 }
 
 .social-pill:active {

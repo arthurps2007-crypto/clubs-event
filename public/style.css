@@ -160,20 +160,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   transform: translateY(0);
 }
 
-/* Text reveal (character by character) */
-.reveal-text .char {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-text .char.space {
-  width: 0.3em;
-}
-.reveal-text.revealed .char {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* =========================================================================
    SECTION SEPARATORS — Diagonais entre seções
@@ -379,53 +365,24 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   padding: 1.2rem 3rem;
 }
 
-/* Double Marquee */
-.marquee-double {
+/* Static Marquee */
+.marquee-static {
   position: relative;
   z-index: 1;
   width: 100%;
   margin-top: auto;
-}
-
-.marquee-row {
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  padding: 0.5rem 0;
-  border-top: var(--border-fat);
-}
-
-.marquee-row-1 {
   background: var(--pop-yellow);
   color: var(--pop-black);
-}
-
-.marquee-row-2 {
-  background: var(--pop-black);
-  color: var(--pop-yellow);
+  border-top: var(--border-fat);
   border-bottom: var(--border-fat);
+  padding: 0.8rem 0;
+  text-align: center;
 }
 
-.marquee-row-1 p {
-  display: inline-block;
-  animation: marquee-left 18s linear infinite;
-  will-change: transform;
-}
-
-.marquee-row-2 p {
-  display: inline-block;
-  animation: marquee-right 22s linear infinite;
-  will-change: transform;
-}
-
-@keyframes marquee-left {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marquee-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+.marquee-static p {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
 /* Buttons */
@@ -486,7 +443,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   font-size: clamp(3rem, 8vw, 5rem);
   line-height: 1.1;
   margin-bottom: 2rem;
-  transform: rotate(-2deg);
 }
 
 .title-three-cols {
@@ -977,7 +933,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   .countdown-sep { font-size: 1.4rem; margin-bottom: 14px; }
   .countdown-unit { min-width: 38px; }
   .btn-hero { font-size: 1.2rem; padding: 0.9rem 1.8rem; }
-  .marquee-row { font-size: 0.85rem; }
+  .marquee-static p { font-size: 0.85rem; }
 
   .section-sep { height: 35px; }
 
@@ -1026,10 +982,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
    ========================================================================= */
 @media (prefers-reduced-motion: reduce) {
   .observe-me, .stagger-item { opacity: 1; transform: none; transition: none; }
-  .marquee-row-1 p, .marquee-row-2 p { animation: none; }
-  .lineup-mystery { animation: none; }
   .btn-pop, .sticker-card { transition: none; }
-  .reveal-text .char { opacity: 1; transform: none; transition: none; }
   .countdown-flip.flip span { animation: none; }
   .splash { display: none; }
 }

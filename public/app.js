@@ -117,45 +117,6 @@ function initScrollAnimations() {
   });
 }
 
-// ─── Text Reveal (letter by letter) ───────────────────────────────────────────
-function initTextReveal() {
-  const revealEls = document.querySelectorAll('.reveal-text');
-
-  revealEls.forEach(el => {
-    const text = el.textContent.trim();
-    el.textContent = '';
-    el.setAttribute('aria-label', text);
-
-    [...text].forEach((char, i) => {
-      const span = document.createElement('span');
-      span.classList.add('char');
-      if (char === ' ') {
-        span.classList.add('space');
-        span.innerHTML = '&nbsp;';
-      } else {
-        span.textContent = char;
-      }
-      span.style.transitionDelay = `${i * 0.03}s`;
-      el.appendChild(span);
-    });
-  });
-
-  if (!('IntersectionObserver' in window)) {
-    revealEls.forEach(el => el.classList.add('revealed'));
-    return;
-  }
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  revealEls.forEach(el => revealObserver.observe(el));
-}
 
 // ─── Parallax on Hero ─────────────────────────────────────────────────────────
 function initParallax() {
@@ -199,25 +160,6 @@ function initTiltCards() {
   });
 }
 
-// ─── Magnetic Buttons ─────────────────────────────────────────────────────────
-function initMagneticButtons() {
-  if ('ontouchstart' in window) return; // Skip on touch devices
-
-  document.querySelectorAll('.magnetic-btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      const pull = 0.3;
-
-      btn.style.transform = `translate(${x * pull}px, ${y * pull}px)`;
-    });
-
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
-    });
-  });
-}
 
 // ─── Smooth Scroll ────────────────────────────────────────────────────────────
 function initSmoothScroll() {
@@ -238,10 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initFAQ();
   initScrollAnimations();
-  initTextReveal();
   initParallax();
   initTiltCards();
-  initMagneticButtons();
   initSmoothScroll();
 
   // Lucide icons

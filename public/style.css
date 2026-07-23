@@ -65,6 +65,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .bg-green { background-color: var(--pop-green); color: var(--pop-white); }
 .bg-blue { background-color: var(--pop-blue); color: var(--pop-white); }
 .bg-red { background-color: var(--pop-red); color: var(--pop-white); }
+.bg-purple { background-color: var(--bg-purple); color: var(--pop-white); }
 
 .text-shadow-black {
   text-shadow: var(--text-3d-black);
@@ -262,7 +263,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 /* =========================================================================
    SEÇÃO 2: SABORES
    ========================================================================= */
-.sabores { padding: 0; }
+.sabores { padding: 0; background-color: var(--pop-white); }
 
 .promo-banner {
   background: var(--pop-yellow);

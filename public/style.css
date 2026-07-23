@@ -31,7 +31,7 @@
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 
 body {
-  background-color: var(--bg-purple);
+  background-color: var(--pop-black);
   color: var(--pop-white);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -767,10 +767,13 @@ img.lineup-card-img {
 
   .section-title { font-size: 2.5rem; }
   .title-three-cols { gap: 0.5rem; font-size: clamp(1.5rem, 5.5vw, 3rem); transform: rotate(0deg); }
+  .col-left, .col-right { line-height: 1.1; }
   .promo-banner { padding: 2rem 1rem 1rem; }
-  .sabores-container { padding: 2rem 0 3rem; }
-  .sticker-card { flex: 0 0 85%; }
-  .card-content { padding: 1.5rem; }
+  .sabores-container { padding: 2rem 1rem 3rem; }
+  .sticker-card { flex: 0 0 calc(50% - 0.5rem); }
+  .sticker-card h3 { font-size: 1rem; }
+  .card-content { padding: 0.8rem; }
+  .sticker-card p { font-size: 0.75rem; }
   .btn-pop { font-size: 1.4rem; padding: 0.8rem 1.8rem; }
 
   .lineup-section { padding: 3rem 1rem 4rem; }
@@ -799,8 +802,16 @@ img.lineup-card-img {
   .social-circle { width: 44px; height: 44px; }
   .social-pill { height: 44px; font-size: 0.85rem; padding: 0 1rem; }
 
+  .text-shadow-black {
+    text-shadow: 2px 2px 0 var(--pop-black);
+    -webkit-text-stroke: 1px var(--pop-black);
+  }
+  .text-shadow-heavy {
+    text-shadow: 2px 2px 0px var(--pop-black), 4px 4px 0px var(--pop-black);
+    -webkit-text-stroke: 2px var(--pop-black);
+  }
   .text-shadow-extreme {
-    text-shadow: 2px 2px 0px var(--pop-black), 4px 4px 0px var(--pop-black), 6px 6px 0px var(--pop-black), 8px 8px 0px var(--pop-black);
+    text-shadow: 2px 2px 0px var(--pop-black), 4px 4px 0px var(--pop-black), 6px 6px 0px var(--pop-black);
     -webkit-text-stroke: 3px var(--pop-black);
   }
 }

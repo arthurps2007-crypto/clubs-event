@@ -152,7 +152,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   position: absolute;
   top: -20%; left: 0;
   width: 100%; height: 140%;
-  background-image: linear-gradient(rgba(8, 7, 6, 0.3), rgba(8, 7, 6, 0.8)), url('hero-party.jpg?v=2');
+  background-image: linear-gradient(rgba(8, 7, 6, 0.3), rgba(8, 7, 6, 0.8)), url('hero-party.jpg?v=99');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -171,7 +171,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .hero-catchphrase {
-  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-size: clamp(4rem, 11vw, 8.5rem);
   color: var(--pop-white);
   line-height: 0.9;
   text-align: center;
@@ -200,8 +200,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   z-index: 1;
   width: 100%;
   margin-top: auto;
-  background: var(--pop-yellow);
-  color: var(--pop-black);
+  background: var(--pop-black);
+  color: var(--pop-yellow);
   border-top: var(--border-fat);
   border-bottom: var(--border-fat);
   padding: 0.8rem 0;
@@ -757,7 +757,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   .hero { min-height: auto; }
   .hero-content { padding: 4rem 1rem 2rem; }
   .hero-title-svg { max-width: 320px; }
-  .hero-catchphrase { font-size: 3.5rem; }
+  .hero-catchphrase { font-size: 4rem; }
   .btn-hero { font-size: 1.2rem; padding: 0.9rem 1.8rem; }
   .marquee-static p { font-size: 0.85rem; }
 

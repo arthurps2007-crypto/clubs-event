@@ -582,24 +582,16 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   width: 52px;
   height: 52px;
   border-radius: 50%;
+.social-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   background-color: var(--pop-white);
-  position: relative;
   transition: var(--transition-pop);
   -webkit-tap-highlight-color: transparent;
-}
-
-.social-circle::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--pop-black);
-  -webkit-mask-image: url('/icones-redessociais.svg');
-  -webkit-mask-size: auto 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-image: url('/icones-redessociais.svg');
-  mask-size: auto 100%;
-  mask-repeat: no-repeat;
-  transition: var(--transition-pop);
 }
 
 .social-circle:hover {
@@ -612,10 +604,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   box-shadow: none;
 }
 
-.social-insta::after { -webkit-mask-position: left 0% center; mask-position: left 0% center; }
-.social-face::after { -webkit-mask-position: left 33.333% center; mask-position: left 33.333% center; }
-.social-tiktok::after { -webkit-mask-position: left 66.666% center; mask-position: left 66.666% center; }
-
 .social-pill {
   display: flex;
   align-items: center;
@@ -624,8 +612,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   height: 52px;
   padding: 0 1.5rem;
   border-radius: 26px;
-  border: 2px solid #25D366;
-  color: #25D366;
+  background-color: #25D366;
+  color: var(--pop-white);
   text-decoration: none;
   font-family: var(--font-display);
   font-size: 1rem;
@@ -635,35 +623,14 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .social-pill:hover {
-  background: #25D366;
-  color: var(--pop-black);
+  background: #20b038;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(37,211,102,0.3);
-}
-
-.social-pill:hover .wpp-sprite-icon {
-  background-color: var(--pop-black);
 }
 
 .social-pill:active {
   transform: translateY(1px);
   box-shadow: none;
-}
-
-.wpp-sprite-icon {
-  display: block;
-  width: 24px;
-  height: 24px;
-  background-color: #25D366;
-  -webkit-mask-image: url('/icones-redessociais.svg');
-  -webkit-mask-size: auto 100%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: right 0 center;
-  mask-image: url('/icones-redessociais.svg');
-  mask-size: auto 100%;
-  mask-repeat: no-repeat;
-  mask-position: right 0 center;
-  transition: var(--transition-pop);
 }
 
 /* Patrocinadores */
@@ -833,11 +800,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
     height: 44px;
     font-size: 0.85rem;
     padding: 0 1rem;
-  }
-  
-  .wpp-sprite-icon {
-    width: 20px;
-    height: 20px;
   }
 }
 

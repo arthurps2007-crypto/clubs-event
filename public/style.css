@@ -67,6 +67,12 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .bg-red { background-color: var(--pop-red); color: var(--pop-white); }
 
 .text-shadow-black {
+  text-shadow: var(--text-3d-black);
+  -webkit-text-stroke: 1.5px var(--pop-black);
+  paint-order: stroke fill;
+}
+
+.text-shadow-heavy {
   text-shadow: 3px 3px 0px var(--pop-black), 6px 6px 0px var(--pop-black), 9px 9px 0px var(--pop-black);
   -webkit-text-stroke: 4px var(--pop-black);
   paint-order: stroke fill;

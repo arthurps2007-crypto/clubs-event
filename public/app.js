@@ -2,18 +2,6 @@
    CLUBS DRAFT NIGHT — CINEMATOGRAPHIC INTERACTIONS
    ========================================================================= */
 
-// ─── Splash Screen ────────────────────────────────────────────────────────────
-function initSplash() {
-  const splash = document.getElementById('splash');
-  if (!splash) return;
-
-  document.body.classList.add('splash-active');
-  
-  setTimeout(() => {
-    splash.classList.add('hidden');
-    document.body.classList.remove('splash-active');
-  }, 1800);
-}
 
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
@@ -130,7 +118,6 @@ function initSmoothScroll() {
 
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  initSplash();
   initFAQ();
   initScrollAnimations();
   initParallax();

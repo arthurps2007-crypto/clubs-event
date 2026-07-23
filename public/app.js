@@ -15,52 +15,6 @@ function initSplash() {
   }, 1800);
 }
 
-// ─── Countdown Timer com Flip ─────────────────────────────────────────────────
-function initCountdown() {
-  const eventDate = new Date('2026-08-29T18:00:00-03:00').getTime();
-  const els = {
-    days: document.getElementById('cd-days'),
-    hours: document.getElementById('cd-hours'),
-    mins: document.getElementById('cd-mins'),
-    secs: document.getElementById('cd-secs'),
-  };
-
-  if (!els.days) return;
-
-  let prev = { days: '', hours: '', mins: '', secs: '' };
-
-  function update() {
-    const diff = eventDate - Date.now();
-    if (diff <= 0) {
-      Object.values(els).forEach(el => { el.querySelector('span').textContent = '00'; });
-      return;
-    }
-
-    const vals = {
-      days: String(Math.floor(diff / 86400000)).padStart(2, '0'),
-      hours: String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'),
-      mins: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),
-      secs: String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'),
-    };
-
-    Object.keys(vals).forEach(key => {
-      const el = els[key];
-      const span = el.querySelector('span');
-      if (vals[key] !== prev[key]) {
-        span.textContent = vals[key];
-        el.classList.remove('flip');
-        // Force reflow to restart animation
-        void el.offsetWidth;
-        el.classList.add('flip');
-      }
-    });
-
-    prev = { ...vals };
-  }
-
-  update();
-  setInterval(update, 1000);
-}
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 function initFAQ() {
@@ -177,7 +131,6 @@ function initSmoothScroll() {
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initSplash();
-  initCountdown();
   initFAQ();
   initScrollAnimations();
   initParallax();

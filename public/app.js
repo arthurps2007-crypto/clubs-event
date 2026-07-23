@@ -1,29 +1,61 @@
-// ─── Countdown Timer ──────────────────────────────────────────────────────────
+/* =========================================================================
+   CLUBS DRAFT NIGHT — CINEMATOGRAPHIC INTERACTIONS
+   ========================================================================= */
+
+// ─── Splash Screen ────────────────────────────────────────────────────────────
+function initSplash() {
+  const splash = document.getElementById('splash');
+  if (!splash) return;
+
+  document.body.classList.add('splash-active');
+  
+  setTimeout(() => {
+    splash.classList.add('hidden');
+    document.body.classList.remove('splash-active');
+  }, 1800);
+}
+
+// ─── Countdown Timer com Flip ─────────────────────────────────────────────────
 function initCountdown() {
-  // 29 de agosto de 2026, 18h (horário de abertura)
   const eventDate = new Date('2026-08-29T18:00:00-03:00').getTime();
+  const els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    mins: document.getElementById('cd-mins'),
+    secs: document.getElementById('cd-secs'),
+  };
+
+  if (!els.days) return;
+
+  let prev = { days: '', hours: '', mins: '', secs: '' };
 
   function update() {
-    const now = Date.now();
-    const diff = eventDate - now;
-
+    const diff = eventDate - Date.now();
     if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '00';
-      document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-mins').textContent = '00';
-      document.getElementById('cd-secs').textContent = '00';
+      Object.values(els).forEach(el => { el.querySelector('span').textContent = '00'; });
       return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    const vals = {
+      days: String(Math.floor(diff / 86400000)).padStart(2, '0'),
+      hours: String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'),
+      mins: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),
+      secs: String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'),
+    };
 
-    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-    document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+    Object.keys(vals).forEach(key => {
+      const el = els[key];
+      const span = el.querySelector('span');
+      if (vals[key] !== prev[key]) {
+        span.textContent = vals[key];
+        el.classList.remove('flip');
+        // Force reflow to restart animation
+        void el.offsetWidth;
+        el.classList.add('flip');
+      }
+    });
+
+    prev = { ...vals };
   }
 
   update();
@@ -32,28 +64,162 @@ function initCountdown() {
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 function initFAQ() {
-  const items = document.querySelectorAll('.faq-item');
-  
-  items.forEach(item => {
+  document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-question');
     if (!btn) return;
-
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('active');
-      
-      // Fecha todos os outros
-      items.forEach(other => {
-        if (other !== item) other.classList.remove('active');
-      });
-      
-      // Toggle o clicado
-      item.classList.toggle('active', !isOpen);
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isOpen) item.classList.add('active');
       btn.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 }
 
-// ─── Scroll suave para âncoras ────────────────────────────────────────────────
+// ─── Scroll Animations (IntersectionObserver) ─────────────────────────────────
+function initScrollAnimations() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.observe-me').forEach(el => el.classList.add('in-view'));
+    document.querySelectorAll('.stagger-item').forEach(el => el.classList.add('stagger-visible'));
+    return;
+  }
+
+  // Standard fade-in
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.observe-me').forEach(el => fadeObserver.observe(el));
+
+  // Staggered reveal for children
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.stagger-item');
+        items.forEach((item, i) => {
+          setTimeout(() => {
+            item.classList.add('stagger-visible');
+          }, i * 120);
+        });
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  // Observe parent containers that have stagger-items
+  document.querySelectorAll('.cards-grid, .lineup-grid, .venue-gallery, .faq-container').forEach(el => {
+    staggerObserver.observe(el);
+  });
+}
+
+// ─── Text Reveal (letter by letter) ───────────────────────────────────────────
+function initTextReveal() {
+  const revealEls = document.querySelectorAll('.reveal-text');
+
+  revealEls.forEach(el => {
+    const text = el.textContent.trim();
+    el.textContent = '';
+    el.setAttribute('aria-label', text);
+
+    [...text].forEach((char, i) => {
+      const span = document.createElement('span');
+      span.classList.add('char');
+      if (char === ' ') {
+        span.classList.add('space');
+        span.innerHTML = '&nbsp;';
+      } else {
+        span.textContent = char;
+      }
+      span.style.transitionDelay = `${i * 0.03}s`;
+      el.appendChild(span);
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('revealed'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+}
+
+// ─── Parallax on Hero ─────────────────────────────────────────────────────────
+function initParallax() {
+  const parallaxEl = document.querySelector('.hero-parallax-bg');
+  if (!parallaxEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const speed = parseFloat(parallaxEl.dataset.parallax) || 0.3;
+        parallaxEl.style.transform = `translateY(${scrollY * speed}px)`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+// ─── 3D Tilt on Cards ─────────────────────────────────────────────────────────
+function initTiltCards() {
+  if ('ontouchstart' in window) return; // Skip on touch devices
+
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+// ─── Magnetic Buttons ─────────────────────────────────────────────────────────
+function initMagneticButtons() {
+  if ('ontouchstart' in window) return; // Skip on touch devices
+
+  document.querySelectorAll('.magnetic-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const pull = 0.3;
+
+      btn.style.transform = `translate(${x * pull}px, ${y * pull}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+}
+
+// ─── Smooth Scroll ────────────────────────────────────────────────────────────
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -66,30 +232,18 @@ function initSmoothScroll() {
   });
 }
 
-// ─── Intersection Observer para animações no Scroll ───────────────────────────
-function initScrollAnimations() {
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: show everything immediately on old browsers
-    document.querySelectorAll('.observe-me').forEach(el => el.classList.add('in-view'));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.observe-me').forEach(el => observer.observe(el));
-}
-
-// ─── Init ─────────────────────────────────────────────────────────────────────
+// ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  initSplash();
   initCountdown();
   initFAQ();
-  initSmoothScroll();
   initScrollAnimations();
+  initTextReveal();
+  initParallax();
+  initTiltCards();
+  initMagneticButtons();
+  initSmoothScroll();
+
+  // Lucide icons
+  if (window.lucide) lucide.createIcons();
 });

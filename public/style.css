@@ -67,8 +67,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .bg-red { background-color: var(--pop-red); color: var(--pop-white); }
 
 .text-shadow-black {
-  text-shadow: var(--text-3d-black);
-  -webkit-text-stroke: 1.5px var(--pop-black);
+  text-shadow: 3px 3px 0px var(--pop-black), 6px 6px 0px var(--pop-black), 9px 9px 0px var(--pop-black);
+  -webkit-text-stroke: 4px var(--pop-black);
   paint-order: stroke fill;
 }
 
@@ -176,6 +176,9 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   line-height: 0.9;
   text-align: center;
   margin-bottom: 1rem;
+  text-shadow: 3px 3px 0px var(--pop-black), 6px 6px 0px var(--pop-black), 9px 9px 0px var(--pop-black);
+  -webkit-text-stroke: 4px var(--pop-black);
+  paint-order: stroke fill;
 }
 
 .hero-title-svg {
@@ -196,10 +199,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 
 /* Static Marquee */
 .marquee-static {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
   width: 100%;
-  margin-top: auto;
   background: var(--pop-black);
   color: var(--pop-yellow);
   border-top: var(--border-fat);

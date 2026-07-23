@@ -17,17 +17,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Fontes: preload a mais crítica e carregar com display=swap -->
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap" rel="stylesheet" />
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="style.css?v=33" />
+  <link rel="stylesheet" href="style.css?v=40" />
 
-  <!-- Lucide: carregado de forma diferida para não bloquear renderização -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
 
-  <!-- CABEÇALHO COM LOGO -->
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HEADER — STICKY BAR
+       ═══════════════════════════════════════════════════════════════════════ -->
   <header class="header">
     <div class="org-box mono-text">ORG.</div>
     <img src="/logo-clubs.svg" alt="CLUBS Logo" class="logo-img" width="180" height="60" />
@@ -38,130 +40,274 @@
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section class="hero observe-me">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SEÇÃO 1: HERO — BANNER + CTA
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="hero observe-me" id="topo">
       <div class="hero-content">
-        <!-- SVG Título: "A NOITE EM QUE A RUA VIRA FESTA" -->
         <img src="/a-noite.svg" alt="A noite em que a rua vira festa" class="hero-title-svg" width="600" height="200" />
         
-        <!-- Bloco Flutuante Explicativo -->
-        <div class="sticker-box hero-text-box">
-          <p>Nosso caminhão de chopp estacionou. <strong>8 torneiras insanas.</strong> Vibe de rua. E o seu primeiro chopp é por nossa conta!</p>
+        <div class="hero-date-badge">
+          <span class="hero-date font-numbers">29 DE AGOSTO</span>
+          <span class="hero-venue mono-text">EMPÓRIO IBITI — SOROCABA/SP</span>
         </div>
 
-        <div class="cta-wrapper">
-          <a href="#portal-vip" class="btn-pop magnetic-btn">QUERO MEU CHOPP!</a>
-          <div class="marquee-urgency" aria-hidden="true">
-            <p>🔥 VAGAS LIMITADÍSSIMAS • 29/08 • EMPÓRIO IBITI 🔥 VAGAS LIMITADÍSSIMAS • 29/08 • EMPÓRIO IBITI 🔥</p>
+        <div class="hero-countdown" id="countdown">
+          <div class="countdown-unit">
+            <span class="countdown-number font-numbers" id="cd-days">--</span>
+            <span class="countdown-label mono-text">DIAS</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number font-numbers" id="cd-hours">--</span>
+            <span class="countdown-label mono-text">HORAS</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number font-numbers" id="cd-mins">--</span>
+            <span class="countdown-label mono-text">MIN</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number font-numbers" id="cd-secs">--</span>
+            <span class="countdown-label mono-text">SEG</span>
+          </div>
+        </div>
+
+        <a href="#" class="btn-pop btn-hero magnetic-btn">ENTRAR NO GRUPO VIP</a>
+      </div>
+
+      <div class="marquee-urgency" aria-hidden="true">
+        <p>🔥 CHOPP EM DOBRO + ENTRADA GRATUITA • 29/08 • EMPÓRIO IBITI 🔥 CHOPP EM DOBRO + ENTRADA GRATUITA • 29/08 • EMPÓRIO IBITI 🔥 CHOPP EM DOBRO + ENTRADA GRATUITA • 29/08 🔥</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SEÇÃO 2: CHOPP EM DOBRO + SABORES
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="sabores observe-me" id="sabores">
+      <div class="promo-banner">
+        <div class="promo-content">
+          <h2 class="section-title text-shadow-black title-three-cols">
+            <div class="col-left">
+              <span>CHOPP</span>
+              <span class="text-yellow text-shadow-black">EM DOBRO</span>
+            </div>
+            <div class="col-center text-yellow text-shadow-black">+</div>
+            <div class="col-right">
+              <span>ENTRADA</span>
+              <span class="text-yellow text-shadow-black">GRATUITA</span>
+            </div>
+          </h2>
+          <p class="promo-subtitle">Apresente o QR Code do Grupo VIP na entrada e ganhe o primeiro chopp na faixa.</p>
+        </div>
+      </div>
+
+      <div class="sabores-container">
+        <div class="cards-grid">
+          <div class="sticker-card bg-yellow">
+            <img src="can-vinho.webp" alt="Chopp de Vinho" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="card-content">
+              <h3 class="text-shadow-black text-white">CHOPP DE VINHO</h3>
+              <p>O queridinho da galera, com muito sabor.</p>
+            </div>
+          </div>
+          
+          <div class="sticker-card bg-white">
+            <img src="can-abacaxi.webp" alt="Chopp de Abacaxi" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="card-content">
+              <h3 class="text-shadow-black text-white">CHOPP DE ABACAXI</h3>
+              <p>Extremamente leve e refrescante.</p>
+            </div>
+          </div>
+
+          <div class="sticker-card bg-blue">
+            <img src="can-ultra.webp" alt="Ultra Sem Glúten" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="card-content">
+              <h3 class="text-shadow-black text-white">ULTRA SEM GLÚTEN</h3>
+              <p>Para quem quer beber sem preocupação.</p>
+            </div>
+          </div>
+          
+          <div class="sticker-card bg-red">
+            <img src="can-mate.webp" alt="Zero Álcool" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="card-content">
+              <h3 class="text-shadow-black text-white">ZERO ÁLCOOL</h3>
+              <p>Todo o sabor da cevada, 0% álcool.</p>
+            </div>
+          </div>
+
+          <div class="sticker-card bg-green">
+            <img src="can-zero.webp" alt="Reggae Mate" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="card-content">
+              <h3 class="text-shadow-black text-white">REGGAE MATE</h3>
+              <p>Mate, rum e limão. Refrescância absurda.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAP LIST / LINEUP SECTION -->
-    <section class="lineup observe-me">
-      <h2 class="section-title text-shadow-black title-three-cols">
-        <div class="col-left">
-          <span>CHOPP</span>
-          <span class="text-yellow text-shadow-black">EM DOBRO</span>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SEÇÃO 3: THE LINE UP + DATA E HORÁRIO
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="lineup-section observe-me" id="lineup">
+      <div class="lineup-header">
+        <h2 class="lineup-title text-shadow-black">THE LINE UP</h2>
+        <div class="lineup-date-info">
+          <span class="lineup-date font-numbers text-yellow">29.08</span>
+          <span class="lineup-time mono-text">ABERTURA DOS PORTÕES: 18H</span>
         </div>
-        <div class="col-center text-yellow text-shadow-black">+</div>
-        <div class="col-right">
-          <span>ENTRADA</span>
-          <span class="text-yellow text-shadow-black">GRATUITA</span>
-        </div>
-      </h2>
-      <div class="cards-grid">
-        <div class="sticker-card bg-yellow">
-          <img src="can-vinho.webp" alt="Chopp de Vinho" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-          <div class="card-content">
-            <h3 class="text-shadow-black text-white">CHOPP DE VINHO</h3>
-            <p>O queridinho da galera, com muito sabor.</p>
-          </div>
-        </div>
-        
-        <div class="sticker-card bg-white">
-          <img src="can-abacaxi.webp" alt="Chopp de Abacaxi" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-          <div class="card-content">
-            <h3 class="text-shadow-black text-white">CHOPP DE ABACAXI</h3>
-            <p>Extremamente leve e refrescante.</p>
-          </div>
-        </div>
+      </div>
 
-        <div class="sticker-card bg-blue">
-          <img src="can-ultra.webp" alt="Ultra Sem Glúten" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-          <div class="card-content">
-            <h3 class="text-shadow-black text-white">ULTRA SEM GLÚTEN</h3>
-            <p>Para quem quer beber sem preocupação.</p>
+      <div class="lineup-grid">
+        <div class="lineup-card">
+          <div class="lineup-card-img">
+            <span class="lineup-mystery">?</span>
           </div>
+          <h3>ATRAÇÃO PRINCIPAL</h3>
+          <p class="text-yellow mono-text">EM BREVE</p>
         </div>
-        
-        <div class="sticker-card bg-red">
-          <img src="can-mate.webp" alt="Zero Álcool" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-          <div class="card-content">
-            <h3 class="text-shadow-black text-white">ZERO ÁLCOOL</h3>
-            <p>Todo o sabor da cevada, 0% álcool.</p>
+        <div class="lineup-card">
+          <div class="lineup-card-img">
+            <span class="lineup-mystery">?</span>
           </div>
+          <h3>DJ CONVIDADO</h3>
+          <p class="text-yellow mono-text">EM BREVE</p>
         </div>
+        <div class="lineup-card">
+          <div class="lineup-card-img">
+            <span class="lineup-mystery">?</span>
+          </div>
+          <h3>ATRAÇÃO SURPRESA</h3>
+          <p class="text-yellow mono-text">EM BREVE</p>
+        </div>
+      </div>
 
-        <div class="sticker-card bg-green">
-          <img src="can-zero.webp" alt="Reggae Mate" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-          <div class="card-content">
-            <h3 class="text-shadow-black text-white">REGGAE MATE</h3>
-            <p>Mate, rum e limão. Refrescância absurda.</p>
+      <p class="lineup-cta-text">Acompanhe nossas redes para os anúncios das atrações!</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SEÇÃO 4: O LUGAR + LOCALIZAÇÃO
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="venue-section observe-me" id="local">
+      <h2 class="venue-title text-shadow-black">O LUGAR</h2>
+      <p class="venue-subtitle">Conheça o Empório Ibiti — o point que vai receber a maior noite de chopp da cidade.</p>
+
+      <div class="venue-gallery">
+        <div class="venue-photo-placeholder">
+          <i data-lucide="image" class="venue-placeholder-icon"></i>
+          <span class="mono-text">FOTO DO LUGAR 1</span>
+        </div>
+        <div class="venue-photo-placeholder">
+          <i data-lucide="image" class="venue-placeholder-icon"></i>
+          <span class="mono-text">FOTO DO LUGAR 2</span>
+        </div>
+        <div class="venue-photo-placeholder">
+          <i data-lucide="image" class="venue-placeholder-icon"></i>
+          <span class="mono-text">FOTO DO LUGAR 3</span>
+        </div>
+      </div>
+
+      <div class="venue-map-wrapper">
+        <div class="venue-map-header">
+          <i data-lucide="map-pin"></i>
+          <div>
+            <h3>EMPÓRIO IBITI</h3>
+            <p class="mono-text">Sorocaba/SP</p>
           </div>
         </div>
+        <div class="venue-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.5!2d-47.46!3d-23.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMwJzAwLjAiUyA0N8KwMjcnMzYuMCJX!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="350" 
+            style="border:0; border-radius: 8px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="btn-pop btn-map">
+          COMO CHEGAR
+        </a>
       </div>
     </section>
 
-    <!-- ACESSO VIP FORM SECTION -->
-    <section id="portal-vip" class="portal observe-me">
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SEÇÃO 5: FAQ
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="faq-section observe-me" id="faq">
+      <h2 class="faq-title text-shadow-black">DÚVIDAS?</h2>
       
-      <div class="form-wrapper sticker-form">
-        <div class="form-header">
-          <h2 class="text-shadow-black text-yellow">ENCONTRE A SUA EXCURSÃO</h2>
-          <p class="subtitle-bold">Preencha e gere o código. O link de acesso será entregue no grupo VIP.</p>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>O evento é open bar?</span>
+            <i data-lucide="chevron-down" class="faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Não. Mas com o Passe VIP, você ganha o primeiro chopp em dobro — na faixa. Depois, os preços são acessíveis e menores que a maioria dos bares da cidade.</p>
+          </div>
         </div>
 
-        <form id="form-cadastro" class="pop-form" novalidate>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="nome">Nome Completo</label>
-              <input type="text" id="nome" name="nome" required placeholder="Digite seu nome" autocomplete="name" />
-            </div>
-            
-            <div class="input-group">
-              <label for="telefone">WhatsApp (com DDD)</label>
-              <input type="tel" id="telefone" name="telefone" required placeholder="(15) 99999-9999" inputmode="tel" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="input-row">
-            <div class="input-group">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" required placeholder="seu@email.com" autocomplete="email" />
-            </div>
-            
-            <div class="input-group">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" name="cidade" required placeholder="Ex: Sorocaba" autocomplete="address-level2" />
-            </div>
-          </div>
-
-          <div id="form-error" class="error-msg sticker-error" style="display: none;" role="alert"></div>
-
-          <button type="submit" id="btn-submit" class="btn-pop btn-submit-pop full-width">
-            GERAR PASSE VIP 🎫
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Preciso pagar entrada?</span>
+            <i data-lucide="chevron-down" class="faq-icon"></i>
           </button>
-        </form>
-        
-        <div class="security-seal">
-          <i data-lucide="shield-check"></i> Sem Spam. Garantido.
+          <div class="faq-answer">
+            <p>Não! A entrada é 100% gratuita para todos. Basta chegar e curtir.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Qual o horário do evento?</span>
+            <i data-lucide="chevron-down" class="faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Os portões abrem às 18h e o evento vai até 02h da manhã. A primeira atração sobe às 19h.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Tem estacionamento?</span>
+            <i data-lucide="chevron-down" class="faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! O Empório Ibiti possui estacionamento próprio com vagas limitadas. Recomendamos chegar cedo ou utilizar transporte por aplicativo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Menores de 18 anos podem entrar?</span>
+            <i data-lucide="chevron-down" class="faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Não. O evento é exclusivo para maiores de 18 anos. Traga documento com foto.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         CTA FINAL — ÚLTIMO EMPURRÃO
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="cta-final observe-me">
+      <div class="cta-final-content">
+        <h2 class="cta-final-title text-shadow-black">NÃO FIQUE<br><span class="text-yellow">DE FORA.</span></h2>
+        <p class="cta-final-sub">Os lotes acabam rápido. Entre no Grupo VIP e garanta suas vantagens exclusivas.</p>
+        <a href="#" class="btn-pop btn-cta-final">ENTRAR NO GRUPO VIP</a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SEÇÃO 6: RODAPÉ
+         ═══════════════════════════════════════════════════════════════════════ -->
     <footer class="footer-new">
       <!-- Logo Grande na Esquerda e Data no Centro -->
       <div class="footer-top-row">
@@ -218,7 +364,7 @@
     </footer>
   </main>
 
-  <script src="/app.js?v=33" defer></script>
+  <script src="/app.js?v=40" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();

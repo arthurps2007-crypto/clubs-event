@@ -1,97 +1,55 @@
-// ─── Máscara de Telefone ──────────────────────────────────────────────────────
-function initPhoneMask() {
-  const tel = document.getElementById('telefone');
-  if (!tel) return;
+// ─── Countdown Timer ──────────────────────────────────────────────────────────
+function initCountdown() {
+  // 29 de agosto de 2026, 18h (horário de abertura)
+  const eventDate = new Date('2026-08-29T18:00:00-03:00').getTime();
 
-  tel.addEventListener('input', function () {
-    let v = this.value.replace(/\D/g, '').slice(0, 11);
-    if (v.length > 6) {
-      v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-    } else if (v.length > 2) {
-      v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
-    } else if (v.length > 0) {
-      v = `(${v}`;
+  function update() {
+    const now = Date.now();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
     }
-    this.value = v;
-  });
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
 }
 
-// ─── Formulário de Cadastro ───────────────────────────────────────────────────
-function initForm() {
-  const form = document.getElementById('form-cadastro');
-  const btnSubmit = document.getElementById('btn-submit');
-  const formError = document.getElementById('form-error');
+// ─── FAQ Accordion ────────────────────────────────────────────────────────────
+function initFAQ() {
+  const items = document.querySelectorAll('.faq-item');
+  
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    if (!btn) return;
 
-  if (!form || !btnSubmit || !formError) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    formError.style.display = 'none';
-
-    // Validação client-side
-    const nome = document.getElementById('nome');
-    const telefone = document.getElementById('telefone');
-    const email = document.getElementById('email');
-    const cidade = document.getElementById('cidade');
-
-    if (!nome || !telefone || !email || !cidade) return;
-
-    const nomeVal = nome.value.trim();
-    const telVal = telefone.value.trim();
-    const emailVal = email.value.trim();
-    const cidadeVal = cidade.value.trim();
-
-    // Validação de telefone: pelo menos 14 chars = (XX) XXXXX-XXXX
-    if (telVal.replace(/\D/g, '').length < 10) {
-      formError.textContent = 'Informe um telefone válido com DDD.';
-      formError.style.display = 'block';
-      return;
-    }
-
-    // Validação de email básica
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-      formError.textContent = 'Informe um e-mail válido.';
-      formError.style.display = 'block';
-      return;
-    }
-
-    // Estado de loading
-    btnSubmit.disabled = true;
-    btnSubmit.textContent = 'GERANDO...';
-    btnSubmit.classList.add('btn-loading');
-
-    try {
-      const res = await fetch('/api/cadastro', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome: nomeVal,
-          telefone: telVal,
-          email: emailVal,
-          cidade: cidadeVal,
-        }),
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('active');
+      
+      // Fecha todos os outros
+      items.forEach(other => {
+        if (other !== item) other.classList.remove('active');
       });
-      const json = await res.json();
-
-      if (!res.ok || !json.success) {
-        throw new Error(json.error || 'Erro ao cadastrar. Tente novamente.');
-      }
-
-      sessionStorage.setItem('clubs_lead', JSON.stringify({
-        nome: json.nome,
-        codigo: json.codigo,
-        qrCodeDataUrl: json.qrCodeDataUrl,
-      }));
-
-      window.location.href = '/sucesso';
-
-    } catch (err) {
-      formError.textContent = err.message;
-      formError.style.display = 'block';
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = 'GERAR PASSE VIP 🎫';
-      btnSubmit.classList.remove('btn-loading');
-    }
+      
+      // Toggle o clicado
+      item.classList.toggle('active', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
   });
 }
 
@@ -120,7 +78,7 @@ function initScrollAnimations() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
-        observer.unobserve(entry.target); // Stop observing once animated in
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
@@ -130,8 +88,8 @@ function initScrollAnimations() {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  initPhoneMask();
-  initForm();
+  initCountdown();
+  initFAQ();
   initSmoothScroll();
   initScrollAnimations();
 });

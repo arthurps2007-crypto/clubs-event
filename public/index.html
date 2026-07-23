@@ -20,7 +20,7 @@
   <!-- Fontes: preload a mais crítica e carregar com display=swap -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=25" />
 
   <!-- Lucide: carregado de forma diferida para não bloquear renderização -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -166,7 +166,7 @@
       <!-- Logo Grande na Esquerda e Data no Centro -->
       <div class="footer-top-row">
         <div class="footer-logo-area">
-          <img src="/logo-clubs.svg" alt="CLUBS" class="footer-main-logo" loading="lazy" />
+          <img src="/logo-clubs-footer.svg" alt="CLUBS" class="footer-main-logo" loading="lazy" />
         </div>
 
         <div class="footer-event-info">
@@ -180,14 +180,8 @@
 
       <!-- Redes Sociais -->
       <div class="footer-socials">
-        <a href="#" class="social-circle" aria-label="Instagram">
-          <i data-lucide="instagram"></i>
-        </a>
-        <a href="#" class="social-circle" aria-label="TikTok">
-          <i data-lucide="music-2"></i>
-        </a>
-        <a href="#" class="social-circle" aria-label="Facebook">
-          <i data-lucide="facebook"></i>
+        <a href="#" class="social-icons-link" aria-label="Redes Sociais">
+          <img src="/icones-redessociais.svg" alt="Instagram, TikTok, Spotify" class="social-icons-img" loading="lazy" />
         </a>
         <a href="#" class="social-pill" aria-label="Grupo WhatsApp">
           <i data-lucide="message-circle"></i>
@@ -208,7 +202,7 @@
     </footer>
   </main>
 
-  <script src="/app.js?v=24" defer></script>
+  <script src="/app.js?v=25" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();

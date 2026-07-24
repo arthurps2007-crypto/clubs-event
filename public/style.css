@@ -38,6 +38,21 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body[data-theme="light"] {
+  background-color: var(--pop-white);
+}
+body[data-theme="dark"] {
+  background-color: var(--pop-black);
+}
+body[data-theme="purple"] {
+  background-color: #622791;
+}
+
+.hero, .sabores, .lineup-section, .venue-section, .faq-section, .cta-final {
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Hide body overflow during splash */

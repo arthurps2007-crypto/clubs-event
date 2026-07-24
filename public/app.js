@@ -116,6 +116,25 @@ function initSmoothScroll() {
   });
 }
 
+// ─── Theme Transition on Scroll ───────────────────────────────────────────────
+function initThemeScroll() {
+  const sections = document.querySelectorAll('section[data-theme]');
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+
+  const themeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const theme = entry.target.dataset.theme;
+        if (theme) {
+          document.body.dataset.theme = theme;
+        }
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(sec => themeObserver.observe(sec));
+}
+
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
@@ -123,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initTiltCards();
   initSmoothScroll();
+  initThemeScroll();
 
   // Lucide icons
   if (window.lucide) lucide.createIcons();

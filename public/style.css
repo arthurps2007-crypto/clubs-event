@@ -38,17 +38,20 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body[data-theme="light"] {
-  background-color: var(--pop-white);
+  background-color: var(--pop-white) !important;
+  color: var(--pop-black);
 }
 body[data-theme="dark"] {
-  background-color: var(--pop-black);
+  background-color: var(--pop-black) !important;
+  color: var(--pop-white);
 }
 body[data-theme="purple"] {
-  background-color: #622791;
+  background-color: #622791 !important;
+  color: var(--pop-white);
 }
 
 .hero, .sabores, .lineup-section, .venue-section, .faq-section, .cta-final {
@@ -306,7 +309,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 /* =========================================================================
    SEÇÃO 2: SABORES
    ========================================================================= */
-.sabores { padding: 0; background-color: var(--pop-white); border-bottom: var(--border-fat); }
+.sabores { padding: 0; background-color: transparent; border-bottom: var(--border-fat); }
 
 .promo-banner {
   background: #622791;
@@ -435,7 +438,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .lineup-section {
   padding: 5rem 1rem 6rem;
   text-align: center;
-  background: var(--pop-black);
+  background: transparent;
   color: var(--pop-white);
   border-bottom: var(--border-fat);
 }
@@ -557,7 +560,7 @@ img.lineup-card-img {
    ========================================================================= */
 .venue-section {
   padding: 5rem 1rem 6rem;
-  background-color: var(--pop-white);
+  background-color: transparent;
   color: var(--pop-black);
   text-align: center;
   border-bottom: var(--border-fat);
@@ -656,7 +659,7 @@ img.lineup-card-img {
 .faq-section {
   padding: 5rem 1rem 6rem;
   text-align: center;
-  background: var(--pop-black);
+  background: transparent;
   color: var(--pop-white);
   border-bottom: var(--border-fat);
 }

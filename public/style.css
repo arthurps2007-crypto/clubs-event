@@ -690,7 +690,7 @@ img.lineup-card-img {
 .faq-section {
   padding: 5rem 1rem 6rem;
   text-align: center;
-  background-color: var(--pop-black) !important;
+  background-color: #080706 !important;
   color: var(--pop-white);
   border-bottom: var(--border-fat);
 }
@@ -771,9 +771,10 @@ img.lineup-card-img {
    CTA FINAL
    ========================================================================= */
 .cta-final {
-  padding: 7rem 1rem;
+  padding: 6rem 1rem;
   text-align: center;
-  background: linear-gradient(160deg, var(--bg-purple) 0%, #3a0052 50%, var(--pop-black) 100%);
+  background: #622791 !important;
+  color: var(--pop-white);
 }
 
 .cta-final-content {

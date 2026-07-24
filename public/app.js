@@ -116,23 +116,39 @@ function initSmoothScroll() {
   });
 }
 
-// ─── Theme Transition on Scroll ───────────────────────────────────────────────
+// ─── Senior Dev Theme Transition on Scroll ────────────────────────────────────
 function initThemeScroll() {
   const sections = document.querySelectorAll('section[data-theme]');
-  if (!sections.length || !('IntersectionObserver' in window)) return;
+  if (!sections.length) return;
 
-  const themeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const theme = entry.target.dataset.theme;
-        if (theme) {
-          document.body.dataset.theme = theme;
-        }
+  function updateTheme() {
+    const viewportCenter = window.innerHeight * 0.45;
+    let activeTheme = null;
+
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+        activeTheme = sec.dataset.theme;
       }
     });
-  }, { threshold: 0.35 });
 
-  sections.forEach(sec => themeObserver.observe(sec));
+    if (activeTheme && document.body.dataset.theme !== activeTheme) {
+      document.body.dataset.theme = activeTheme;
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateTheme();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateTheme();
 }
 
 // ─── Init Everything ──────────────────────────────────────────────────────────

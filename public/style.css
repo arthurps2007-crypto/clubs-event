@@ -10,7 +10,7 @@
   --pop-white: #FFFEF0;
   --pop-blue: #003F90;
   --pop-red: #C20000;
-  --pop-green: #156533;
+  --pop-green: #25D366;
 
   --font-display: 'SUGO PRO CLASSIC TRIAL', 'Anton', sans-serif;
   --font-sub: 'Cartograph Mono CF', monospace;
@@ -277,6 +277,15 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .btn-pop:active {
   transform: translate(6px, 6px);
   box-shadow: 0 0 0 #000;
+}
+
+.btn-green {
+  background: var(--pop-green);
+  color: var(--pop-black);
+}
+.btn-green:hover {
+  background: var(--pop-yellow);
+  color: var(--pop-black);
 }
 
 /* =========================================================================

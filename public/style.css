@@ -569,7 +569,7 @@ img.lineup-card-img {
 
 .venue-title {
   font-size: clamp(3rem, 8vw, 6rem);
-  color: var(--pop-black);
+  color: var(--pop-white);
   margin-bottom: 0.8rem;
 }
 

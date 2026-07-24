@@ -660,7 +660,7 @@ img.lineup-card-img {
 .faq-section {
   padding: 5rem 1rem 6rem;
   text-align: center;
-  background: transparent;
+  background-color: var(--pop-black) !important;
   color: var(--pop-white);
   border-bottom: var(--border-fat);
 }

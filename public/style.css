@@ -91,19 +91,23 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 /* Scroll Animations (Simplified) */
 .observe-me {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: opacity, transform;
 }
-.observe-me.in-view {
+.observe-me.visible {
   opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-/* Staggered reveal for children */
-.stagger-item {
+.observe-me .stagger-item {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(40px) scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.stagger-item.stagger-visible {
+.observe-me.visible .stagger-item {
   opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 
@@ -548,9 +552,9 @@ img.lineup-card-img {
 .venue-map-wrapper {
   background: var(--pop-black);
   border: var(--border-fat);
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-block);
+  box-shadow: 12px 12px 0 var(--pop-yellow);
 }
 
 .venue-map-header {
@@ -558,13 +562,15 @@ img.lineup-card-img {
   align-items: center;
   gap: 1rem;
   padding: 1.5rem 2rem;
-  color: var(--pop-white);
+  background: var(--pop-yellow);
+  color: var(--pop-black);
+  border-bottom: var(--border-fat);
   text-align: left;
 }
 
-.venue-map-header i { color: var(--pop-yellow); flex-shrink: 0; }
-.venue-map-header h3 { font-size: 1.5rem; line-height: 1; margin-bottom: 0.2rem; }
-.venue-map-header p { font-size: 0.75rem; letter-spacing: 2px; color: rgba(255,254,240,0.5); }
+.venue-map-header i { color: var(--pop-black); flex-shrink: 0; }
+.venue-map-header h3 { font-size: 1.6rem; line-height: 1; margin-bottom: 0.2rem; }
+.venue-map-header p { font-size: 0.85rem; letter-spacing: 2px; color: var(--pop-black); font-weight: 700; }
 
 .venue-map iframe { display: block; width: 100%; border: none; }
 
@@ -576,11 +582,12 @@ img.lineup-card-img {
   border: none;
   border-top: var(--border-fat);
   box-shadow: none;
-  background: var(--pop-yellow);
+  background: var(--pop-white);
+  color: var(--pop-black);
   font-size: 1.3rem;
   padding: 1rem;
 }
-.btn-map:hover { background: var(--pop-white); transform: none; box-shadow: none; }
+.btn-map:hover { background: var(--pop-yellow); transform: none; box-shadow: none; }
 
 /* =========================================================================
    SEÇÃO 5: FAQ

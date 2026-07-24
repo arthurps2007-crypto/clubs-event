@@ -113,6 +113,20 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 
 
 
+.hero-badge {
+  display: inline-block;
+  background: var(--pop-yellow);
+  color: var(--pop-black);
+  padding: 0.4rem 1.2rem;
+  border: var(--border-fat);
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  box-shadow: 4px 4px 0px var(--pop-black);
+  transform: rotate(-2deg);
+}
 /* =========================================================================
    HEADER
    ========================================================================= */
@@ -327,16 +341,33 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .sticker-card {
+  position: relative;
   border: var(--border-fat);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  text-align: left;
   box-shadow: var(--shadow-block);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition: var(--transition-pop);
+  text-align: left;
   display: flex;
   flex-direction: column;
   -webkit-tap-highlight-color: transparent;
   will-change: transform;
+}
+
+.card-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--pop-black);
+  color: var(--pop-yellow);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  z-index: 2;
+  border: 2px solid var(--pop-white);
+  box-shadow: 2px 2px 0px var(--pop-black);
 }
 
 .card-content {

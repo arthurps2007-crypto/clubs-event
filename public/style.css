@@ -291,13 +291,14 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 /* =========================================================================
    SEÇÃO 2: SABORES
    ========================================================================= */
-.sabores { padding: 0; background-color: var(--pop-white); }
+.sabores { padding: 0; background-color: var(--pop-white); border-bottom: var(--border-fat); }
 
 .promo-banner {
   background: #622791;
   color: var(--pop-white);
   padding: 4rem 1rem 2rem;
   text-align: center;
+  border-bottom: var(--border-fat);
 }
 
 .promo-subtitle {
@@ -420,6 +421,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   padding: 5rem 1rem 6rem;
   text-align: center;
   background: var(--pop-black);
+  color: var(--pop-white);
+  border-bottom: var(--border-fat);
 }
 
 .lineup-header { margin-bottom: 4rem; }
@@ -540,7 +543,9 @@ img.lineup-card-img {
 .venue-section {
   padding: 5rem 1rem 6rem;
   background-color: var(--pop-white);
+  color: var(--pop-black);
   text-align: center;
+  border-bottom: var(--border-fat);
 }
 .venue-container {
   max-width: 1100px;
@@ -549,7 +554,7 @@ img.lineup-card-img {
 
 .venue-title {
   font-size: clamp(3rem, 8vw, 6rem);
-  color: var(--pop-white);
+  color: var(--pop-black);
   margin-bottom: 0.8rem;
 }
 
@@ -637,6 +642,8 @@ img.lineup-card-img {
   padding: 5rem 1rem 6rem;
   text-align: center;
   background: var(--pop-black);
+  color: var(--pop-white);
+  border-bottom: var(--border-fat);
 }
 
 .faq-title {

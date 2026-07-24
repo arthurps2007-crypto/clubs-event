@@ -294,8 +294,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .sabores { padding: 0; background-color: var(--pop-white); }
 
 .promo-banner {
-  background: var(--pop-yellow);
-  color: var(--pop-black);
+  background: #622791;
+  color: var(--pop-white);
   padding: 4rem 1rem 2rem;
   text-align: center;
 }
@@ -305,7 +305,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   font-weight: 600;
   max-width: 600px;
   margin: 0 auto;
-  color: rgba(8, 7, 6, 0.8);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .sabores-container {

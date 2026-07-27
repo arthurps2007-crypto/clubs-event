@@ -733,91 +733,107 @@ body {
    ========================================================================= */
 @media (max-width: 768px) {
   /* Header & Top Bar */
+  .top-social-bar {
+    padding: 0.4rem;
+    gap: 1rem;
+  }
   .header {
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1rem !important;
+  }
+  .header-content {
+    gap: 0.5rem;
   }
   .logo-img {
-    max-width: 120px;
-    height: auto;
+    max-width: 90px !important;
+    height: auto !important;
   }
   .btn-header {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.85rem !important;
+    padding: 0.5rem 0.8rem !important;
+    box-shadow: 2px 2px 0px var(--pop-black) !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
   }
   
   /* Hero */
   .hero {
-    margin-top: -80px; /* Ajusta pois o header ficou menor */
+    margin-top: -60px !important; 
   }
 
   /* Cards de Sabores */
   .card-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
   
   /* Lineup */
   .lineup-section {
-    padding: 3rem 1rem;
+    padding: 3rem 1rem !important;
   }
   .lineup-header .section-title {
-    font-size: 3.8rem; /* Muito mais legível no mobile */
-    -webkit-text-stroke: 1px var(--pop-black);
+    font-size: 3.5rem !important; 
+    -webkit-text-stroke: 1px var(--pop-black) !important;
     text-shadow: 
       1px 1px 0 var(--pop-black),
       2px 2px 0 var(--pop-black),
-      3px 3px 0 var(--pop-black),
-      4px 4px 0 var(--pop-black);
+      3px 3px 0 var(--pop-black) !important;
   }
   .lineup-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem !important;
   }
 
   /* Venue / Map */
   .venue-info-dark {
-    padding: 3rem 1.5rem;
-    align-items: center;
-    text-align: center;
+    padding: 3rem 1.5rem !important;
+    align-items: center !important;
+    text-align: center !important;
   }
   .venue-info-dark h2 {
-    font-size: 2.8rem;
+    font-size: 2.8rem !important;
   }
   .venue-details-dark {
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
   .btn-pop {
-    font-size: 1.1rem;
-    padding: 0.8rem 1.5rem;
-    width: 100%;
-    text-align: center;
+    font-size: 1rem !important;
+    padding: 0.8rem 1.2rem !important;
+    width: 100% !important;
+    text-align: center !important;
   }
   .dark-img-wrap {
-    height: 250px;
+    height: 250px !important;
   }
 
-  /* CTA Final */
-  .cta-final {
-    padding: 4rem 1.5rem;
-  }
-  .cta-final-content h2 {
-    font-size: 2.5rem;
-    -webkit-text-stroke: 1px var(--pop-black);
-    text-shadow: 
-      1px 1px 0 var(--pop-black),
-      2px 2px 0 var(--pop-black),
-      3px 3px 0 var(--pop-black);
-  }
-  
   /* Footer */
   .footer-complex {
-    padding: 3rem 1.5rem 2rem 1.5rem;
+    padding: 3rem 1.5rem 2rem 1.5rem !important;
   }
-  .footer-col-left {
-    gap: 2rem;
+  .footer-top {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+  .footer-col-left, .footer-col-right, .footer-col-center {
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 1.5rem !important;
+  }
+  .footer-socials {
+    justify-content: center !important;
+  }
+  .sponsors-section p {
+    text-align: center !important;
+  }
+  .sponsors-logos {
+    justify-content: center !important;
+  }
+  .realizacao-section {
+    align-items: center !important;
   }
   .footer-col-center h3 {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
   .footer-divider {
-    margin: 2rem auto;
+    margin: 2rem auto !important;
   }
 }

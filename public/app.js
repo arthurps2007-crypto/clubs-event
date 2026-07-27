@@ -26,8 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateCountdown, 1000 * 60 * 60); 
     }
     
-    // NOTE: Drag-to-scroll logic was removed as requested to keep the scrolling
-    // native, optimized, and bug-free on all devices. 
-    // The `.carousel-grid` now relies entirely on native CSS `overflow-x: auto` 
-    // and `scroll-snap-type`.
+    // 2. DRAG TO SCROLL CAROUSEL
+    const slider = document.querySelector('.carousel-grid');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    if (slider) {
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            slider.style.scrollSnapType = 'none';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        
+        slider.style.cursor = 'grab';
+    }
+
+    // 3. INIT ICONS
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 });

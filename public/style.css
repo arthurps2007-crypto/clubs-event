@@ -35,13 +35,40 @@ body {
 .text-center { text-align: center; }
 
 /* =========================================================================
+   TOP SOCIAL BAR
+   ========================================================================= */
+.top-social-bar {
+  background: var(--pop-black);
+  color: var(--pop-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.top-social-bar a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.top-social-bar a:hover {
+  color: var(--pop-yellow);
+  transform: scale(1.1);
+}
+
+/* =========================================================================
    HEADER
    ========================================================================= */
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -54,6 +81,30 @@ body {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-display);
+  color: #FF6B00; /* Laranja da referência */
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.info-date {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.info-local {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .header-info { display: none; /* Esconder no mobile para não quebrar layout */ }
 }
 
 .btn-header {

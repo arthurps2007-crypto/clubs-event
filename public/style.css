@@ -842,6 +842,23 @@ body {
     height: 250px !important;
   }
 
+  /* CTA */
+  .cta-final {
+    padding: 4rem 1.5rem !important;
+  }
+  .cta-final-content h2 {
+    font-size: 3rem !important;
+    text-shadow: 
+      1px 1px 0 var(--pop-black),
+      2px 2px 0 var(--pop-black),
+      3px 3px 0 var(--pop-black),
+      4px 4px 0 var(--pop-black),
+      5px 5px 0 var(--pop-black) !important;
+  }
+  .cta-final-content p {
+    font-size: 0.95rem !important;
+  }
+
   /* Footer */
   .footer-complex {
     padding: 3rem 1.5rem 2rem 1.5rem !important;

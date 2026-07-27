@@ -476,8 +476,8 @@ body {
 .venue-map-dark {
   flex: 1;
   min-height: 500px;
-  /* Dark mode de alto contraste mantendo sutileza de cores (parques verdes, água azul) */
-  filter: invert(100%) hue-rotate(180deg) brightness(1.2) contrast(1.5) grayscale(20%);
+  /* Dark mode limpo e equilibrado: mantém as ruas visíveis e o fundo escuro */
+  filter: grayscale(100%) invert(92%) contrast(1.15) brightness(1.05);
 }
 
 .venue-gallery-dark {

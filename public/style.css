@@ -4,13 +4,22 @@
 
 :root {
   --bg-purple: #5D007F;
-  --pop-yellow: #FFEA00;
-  --pop-pink: #FF66CC;
+  --pop-yellow: #FFE600;
+  --pop-pink: #FF2A85;
   --pop-black: #080706;
   --pop-white: #FFFFFF;
   --pop-blue: #003F90;
   --pop-red: #C20000;
   --pop-green: #25D366;
+
+  --aztro-purple-dark: #2D0B5A;
+  --aztro-purple-brand: #622791;
+  --aztro-yellow: #FFE600;
+  --aztro-pink: #FF2A85;
+
+  --radius-pill: 999px;
+  --radius-card: 24px;
+  --glow-purple: 0 10px 30px rgba(98, 39, 145, 0.35);
 
   --font-display: 'SUGO PRO CLASSIC TRIAL', 'Anton', sans-serif;
   --font-sub: 'Cartograph Mono CF', monospace;
@@ -21,7 +30,7 @@
   --shadow-block-hover: 2px 2px 0px var(--pop-black);
   --text-3d-black: 4px 4px 0px var(--pop-black);
   --text-3d-pink: 4px 4px 0px var(--pop-pink);
-  --transition-pop: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-pop: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* =========================================================================
@@ -137,14 +146,14 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   display: inline-block;
   background: var(--pop-yellow);
   color: var(--pop-black);
-  padding: 0.4rem 1.2rem;
-  border: var(--border-fat);
+  padding: 0.55rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--pop-black);
   font-weight: 900;
   font-size: 0.85rem;
-  letter-spacing: 2px;
-  border-radius: 50px;
+  letter-spacing: 1px;
   margin-bottom: 1.5rem;
-  box-shadow: 4px 4px 0px var(--pop-black);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   transform: rotate(-2deg);
 }
 /* =========================================================================
@@ -300,33 +309,34 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   100% { transform: translateX(-50%); }
 }
 
-/* Buttons */
+/* Buttons — Aztro Energy Pill Shape Signature */
 .btn-pop {
   display: inline-block;
   background: var(--pop-pink);
   color: var(--pop-black);
   font-family: var(--font-display);
   font-size: 2rem;
-  padding: 1rem 3rem;
-  border-radius: 8px;
+  padding: 1rem 3.5rem;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  border: var(--border-fat);
-  box-shadow: var(--shadow-block);
+  border: 3px solid var(--pop-black);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   cursor: pointer;
-  transition: var(--transition-pop);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
   text-transform: uppercase;
   -webkit-tap-highlight-color: transparent;
+  will-change: transform;
 }
 
 .btn-pop:hover {
-  transform: translate(4px, 4px);
-  box-shadow: var(--shadow-block-hover);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
   background: var(--pop-yellow);
 }
 
 .btn-pop:active {
-  transform: translate(6px, 6px);
-  box-shadow: 0 0 0 #000;
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-green {
@@ -402,11 +412,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 
 .sticker-card {
   position: relative;
-  border: var(--border-fat);
-  border-radius: 16px;
+  border: 3px solid var(--pop-black);
+  border-radius: var(--radius-card);
   overflow: hidden;
-  box-shadow: var(--shadow-block);
-  transition: var(--transition-pop);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -420,14 +430,14 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   right: 12px;
   background: var(--pop-black);
   color: var(--pop-yellow);
-  padding: 0.25rem 0.65rem;
+  padding: 0.35rem 0.85rem;
   font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 1px;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
   z-index: 2;
   border: 2px solid var(--pop-white);
-  box-shadow: 2px 2px 0px var(--pop-black);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card-content {
@@ -437,7 +447,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .sticker-card:hover {
-  box-shadow: 10px 10px 0px var(--pop-black);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 }
 
 .flavor-img {

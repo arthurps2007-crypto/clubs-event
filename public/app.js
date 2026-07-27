@@ -79,11 +79,10 @@ function initParallax() {
   }, { passive: true });
 }
 
-// ─── High-Performance Clean 3D Tilt on Cards ─────────────────────────────────
+// ─── High-Performance Clean 3D Mouse Tilt on Cards ────────────────────────────
 function initTiltCards() {
-  if ('ontouchstart' in window) return; // Skip on touch devices
-
   const cards = document.querySelectorAll('.tilt-card, .sticker-card, .lineup-card');
+  
   cards.forEach(card => {
     let ticking = false;
 
@@ -94,14 +93,14 @@ function initTiltCards() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      // Fast, responsive 14-degree 3D tilt angle tracking mouse
-      const rotateX = (((y - centerY) / centerY) * -14).toFixed(2);
-      const rotateY = (((x - centerX) / centerX) * 14).toFixed(2);
+      // Fast 15-degree 3D tilt tracking mouse
+      const rotateX = (((y - centerY) / centerY) * -15).toFixed(2);
+      const rotateY = (((x - centerX) / centerX) * 15).toFixed(2);
 
       if (!ticking) {
         requestAnimationFrame(() => {
           card.style.transition = 'transform 0.05s ease-out';
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
           ticking = false;
         });
         ticking = true;

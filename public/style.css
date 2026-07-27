@@ -414,8 +414,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .sticker-card:hover {
+  box-shadow: none !important;
   border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
 }
 
 .flavor-img {
@@ -506,8 +506,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .lineup-card:hover {
+  box-shadow: none !important;
   border-color: var(--pop-yellow);
-  box-shadow: 0 16px 36px rgba(255, 230, 0, 0.25);
 }
 
 img.lineup-card-img {

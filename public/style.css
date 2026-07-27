@@ -507,6 +507,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   padding: 1rem 0.5rem 2.5rem 0.5rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
 }
 
 .carousel-grid::-webkit-scrollbar {

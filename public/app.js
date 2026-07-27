@@ -145,21 +145,38 @@ function initUTMTracking() {
   }
 }
 
-// ─── Carousel Navigation Arrows ───────────────────────────────────────────────
-function initCarouselArrows() {
+// ─── Mouse Drag to Scroll Carousel ───────────────────────────────────────────
+function initCarouselDrag() {
   const grid = document.querySelector('.carousel-grid');
-  const prevBtn = document.querySelector('.prev-arrow');
-  const nextBtn = document.querySelector('.next-arrow');
-  if (!grid || !prevBtn || !nextBtn) return;
+  if (!grid) return;
 
-  prevBtn.addEventListener('click', () => {
-    const cardWidth = grid.querySelector('.sticker-card')?.offsetWidth || 300;
-    grid.scrollBy({ left: -(cardWidth + 19), behavior: 'smooth' });
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  grid.addEventListener('mousedown', (e) => {
+    isDown = true;
+    grid.style.cursor = 'grabbing';
+    startX = e.pageX - grid.offsetLeft;
+    scrollLeft = grid.scrollLeft;
   });
 
-  nextBtn.addEventListener('click', () => {
-    const cardWidth = grid.querySelector('.sticker-card')?.offsetWidth || 300;
-    grid.scrollBy({ left: cardWidth + 19, behavior: 'smooth' });
+  grid.addEventListener('mouseleave', () => {
+    isDown = false;
+    grid.style.cursor = 'grab';
+  });
+
+  grid.addEventListener('mouseup', () => {
+    isDown = false;
+    grid.style.cursor = 'grab';
+  });
+
+  grid.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - grid.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    grid.scrollLeft = scrollLeft - walk;
   });
 }
 
@@ -167,7 +184,7 @@ function initCarouselArrows() {
 document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initTiltCards();
-  initCarouselArrows();
+  initCarouselDrag();
   initSmoothScroll();
   initUTMTracking();
 

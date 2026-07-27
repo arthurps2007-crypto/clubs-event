@@ -79,9 +79,9 @@ function initParallax() {
   }, { passive: true });
 }
 
-// ─── High-Performance Clean 3D Mouse Tilt on Cards ────────────────────────────
+// ─── High-Performance Clean 3D Mouse Tilt on Flavor Cards ────────────────────
 function initTiltCards() {
-  const cards = document.querySelectorAll('.tilt-card, .sticker-card, .lineup-card');
+  const cards = document.querySelectorAll('.sticker-card, .tilt-card');
   
   cards.forEach(card => {
     let ticking = false;

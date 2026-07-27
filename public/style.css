@@ -378,7 +378,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   gap: 1.5rem;
 }
 
-.sticker-card, .lineup-card, .tilt-card {
+.sticker-card, .tilt-card {
   position: relative;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -506,7 +506,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .lineup-card:hover {
-  box-shadow: none !important;
   border-color: var(--pop-yellow);
 }
 

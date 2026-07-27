@@ -58,6 +58,8 @@ body {
   color: var(--pop-white);
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1001;
   align-items: center;
   gap: 1.5rem;
   padding: 0.6rem;
@@ -156,11 +158,14 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: -140px; /* Puxa o banner para debaixo do cabeçalho */
+  position: relative;
+  z-index: 1;
 }
 
 .hero-banner-img {
   width: 100%;
-  height: calc(100vh - 110px);
+  height: 100vh;
   display: block;
   object-fit: cover;
 }
@@ -597,12 +602,13 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  width: 65px;
+  height: 65px;
   border: 1px dashed rgba(255, 255, 255, 0.3);
   border-radius: 6px;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   background: rgba(255, 255, 255, 0.05);
   white-space: nowrap;
 }

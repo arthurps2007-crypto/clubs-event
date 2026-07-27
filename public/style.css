@@ -166,6 +166,13 @@ body {
   letter-spacing: 1px;
 }
 
+.countdown-banner p {
+  color: var(--pop-white);
+  font-size: 1rem; /* Ajustado para a fonte mono */
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
 /* =========================================================================
    SABORES CAROUSEL
    ========================================================================= */

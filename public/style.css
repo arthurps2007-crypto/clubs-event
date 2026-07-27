@@ -161,7 +161,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 2.2rem 1.5rem;
+  min-height: 100px;
   background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
@@ -174,7 +175,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   color: var(--pop-black);
 }
 
-.logo-img { height: 60px; width: auto; }
+.logo-img { height: 65px; width: auto; }
 
 .patroc-box {
   display: flex;
@@ -882,8 +883,8 @@ img.lineup-card-img {
    RESPONSIVE — MOBILE
    ========================================================================= */
 @media (max-width: 600px) {
-  .header { padding: 1rem; gap: 0.5rem; }
-  .logo-img { height: 40px; }
+  .header { padding: 1.5rem 1rem; min-height: 80px; }
+  .logo-img { height: 50px; }
   .sponsor-logo { height: 40px; }
 
   .hero-content { padding: 4rem 1rem 2rem; }

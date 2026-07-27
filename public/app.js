@@ -79,25 +79,38 @@ function initParallax() {
   }, { passive: true });
 }
 
-// ─── 3D Tilt on Cards ─────────────────────────────────────────────────────────
+// ─── High-Performance Clean 3D Tilt on Cards ─────────────────────────────────
 function initTiltCards() {
   if ('ontouchstart' in window) return; // Skip on touch devices
 
-  document.querySelectorAll('.tilt-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
+  const cards = document.querySelectorAll('.tilt-card, .sticker-card, .lineup-card');
+  cards.forEach(card => {
+    let ticking = false;
 
-      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    card.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Max tilt angle 10 degrees for clean, non-distorting 3D tilt
+          const rotateX = (((y - centerY) / centerY) * -10).toFixed(2);
+          const rotateY = (((x - centerX) / centerX) * 10).toFixed(2);
+
+          card.style.transition = 'transform 0.1s ease-out';
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     });
   });
 }
@@ -148,8 +161,6 @@ function initUTMTracking() {
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
-  initScrollAnimations();
-  initParallax();
   initTiltCards();
   initSmoothScroll();
   initUTMTracking();

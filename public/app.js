@@ -39,15 +39,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slider) {
         const cards = Array.from(slider.children);
+        
+        // 1. Clona no final
         cards.forEach(card => {
-            const clone = card.cloneNode(true);
-            slider.appendChild(clone);
+            slider.appendChild(card.cloneNode(true));
         });
+        
+        // 2. Clona no início (para podermos rolar para a esquerda infinitamente)
+        const prependFragment = document.createDocumentFragment();
+        cards.forEach(card => {
+            prependFragment.appendChild(card.cloneNode(true));
+        });
+        slider.insertBefore(prependFragment, slider.firstChild);
+
+        // 3. Joga o scroll para o meio (onde estão os originais)
+        // Usamos setTimeout para garantir que o CSS/layout foi calculado
+        setTimeout(() => {
+            slider.scrollLeft = slider.scrollWidth / 3;
+        }, 50);
 
         // Função do loop de inércia (deslize extra ao soltar)
         function beginMomentumLoop() {
             slider.scrollLeft += velX;
-            velX *= 0.90; // Aumentei a fricção para parar mais rápido (era 0.95)
+            velX *= 0.90; // Fricção
             if (Math.abs(velX) > 0.5) {
                 momentumID = requestAnimationFrame(beginMomentumLoop);
             }
@@ -80,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             isDragging = true;
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 1; // Reduzido de 2 para 1 para ficar mais pesado/lento
+            const walk = (x - startX) * 1; 
             
             const prevScrollLeft = slider.scrollLeft;
             slider.scrollLeft = scrollLeft - walk;
@@ -94,13 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // --- INFINITE SCROLL JUMP ---
+        // --- INFINITE SCROLL JUMP (BOTH SIDES) ---
         slider.addEventListener('scroll', () => {
-            if (slider.scrollLeft <= 0) {
-                slider.scrollLeft = slider.scrollWidth / 2;
+            const third = slider.scrollWidth / 3;
+            // Se rolar pra esquerda (chegando perto do limite)
+            if (slider.scrollLeft < 10) {
+                slider.scrollLeft += third;
             } 
-            else if (slider.scrollLeft >= slider.scrollWidth / 2) {
-                slider.scrollLeft = slider.scrollLeft - (slider.scrollWidth / 2);
+            // Se rolar pra direita (passando do limite)
+            else if (slider.scrollLeft > (third * 2) - 10) {
+                slider.scrollLeft -= third;
             }
         });
     }

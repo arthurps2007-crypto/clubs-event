@@ -260,9 +260,21 @@ body {
   background-color: var(--bg-purple);
 }
 
-.section-title {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
+.lineup-header {
+  margin-bottom: 3.5rem;
+}
+
+.lineup-header .section-title {
+  font-size: 5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.lineup-subtitle {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .lineup-grid {
@@ -288,15 +300,30 @@ body {
   object-fit: cover;
 }
 
-.lineup-name {
+.lineup-name-container {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.lineup-name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--pop-white);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Minimalista, apenas sombra pra ler fácil */
   letter-spacing: 1px;
+  line-height: 1;
+}
+
+.lineup-role {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 0.3rem;
+  color: var(--pop-yellow);
 }
 
 @media (max-width: 768px) {

@@ -478,7 +478,7 @@ body {
    ========================================================================= */
 .footer-complex {
   background: var(--pop-black);
-  padding: 4rem 1.5rem 2rem 1.5rem;
+  padding: 6.5rem 1.5rem 4rem 1.5rem;
   color: var(--pop-white);
 }
 
@@ -503,9 +503,8 @@ body {
 .footer-col-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 254px;
-  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .footer-col-right {
@@ -522,8 +521,8 @@ body {
 
 .footer-socials {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1.5rem;
 }
 
 .footer-socials a {

@@ -101,7 +101,7 @@ body {
   backdrop-filter: blur(25px); /* Aumentando o blur */
   -webkit-backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 2rem; /* Mais alto */
+  padding: 2.5rem 2rem; /* Mais alto, conforme solicitado */
 }
 
 .header-content {
@@ -124,12 +124,12 @@ body {
 }
 
 .info-date {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   letter-spacing: 1px;
 }
 
 .info-local {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   letter-spacing: 0.5px;
 }
 
@@ -146,7 +146,8 @@ body {
   border-radius: var(--radius-pill);
   font-family: var(--font-display);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.8rem;
   transition: all 0.2s;
 }
 

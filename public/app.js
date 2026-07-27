@@ -148,8 +148,6 @@ function initUTMTracking() {
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
-  initScrollAnimations();
-  initParallax();
   initTiltCards();
   initSmoothScroll();
   initUTMTracking();

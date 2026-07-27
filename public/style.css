@@ -161,10 +161,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1.2rem 1rem;
-  background: #622791;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 1rem;
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .org-box {

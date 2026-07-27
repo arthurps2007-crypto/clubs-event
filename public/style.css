@@ -476,8 +476,8 @@ body {
 .venue-map-dark {
   flex: 1;
   min-height: 500px;
-  /* Trick to make Google Maps dark mode and yellow-ish! */
-  filter: grayscale(100%) invert(90%) sepia(20%) hue-rotate(180deg) contrast(1.2);
+  /* Dark mode de alto contraste mantendo sutileza de cores (parques verdes, água azul) */
+  filter: invert(100%) hue-rotate(180deg) brightness(1.2) contrast(1.5) grayscale(20%);
 }
 
 .venue-gallery-dark {

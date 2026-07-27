@@ -63,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="style.css?v=500" />
+  <link rel="stylesheet" href="style.css?v=600" />
   <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
@@ -103,46 +103,79 @@
       </div>
 
       <div class="sabores-container">
-        <div class="cards-grid">
-          <div class="sticker-card bg-purple tilt-card stagger-item">
-            <img src="can-vinho.webp" alt="Chopp de Vinho" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-            <div class="card-content">
-              <h3 class="text-shadow-black text-white">CHOPP DE VINHO</h3>
-              <p class="mono-text">PILSEN + VINHO TINTO</p>
+        <div class="cards-carousel-wrapper">
+          <button class="carousel-arrow prev-arrow" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+
+          <div class="cards-grid carousel-grid">
+            <!-- 1. CHOPP DE VINHO -->
+            <div class="sticker-card bg-purple">
+              <img src="can-vinho.webp" alt="Chopp de Vinho" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>CHOPP DE VINHO</h3>
+                <p>PILSEN + VINHO TINTO</p>
+              </div>
             </div>
-          </div>
-          
-          <div class="sticker-card bg-yellow tilt-card stagger-item">
-            <img src="can-abacaxi.webp" alt="Chopp de Abacaxi" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-            <div class="card-content">
-              <h3 class="text-shadow-black text-white">CHOPP DE ABACAXI</h3>
-              <p class="mono-text">PILSEN + VINHO BRANCO</p>
+            
+            <!-- 2. CHOPP DE ABACAXI -->
+            <div class="sticker-card bg-yellow">
+              <img src="can-abacaxi.webp" alt="Chopp de Abacaxi" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>CHOPP DE ABACAXI</h3>
+                <p>PILSEN + VINHO BRANCO</p>
+              </div>
+            </div>
+
+            <!-- 3. MATE -->
+            <div class="sticker-card bg-green">
+              <img src="can-zero.webp" alt="Mate" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>MATE</h3>
+                <p>RUM + MATE + LIMÃO</p>
+              </div>
+            </div>
+
+            <!-- 4. CHOPP ULTRA -->
+            <div class="sticker-card bg-blue">
+              <img src="can-ultra.webp" alt="Chopp Ultra" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>CHOPP ULTRA</h3>
+                <p>ZERO GLÚTEN</p>
+              </div>
+            </div>
+
+            <!-- 5. CHOPP ZERO -->
+            <div class="sticker-card bg-red">
+              <img src="can-mate.webp" alt="Chopp Zero" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>CHOPP ZERO</h3>
+                <p>0.0% ÁLCOOL</p>
+              </div>
+            </div>
+
+            <!-- 6. CHOPP PILSEN -->
+            <div class="sticker-card bg-gold">
+              <img src="can-pilsen.jpg" alt="Chopp Pilsen" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>CHOPP PILSEN</h3>
+                <p>PURO MALTE TRADICIONAL</p>
+              </div>
+            </div>
+
+            <!-- 7. CHOPP IPA -->
+            <div class="sticker-card bg-orange">
+              <img src="can-ipa.jpg" alt="Chopp IPA" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
+              <div class="card-content">
+                <h3>CHOPP IPA</h3>
+                <p>AROMÁTICO + LÚPULO INTENSO</p>
+              </div>
             </div>
           </div>
 
-          <div class="sticker-card bg-blue tilt-card stagger-item">
-            <img src="can-ultra.webp" alt="Ultra Sem Glúten" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-            <div class="card-content">
-              <h3 class="text-shadow-black text-white">ULTRA SEM GLÚTEN</h3>
-              <p class="mono-text">ZERO GLÚTEN</p>
-            </div>
-          </div>
-          
-          <div class="sticker-card bg-red tilt-card stagger-item">
-            <img src="can-mate.webp" alt="Zero Álcool" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-            <div class="card-content">
-              <h3 class="text-shadow-black text-white">ZERO ÁLCOOL</h3>
-              <p class="mono-text">0.0% ÁLCOOL</p>
-            </div>
-          </div>
-
-          <div class="sticker-card bg-green tilt-card stagger-item">
-            <img src="can-zero.webp" alt="Reggae Mate" class="flavor-img" loading="lazy" decoding="async" width="400" height="400" />
-            <div class="card-content">
-              <h3 class="text-shadow-black text-white">REGGAE MATE</h3>
-              <p class="mono-text">RUM + MATE + LIMÃO</p>
-            </div>
-          </div>
+          <button class="carousel-arrow next-arrow" aria-label="Próximo">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -339,6 +372,6 @@
     </footer>
   </main>
 
-  <script src="/app.js?v=500" defer></script>
+  <script src="/app.js?v=600" defer></script>
 </body>
 </html>

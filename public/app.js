@@ -145,10 +145,29 @@ function initUTMTracking() {
   }
 }
 
+// ─── Carousel Navigation Arrows ───────────────────────────────────────────────
+function initCarouselArrows() {
+  const grid = document.querySelector('.carousel-grid');
+  const prevBtn = document.querySelector('.prev-arrow');
+  const nextBtn = document.querySelector('.next-arrow');
+  if (!grid || !prevBtn || !nextBtn) return;
+
+  prevBtn.addEventListener('click', () => {
+    const cardWidth = grid.querySelector('.sticker-card')?.offsetWidth || 300;
+    grid.scrollBy({ left: -(cardWidth + 19), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    const cardWidth = grid.querySelector('.sticker-card')?.offsetWidth || 300;
+    grid.scrollBy({ left: cardWidth + 19, behavior: 'smooth' });
+  });
+}
+
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initTiltCards();
+  initCarouselArrows();
   initSmoothScroll();
   initUTMTracking();
 

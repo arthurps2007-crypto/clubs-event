@@ -376,10 +376,89 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   justify-content: center;
 }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
+/* Carousel Wrapper & Controls */
+.cards-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-grid {
+  display: flex !important;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0.5rem 2.5rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* 4 Cards on Desktop Screen */
+.carousel-grid .sticker-card {
+  flex: 0 0 calc(25% - 0.9rem);
+  min-width: calc(25% - 0.9rem);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1100px) {
+  .carousel-grid .sticker-card {
+    flex: 0 0 calc(33.333% - 0.8rem);
+    min-width: calc(33.333% - 0.8rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-grid .sticker-card {
+    flex: 0 0 calc(50% - 0.6rem);
+    min-width: calc(50% - 0.6rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-grid .sticker-card {
+    flex: 0 0 82%;
+    min-width: 82%;
+  }
+}
+
+/* Arrow Navigation Buttons */
+.carousel-arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFE600;
+  color: #080706;
+  border: 3px solid #080706;
+  box-shadow: 4px 4px 0px #080706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.prev-arrow { left: -22px; }
+.next-arrow { right: -22px; }
+
+.carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #FFFFFF;
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 .sticker-card {
@@ -430,16 +509,18 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .bg-blue .card-content   { background-color: #0045A8; color: #FFFFFF; }
 .bg-red .card-content    { background-color: #D30000; color: #FFFFFF; }
 .bg-green .card-content  { background-color: #10C852; color: #FFFFFF; }
+.bg-gold .card-content   { background-color: #D4A017; color: #FFFFFF; }
+.bg-orange .card-content { background-color: #E65100; color: #FFFFFF; }
 
 .sticker-card h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 1.8vw, 2.2rem);
+  font-size: clamp(1.2rem, 1.6vw, 2.1rem);
   margin-bottom: 0.3rem;
   line-height: 1;
   text-transform: uppercase;
 }
 
-.bg-purple h3, .bg-blue h3, .bg-red h3, .bg-green h3 {
+.bg-purple h3, .bg-blue h3, .bg-red h3, .bg-green h3, .bg-gold h3, .bg-orange h3 {
   color: #FFFFFF;
   text-shadow: 2px 2px 0 #080706;
   -webkit-text-stroke: 1.5px #080706;
@@ -456,12 +537,12 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 .sticker-card p {
   font-family: var(--font-sub);
   font-weight: 700;
-  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-size: clamp(0.75rem, 1vw, 0.92rem);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-.bg-purple p, .bg-blue p, .bg-red p, .bg-green p { color: rgba(255, 255, 255, 0.9); }
+.bg-purple p, .bg-blue p, .bg-red p, .bg-green p, .bg-gold p, .bg-orange p { color: rgba(255, 255, 255, 0.9); }
 .bg-yellow p { color: rgba(8, 7, 6, 0.9); }
 
 /* =========================================================================

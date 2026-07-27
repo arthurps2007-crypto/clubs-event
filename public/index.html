@@ -37,7 +37,7 @@
   <!-- CABEÇALHO -->
   <header class="header">
     <div class="header-content">
-      <img src="/logo-clubs.svg" alt="CLUBS Logo" class="logo-img" width="150" height="50" />
+      <img src="/logo-clubs-header.svg" alt="CLUBS Logo" class="logo-img" width="150" height="50" />
         <div class="header-info">
           <span class="info-date" style="text-align: center;">29 DE AGOSTO</span>
           <span class="info-local" aria-label="SOROCABA-SP" style="display: flex; justify-content: space-between;">
@@ -243,7 +243,7 @@
           <a href="#topo" class="btn-pop btn-solid" style="font-size: 1rem; padding: 0.5rem 1rem; display: inline-block;">VOLTAR AO TOPO</a>
           <div class="realizacao-section" style="display: flex; flex-direction: column; align-items: flex-end;">
             <p class="font-sub text-white" style="margin-bottom: 1rem; font-size: 1rem; letter-spacing: 2px;">REALIZAÇÃO</p>
-            <img src="/logo-clubs-footer.svg?v=2" alt="CLUBS" class="footer-logo" loading="lazy" style="height: 65px; width: auto; display: block;" />
+            <img src="/logo-clubs-footer2.svg" alt="CLUBS" class="footer-logo" loading="lazy" style="height: 65px; width: auto; display: block;" />
           </div>
         </div>
       </div>
@@ -258,6 +258,11 @@
 
   <!-- Ícones -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
   <script src="/app.js?v=20000" defer></script>
 </body>
 </html>

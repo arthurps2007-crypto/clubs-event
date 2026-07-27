@@ -277,6 +277,20 @@ body {
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  color: var(--pop-white);
+  -webkit-text-stroke: 2px var(--pop-black);
+  /* Efeito de profundidade 3D sólido (em camadas de 1px para não ter buracos/bugs) */
+  text-shadow: 
+    1px 1px 0 var(--pop-black),
+    2px 2px 0 var(--pop-black),
+    3px 3px 0 var(--pop-black),
+    4px 4px 0 var(--pop-black),
+    5px 5px 0 var(--pop-black),
+    6px 6px 0 var(--pop-black),
+    7px 7px 0 var(--pop-black),
+    8px 8px 0 var(--pop-black),
+    9px 9px 0 var(--pop-black),
+    10px 10px 0 var(--pop-black);
 }
 
 .lineup-subtitle {

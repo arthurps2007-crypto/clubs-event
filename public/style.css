@@ -2,6 +2,21 @@
    CLUBS DRAFT NIGHT — BASIC CLEAN STYLESHEET
    ========================================================================= */
 
+/* =========================================================================
+   CUSTOM FONTS
+   ========================================================================= */
+@font-face {
+  font-family: 'Sugo Pro Classic Trial';
+  src: local('Sugo Pro Classic Trial'), url('/fonts/sugo.ttf') format('truetype');
+  /* Intervalo que EXCLUI os números (U+0030 - U+0039) */
+  unicode-range: U+0000-002F, U+003A-024F;
+}
+
+@font-face {
+  font-family: 'Cartograph Mono CF';
+  src: local('Cartograph Mono CF'), url('/fonts/cartograph.ttf') format('truetype');
+}
+
 :root {
   --pop-yellow: #FFE600;
   --pop-pink: #FF2A85;
@@ -9,8 +24,8 @@
   --pop-white: #FFFFFF;
   --bg-purple: #622791;
 
-  --font-display: 'Anton', sans-serif;
-  --font-sub: 'Inter', sans-serif;
+  --font-display: 'Sugo Pro Classic Trial', 'Anton', sans-serif;
+  --font-sub: 'Cartograph Mono CF', 'Inter', monospace;
   
   --radius-pill: 999px;
 }

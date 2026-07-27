@@ -40,9 +40,11 @@
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 
 body {
-  background-color: #622791 !important;
-  background: #622791 !important;
-  color: #FFFFFF !important;
+  background-color: #FFCC00 !important;
+  background-image: radial-gradient(rgba(8, 7, 6, 0.12) 15%, transparent 15%);
+  background-size: 16px 16px;
+  background-attachment: fixed;
+  color: #080706 !important;
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
@@ -52,15 +54,13 @@ body {
 }
 
 body[data-theme="light"], body[data-theme="dark"], body[data-theme="purple"] {
-  background-color: #622791 !important;
-  background: #622791 !important;
-  color: #FFFFFF !important;
+  background-color: #FFCC00 !important;
+  color: #080706 !important;
 }
 
 .hero, .sabores, .lineup-section, .venue-section, .faq-section, .cta-final {
-  background-color: #622791 !important;
-  background: #622791 !important;
-  color: #FFFFFF !important;
+  background-color: transparent !important;
+  color: #080706 !important;
   border-bottom: none !important;
 }
 
@@ -181,22 +181,114 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
    ========================================================================= */
 .hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   overflow: hidden;
-  background: #622791;
+  padding: 4rem 1.5rem;
 }
 
-.hero-parallax-bg {
+/* SADIA #POPSTARS HERO STYLING */
+.popstar-hero-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.starburst-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.starburst-burst {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: url('hero-party.webp?v=101');
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
+  width: 320px;
+  height: 320px;
+  background: #E51937;
+  clip-path: polygon(50% 0%, 63% 28%, 98% 15%, 79% 46%, 100% 70%, 68% 77%, 75% 100%, 48% 83%, 22% 98%, 28% 68%, 0% 64%, 22% 43%, 2% 16%, 35% 24%);
+  z-index: -1;
+  transform: scale(1.4) rotate(-6deg);
+  box-shadow: inset 0 0 0 5px #080706;
+}
+
+.pop-badge-hashtag {
+  background: #FFE600;
+  color: #080706;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  padding: 0.3rem 1.5rem;
+  border: 3.5px solid #080706;
+  box-shadow: 5px 5px 0px #080706;
+  transform: rotate(-5deg);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.pop-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  color: #E51937;
+  text-shadow: 4px 4px 0px #080706, 8px 8px 0px #080706;
+  -webkit-text-stroke: 3px #080706;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pop-sub-title {
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  color: #FFFFFF;
+  text-shadow: 3px 3px 0px #080706;
+  -webkit-text-stroke: 2px #080706;
+  margin-top: 0.2rem;
+}
+
+.pop-hero-subtitle {
+  font-family: var(--font-sub);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-weight: 900;
+  background: #080706;
+  color: #FFE600;
+  padding: 0.6rem 1.8rem;
+  border-radius: var(--radius-pill);
+  transform: rotate(1deg);
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Floating Music Notes */
+.music-note {
+  position: absolute;
+  font-size: 2.5rem;
+  z-index: 10;
+  animation: float-note 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.note-1 { top: -20px; left: 5%; animation-delay: 0s; }
+.note-2 { top: 10px; right: 8%; animation-delay: 1s; }
+.note-3 { bottom: 20px; left: 10%; animation-delay: 1.5s; }
+
+@keyframes float-note {
+  0% { transform: translateY(0px) rotate(-10deg); }
+  100% { transform: translateY(-20px) rotate(10deg); }
 }
 
 .hero-content {
@@ -291,33 +383,47 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 /* Buttons — Aztro Energy Pill Shape Signature */
 .btn-pop {
   display: inline-block;
-  background: var(--pop-green);
-  color: #FFFFFF;
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 900;
-  padding: 1.1rem 3rem;
+  padding: 1.1rem 3.5rem;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  border: none;
+  border: 3.5px solid #080706;
+  box-shadow: 6px 6px 0px #080706;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease;
   text-transform: uppercase;
   -webkit-tap-highlight-color: transparent;
 }
 
-.btn-pop:hover {
-  transform: translateY(-3px);
-  background: #20BA5A;
+.btn-pop-red {
+  background: #E51937;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0 #080706;
+  -webkit-text-stroke: 1px #080706;
 }
 
-.btn-pop:active {
-  transform: translateY(0px);
+.btn-pop-red:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #080706;
+  background: #FF1E3C;
+}
+
+.btn-pop-red:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px #080706;
 }
 
 .btn-green {
   background: var(--pop-green);
   color: #FFFFFF;
+  text-shadow: 2px 2px 0 #080706;
+}
+.btn-green:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #080706;
+  background: #25E26B;
 }
 
 /* =========================================================================

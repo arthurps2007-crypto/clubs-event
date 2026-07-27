@@ -178,54 +178,56 @@ body {
 /* =========================================================================
    COUNTDOWN BANNER
    ========================================================================= */
+/* =========================================================================
+   COUNTDOWN BANNER (MARQUEE)
+   ========================================================================= */
 .countdown-banner {
-  background-color: var(--pop-white);
+  background-color: var(--pop-yellow);
   color: var(--pop-black);
-  text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0;
   overflow: hidden;
   border-top: 4px solid var(--pop-black);
   border-bottom: 4px solid var(--pop-black);
   position: relative;
   z-index: 2;
+  white-space: nowrap;
+  display: flex;
 }
 
-.countdown-content {
+.marquee-track {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  font-size: 2.5rem;
+  animation: scroll-marquee 20s linear infinite;
+  width: max-content;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 3rem;
   text-transform: uppercase;
   line-height: 1;
+  padding-right: 2rem; /* Espaço para grudar perfeitamente com o próximo */
 }
 
-.countdown-content .highlight {
-  color: var(--bg-purple);
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  /* São 4 blocos. O scroll se desloca 50% (exatamente 2 blocos) para dar o loop visual */
+  100% { transform: translateX(-50%); } 
 }
 
-.countdown-content .separator {
-  font-size: 1.5rem;
-  opacity: 0.3;
+.marquee-content .separator {
+  font-size: 2rem;
+  opacity: 1;
+  -webkit-text-stroke: 2px var(--pop-black);
+  color: transparent;
 }
 
 @media (max-width: 768px) {
-  .countdown-content {
-    font-size: 1.8rem;
-    gap: 0.8rem;
-    flex-direction: column;
-  }
-  .countdown-content .separator {
-    display: none;
-  }
-}
-
-.countdown-banner p {
-  color: var(--pop-white);
-  font-size: 1rem; /* Ajustado para a fonte mono */
-  font-weight: 700;
-  letter-spacing: 3px;
+  .countdown-banner { padding: 1rem 0; }
+  .marquee-content { font-size: 2rem; gap: 1rem; padding-right: 1rem; }
+  .marquee-content .separator { font-size: 1.5rem; }
 }
 
 /* =========================================================================

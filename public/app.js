@@ -4,21 +4,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. SIMPLE COUNTDOWN (DAYS ONLY)
-    const countSpan = document.getElementById('days-count');
-    if (countSpan) {
+    const countSpans = document.querySelectorAll('.days-count');
+    if (countSpans.length > 0) {
         // Target date: August 29, 2026
         const targetDate = new Date('2026-08-29T18:00:00-03:00').getTime();
         
         function updateCountdown() {
             const now = new Date().getTime();
             const difference = targetDate - now;
+            let daysText = "0";
             
             if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                countSpan.textContent = days;
-            } else {
-                countSpan.textContent = "0";
+                daysText = Math.floor(difference / (1000 * 60 * 60 * 24)).toString();
             }
+            
+            countSpans.forEach(span => { span.textContent = daysText; });
         }
         
         updateCountdown();

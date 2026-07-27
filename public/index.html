@@ -172,30 +172,38 @@
 
     <!-- LOCALIZAÇÃO -->
     <section class="venue-section" id="local">
-      <div class="venue-flex-container">
-        <div class="venue-map">
-          <iframe 
-            src="https://maps.google.com/maps?q=Avenida%20Tadao%20Yoshida,%20250,%20Sorocaba,%20Brazil&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-            width="100%" height="100%" 
-            style="border:0;" 
-            allowfullscreen="" loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+      <div class="venue-card">
+        <div class="venue-flex-container">
+          <div class="venue-map">
+            <iframe 
+              src="https://maps.google.com/maps?q=Avenida%20Tadao%20Yoshida,%20250,%20Sorocaba,%20Brazil&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" height="100%" 
+              style="border:0;" 
+              allowfullscreen="" loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="venue-info">
+            <h2 class="font-display">EMPÓRIO IBITI</h2>
+            <div class="venue-details font-sub">
+              <p style="margin-bottom: 0.5rem;">📍 Avenida Tadao Yoshida, 250, Sorocaba</p>
+              <p>🍻 Amplo espaço ao ar livre com estrutura premium para você curtir a noite toda.</p>
+            </div>
+            <a href="https://maps.google.com/?q=Avenida+Tadao+Yoshida,+250,+Sorocaba,+Brazil+18086338" target="_blank" class="btn-pop btn-solid">COMO CHEGAR</a>
+          </div>
         </div>
-        <div class="venue-info">
-          <h2 class="font-display">EMPÓRIO IBITI</h2>
-          <p class="font-sub text-white">Avenida Tadao Yoshida, 250, Sorocaba, Brazil 18086338</p>
-          <p class="venue-desc text-white">Amplo espaço ao ar livre com estrutura premium para você curtir a noite toda.</p>
-          <a href="https://maps.google.com/?q=Avenida+Tadao+Yoshida,+250,+Sorocaba,+Brazil+18086338" target="_blank" class="btn-pop btn-solid">COMO CHEGAR</a>
-        </div>
-      </div>
-      
-      <!-- FOTOS DO LOCAL -->
-      <div class="venue-gallery" style="margin-top: 4rem;">
-        <div class="gallery-grid">
-          <img src="emporio-foto1.png" alt="Staff do Empório" loading="lazy" class="gallery-img" />
-          <img src="emporio-foto2.jpg" alt="Churrasco no Empório" loading="lazy" class="gallery-img" />
-          <img src="emporio-foto3.png" alt="Interior do Empório" loading="lazy" class="gallery-img" />
+        
+        <!-- FOTOS DO LOCAL (ESTILO POLAROID) -->
+        <div class="venue-gallery">
+          <div class="gallery-img-wrapper photo-1">
+            <img src="emporio-foto1.png" alt="Staff do Empório" loading="lazy" />
+          </div>
+          <div class="gallery-img-wrapper photo-2">
+            <img src="emporio-foto2.jpg" alt="Churrasco no Empório" loading="lazy" />
+          </div>
+          <div class="gallery-img-wrapper photo-3">
+            <img src="emporio-foto3.png" alt="Interior do Empório" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>

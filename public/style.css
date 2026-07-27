@@ -549,32 +549,44 @@ body {
 }
 
 /* =========================================================================
-   CTA FINAL
+   CTA PROMOTER (MINIMAL)
    ========================================================================= */
-.cta-final {
-  padding: 8rem 1.5rem;
+.cta-promoter {
+  padding: 6rem 1.5rem;
   text-align: center;
-  background-color: var(--pop-black);
+  background-color: var(--pop-yellow);
+  color: var(--pop-black);
+  border-bottom: 4px solid var(--pop-black);
 }
 
-.cta-final-content h2 { 
-  font-size: 4rem; 
-  margin-bottom: 1rem;
-  color: var(--pop-white);
-  -webkit-text-stroke: 2px var(--pop-black);
-  text-shadow: 
-    1px 1px 0 var(--pop-black),
-    2px 2px 0 var(--pop-black),
-    3px 3px 0 var(--pop-black),
-    4px 4px 0 var(--pop-black),
-    5px 5px 0 var(--pop-black),
-    6px 6px 0 var(--pop-black),
-    7px 7px 0 var(--pop-black),
-    8px 8px 0 var(--pop-black),
-    9px 9px 0 var(--pop-black),
-    10px 10px 0 var(--pop-black);
+.cta-promoter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.cta-final-content p { margin-bottom: 2rem; font-size: 1.1rem; }
+
+.cta-promoter-content h2 { 
+  font-size: 3.5rem; 
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+.cta-promoter-content p { 
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto; 
+  font-size: 1.1rem; 
+  font-weight: 700;
+}
+
+.btn-invert {
+  background: var(--pop-black);
+  color: var(--pop-white);
+  border-color: var(--pop-black);
+}
+.btn-invert:hover {
+  background: var(--pop-white);
+  color: var(--pop-black);
+}
 
 /* =========================================================================
    RODAPÉ
@@ -842,20 +854,14 @@ body {
     height: 250px !important;
   }
 
-  /* CTA */
-  .cta-final {
+  /* CTA Minimalista */
+  .cta-promoter {
     padding: 4rem 1.5rem !important;
   }
-  .cta-final-content h2 {
-    font-size: 3rem !important;
-    text-shadow: 
-      1px 1px 0 var(--pop-black),
-      2px 2px 0 var(--pop-black),
-      3px 3px 0 var(--pop-black),
-      4px 4px 0 var(--pop-black),
-      5px 5px 0 var(--pop-black) !important;
+  .cta-promoter-content h2 {
+    font-size: 2.8rem !important;
   }
-  .cta-final-content p {
+  .cta-promoter-content p {
     font-size: 0.95rem !important;
   }
 

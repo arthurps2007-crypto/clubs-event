@@ -491,7 +491,7 @@ body {
 .footer-col-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Centraliza a logo com os ícones */
   gap: 1.5rem;
 }
 
@@ -521,6 +521,12 @@ body {
   border: 2px solid var(--pop-black);
   box-shadow: 4px 4px 0px var(--pop-yellow);
   transition: all 0.2s;
+}
+
+.footer-socials a svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--pop-black); /* Força o ícone a ficar preto */
 }
 
 .footer-socials a:hover {

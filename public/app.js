@@ -151,6 +151,32 @@ function initThemeScroll() {
   updateTheme();
 }
 
+// ─── UTM Parameter Tracking & Lead Preservation ──────────────────────────────
+function initUTMTracking() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const activeParams = [];
+
+  utmKeys.forEach(key => {
+    if (urlParams.has(key)) {
+      activeParams.push(`${key}=${encodeURIComponent(urlParams.get(key))}`);
+    }
+  });
+
+  if (activeParams.length > 0) {
+    const utmString = activeParams.join('&');
+    const ctaButtons = document.querySelectorAll('a[href*="whatsapp.com"], a[href*="wa.me"], .btn-hero, .btn-cta-final');
+    
+    ctaButtons.forEach(btn => {
+      const currentHref = btn.getAttribute('href');
+      if (currentHref && currentHref !== '#') {
+        const separator = currentHref.includes('?') ? '&' : '?';
+        btn.setAttribute('href', `${currentHref}${separator}${utmString}`);
+      }
+    });
+  }
+}
+
 // ─── Init Everything ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
@@ -159,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTiltCards();
   initSmoothScroll();
   initThemeScroll();
+  initUTMTracking();
 
   // Lucide icons
   if (window.lucide) lucide.createIcons();

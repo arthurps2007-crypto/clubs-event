@@ -178,7 +178,7 @@ body {
    COUNTDOWN BANNER
    ========================================================================= */
 .countdown-banner {
-  background-color: var(--pop-yellow);
+  background-color: var(--pop-white);
   color: var(--pop-black);
   text-align: center;
   padding: 1.5rem 1rem;

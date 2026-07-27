@@ -435,13 +435,29 @@ body {
   padding: 8rem 1.5rem;
   text-align: center;
   background-color: var(--pop-black);
-  background-image: url('/55555.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/55555.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Efeito parallax de leve */
 }
 
-.cta-final-content h2 { font-size: 3.5rem; margin-bottom: 1rem; }
+.cta-final-content h2 { 
+  font-size: 4rem; 
+  margin-bottom: 1rem;
+  color: var(--pop-white);
+  -webkit-text-stroke: 2px var(--pop-black);
+  text-shadow: 
+    1px 1px 0 var(--pop-black),
+    2px 2px 0 var(--pop-black),
+    3px 3px 0 var(--pop-black),
+    4px 4px 0 var(--pop-black),
+    5px 5px 0 var(--pop-black),
+    6px 6px 0 var(--pop-black),
+    7px 7px 0 var(--pop-black),
+    8px 8px 0 var(--pop-black),
+    9px 9px 0 var(--pop-black),
+    10px 10px 0 var(--pop-black);
+}
 .cta-final-content p { margin-bottom: 2rem; font-size: 1.1rem; }
 
 /* =========================================================================

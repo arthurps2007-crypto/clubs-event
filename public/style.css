@@ -552,11 +552,10 @@ body {
    CTA PROMOTER (MINIMAL)
    ========================================================================= */
 .cta-promoter {
-  padding: 6rem 1.5rem;
+  padding: 4rem 1.5rem;
   text-align: center;
-  background-color: var(--pop-yellow);
-  color: var(--pop-black);
-  border-bottom: 4px solid var(--pop-black);
+  background-color: var(--pop-black);
+  color: var(--pop-white);
 }
 
 .cta-promoter-content {
@@ -567,25 +566,9 @@ body {
 
 .cta-promoter-content h2 { 
   font-size: 3.5rem; 
-  line-height: 0.95;
-  margin-bottom: 1.5rem;
+  line-height: 1;
+  margin-bottom: 2rem;
   letter-spacing: 1px;
-}
-.cta-promoter-content p { 
-  max-width: 600px;
-  margin: 0 auto 2.5rem auto; 
-  font-size: 1.1rem; 
-  font-weight: 700;
-}
-
-.btn-invert {
-  background: var(--pop-black);
-  color: var(--pop-white);
-  border-color: var(--pop-black);
-}
-.btn-invert:hover {
-  background: var(--pop-white);
-  color: var(--pop-black);
 }
 
 /* =========================================================================
@@ -856,13 +839,10 @@ body {
 
   /* CTA Minimalista */
   .cta-promoter {
-    padding: 4rem 1.5rem !important;
+    padding: 3rem 1.5rem !important;
   }
   .cta-promoter-content h2 {
-    font-size: 2.8rem !important;
-  }
-  .cta-promoter-content p {
-    font-size: 0.95rem !important;
+    font-size: 2.5rem !important;
   }
 
   /* Footer */

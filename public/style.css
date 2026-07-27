@@ -268,7 +268,7 @@ body {
 }
 
 .lineup-header .section-title {
-  font-size: 5rem;
+  font-size: 6.5rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -303,7 +303,7 @@ body {
 }
 
 .lineup-item {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 4; /* Mudado de 1/1 para 3/4 para deixar a foto mais alta */
   overflow: hidden;
   border: 4px solid var(--pop-black);
   border-radius: 12px;

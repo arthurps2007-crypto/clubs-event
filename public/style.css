@@ -170,6 +170,11 @@ body {
   padding: 1rem 0 2rem 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  cursor: grab;
+}
+
+.cards-grid.active-drag {
+  cursor: grabbing !important;
 }
 
 .cards-grid::-webkit-scrollbar { display: none; }

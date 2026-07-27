@@ -31,37 +31,58 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDown = false;
     let startX;
     let scrollLeft;
+    let isDragging = false; // Flag to prevent click if dragged
 
     if (slider) {
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
-            slider.style.cursor = 'grabbing';
+            isDragging = false;
+            slider.classList.add('active-drag');
+            // Remove comportamento css que trava o JS
+            slider.style.scrollBehavior = 'auto';
             slider.style.scrollSnapType = 'none';
+            
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
         
         slider.addEventListener('mouseleave', () => {
+            if (!isDown) return;
             isDown = false;
-            slider.style.cursor = 'grab';
-            slider.style.scrollSnapType = 'x mandatory';
+            slider.classList.remove('active-drag');
+            // Restaura
+            setTimeout(() => {
+                slider.style.scrollBehavior = 'smooth';
+                slider.style.scrollSnapType = 'x mandatory';
+            }, 100);
         });
         
         slider.addEventListener('mouseup', () => {
             isDown = false;
-            slider.style.cursor = 'grab';
-            slider.style.scrollSnapType = 'x mandatory';
+            slider.classList.remove('active-drag');
+            // Restaura
+            setTimeout(() => {
+                slider.style.scrollBehavior = 'smooth';
+                slider.style.scrollSnapType = 'x mandatory';
+            }, 100);
         });
         
         slider.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
+            isDragging = true;
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // scroll speed
+            const walk = (x - startX) * 1.5; // Scroll speed suavizado
             slider.scrollLeft = scrollLeft - walk;
         });
-        
-        slider.style.cursor = 'grab';
+
+        // Previne clique indesejado ao soltar o arraste
+        slider.addEventListener('click', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
     }
 
     // 3. INIT ICONS

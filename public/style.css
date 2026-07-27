@@ -160,8 +160,7 @@ body {
 
 .hero-banner-img {
   width: 100%;
-  max-width: 1200px;
-  height: auto;
+  height: calc(100vh - 110px);
   display: block;
   object-fit: cover;
 }

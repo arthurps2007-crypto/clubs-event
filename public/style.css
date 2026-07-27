@@ -205,7 +205,8 @@ body {
   display: flex;
   gap: 1.5rem;
   overflow-x: auto;
-  padding: 1rem 0 2rem 0;
+  padding: 1rem 1rem 2rem 1rem; /* Espaço para a sombra 3D não ser cortada */
+  margin: 0 -1rem; /* Compensa o padding para manter o alinhamento central */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   cursor: grab;

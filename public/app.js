@@ -26,45 +26,39 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateCountdown, 1000 * 60 * 60); 
     }
     
-    // 2. DRAG TO SCROLL CAROUSEL
+    // 2. DRAG TO SCROLL CAROUSEL & INFINITE LOOP
     const slider = document.querySelector('.carousel-grid');
     let isDown = false;
     let startX;
     let scrollLeft;
-    let isDragging = false; // Flag to prevent click if dragged
+    let isDragging = false;
 
     if (slider) {
+        // --- INFINITE LOOP CLONE ---
+        // Duplica os cartões para criar a ilusão de infinito
+        const cards = Array.from(slider.children);
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.appendChild(clone);
+        });
+
+        // --- DRAG LOGIC ---
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             isDragging = false;
             slider.classList.add('active-drag');
-            // Remove comportamento css que trava o JS
-            slider.style.scrollBehavior = 'auto';
-            slider.style.scrollSnapType = 'none';
-            
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
         
         slider.addEventListener('mouseleave', () => {
-            if (!isDown) return;
             isDown = false;
             slider.classList.remove('active-drag');
-            // Restaura
-            setTimeout(() => {
-                slider.style.scrollBehavior = 'smooth';
-                slider.style.scrollSnapType = 'x mandatory';
-            }, 100);
         });
         
         slider.addEventListener('mouseup', () => {
             isDown = false;
             slider.classList.remove('active-drag');
-            // Restaura
-            setTimeout(() => {
-                slider.style.scrollBehavior = 'smooth';
-                slider.style.scrollSnapType = 'x mandatory';
-            }, 100);
         });
         
         slider.addEventListener('mousemove', (e) => {
@@ -72,15 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             isDragging = true;
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 1.5; // Scroll speed suavizado
+            const walk = (x - startX) * 1.5; 
             slider.scrollLeft = scrollLeft - walk;
         });
 
-        // Previne clique indesejado ao soltar o arraste
         slider.addEventListener('click', (e) => {
             if (isDragging) {
                 e.preventDefault();
                 e.stopPropagation();
+            }
+        });
+
+        // --- INFINITE SCROLL JUMP ---
+        slider.addEventListener('scroll', () => {
+            // Se scroll chegou exatamente no limite da esquerda (começo absoluto)
+            if (slider.scrollLeft === 0) {
+                slider.scrollLeft = slider.scrollWidth / 2;
+            } 
+            // Se scroll chegou no limite da direita da primeira metade
+            else if (slider.scrollLeft >= slider.scrollWidth / 2) {
+                slider.scrollLeft = slider.scrollLeft - (slider.scrollWidth / 2);
             }
         });
     }

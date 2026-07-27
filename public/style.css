@@ -181,8 +181,6 @@ body {
   display: flex;
   gap: 1.5rem;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
   padding: 1rem 0 2rem 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -198,7 +196,6 @@ body {
 .sticker-card {
   flex: 0 0 calc(25% - 1.125rem);
   min-width: calc(25% - 1.125rem);
-  scroll-snap-align: start;
   background: var(--pop-black);
   border: 3px solid var(--pop-black);
   border-radius: 16px;

@@ -88,7 +88,7 @@ body {
   backdrop-filter: blur(25px); /* Aumentando o blur */
   -webkit-backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem; /* Mais alto */
 }
 
 .header-content {
@@ -107,16 +107,16 @@ body {
   font-weight: 700;
   color: var(--pop-black);
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .info-date {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   letter-spacing: 1px;
 }
 
 .info-local {
-  font-size: 1.2rem;
+  font-size: 0.85rem;
   letter-spacing: 0.5px;
 }
 

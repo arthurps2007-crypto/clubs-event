@@ -236,22 +236,25 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: var(--pop-white);
+  color: var(--pop-black);
 }
-
-.bg-purple .card-content { background-color: #590D82; color: #FFFFFF; }
-.bg-yellow .card-content { background-color: #FFE600; color: #080706; }
-.bg-blue .card-content   { background-color: #0045A8; color: #FFFFFF; }
-.bg-red .card-content    { background-color: #D30000; color: #FFFFFF; }
-.bg-green .card-content  { background-color: #10C852; color: #FFFFFF; }
-.bg-gold .card-content   { background-color: #D4A017; color: #FFFFFF; }
-.bg-orange .card-content { background-color: #E65100; color: #FFFFFF; }
 
 .card-content h3 {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 1;
   margin-bottom: 0.3rem;
   text-transform: uppercase;
+  color: var(--pop-white);
+  -webkit-text-stroke: 1.5px var(--pop-black);
+  text-shadow: 
+    1px 1px 0 var(--pop-black),
+    2px 2px 0 var(--pop-black),
+    3px 3px 0 var(--pop-black),
+    4px 4px 0 var(--pop-black),
+    5px 5px 0 var(--pop-black),
+    6px 6px 0 var(--pop-black);
 }
 
 .card-content p {

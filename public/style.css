@@ -204,12 +204,14 @@ body {
 .marquee-content {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  font-size: 1.5rem;
+  gap: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900; /* Peso máximo para dar destaque */
+  font-size: 1.4rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 1;
-  padding-right: 2.5rem; /* Espaço para grudar perfeitamente com o próximo */
-  font-weight: 700;
+  padding-right: 2rem; /* Espaço para grudar perfeitamente com o próximo */
 }
 
 @keyframes scroll-marquee {
@@ -219,14 +221,14 @@ body {
 }
 
 .marquee-content .separator {
-  font-size: 1.2rem;
-  opacity: 0.6;
+  font-size: 1.5rem;
+  opacity: 0.3;
   color: var(--pop-black);
 }
 
 @media (max-width: 768px) {
   .countdown-banner { padding: 0.8rem 0; }
-  .marquee-content { font-size: 1.2rem; gap: 1.5rem; padding-right: 1.5rem; }
+  .marquee-content { font-size: 1.1rem; gap: 1.5rem; padding-right: 1.5rem; }
   .marquee-content .separator { font-size: 1rem; }
 }
 

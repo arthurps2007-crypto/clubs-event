@@ -195,20 +195,26 @@
 
     <!-- RODAPÉ -->
     <footer class="footer-complex">
-      <div class="footer-top">
+      <div class="footer-top" style="align-items: stretch;">
         <!-- ESQUERDA -->
-        <div class="footer-col-left">
-          <img src="/logo-clubs-footer.svg?v=2" alt="CLUBS" class="footer-logo" loading="lazy" />
-          <div class="footer-socials">
+        <div class="footer-col-left" style="justify-content: space-between; gap: 3rem;">
+          <div class="footer-socials" style="width: 254px;">
             <a href="#"><i data-lucide="instagram"></i></a>
             <a href="#"><i data-lucide="twitter"></i></a>
             <a href="#"><i data-lucide="facebook"></i></a>
             <a href="#"><i data-lucide="youtube"></i></a>
           </div>
+          <div class="sponsors-section" style="text-align: left;">
+            <p class="font-display" style="text-align: left; margin-bottom: 1rem;">APOIADORES</p>
+            <div class="sponsors-logos font-sub" style="justify-content: flex-start; gap: 1rem;">
+               <span>[ LOGO ]</span>
+               <span>[ LOGO ]</span>
+            </div>
+          </div>
         </div>
         
         <!-- CENTRO -->
-        <div class="footer-col-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="footer-col-center" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
           <div style="display: flex; flex-direction: column; align-items: stretch;">
             <h3 class="num-font" style="letter-spacing: 2px; text-align: center;"><span style="color: var(--pop-yellow);">29</span> DE AGOSTO</h3>
             <p class="font-sub text-white" style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
@@ -218,25 +224,19 @@
         </div>
         
         <!-- DIREITA -->
-        <div class="footer-col-right">
-          <!-- Deixei um botão voltar ao topo já que ficou vazio -->
+        <div class="footer-col-right" style="justify-content: space-between; align-items: flex-end; gap: 3rem;">
           <a href="#topo" class="btn-pop btn-solid" style="font-size: 1rem; padding: 0.5rem 1rem;">VOLTAR AO TOPO</a>
+          <div class="realizacao-section" style="text-align: right;">
+            <p class="font-display" style="text-align: right; margin-bottom: 1rem;">REALIZAÇÃO</p>
+            <img src="/logo-clubs-footer.svg?v=2" alt="CLUBS" class="footer-logo" loading="lazy" style="width: 254px; height: auto;" />
+          </div>
         </div>
       </div>
 
-      <hr class="footer-divider" />
+      <hr class="footer-divider" style="margin: 3rem auto 1.5rem auto;" />
 
-      <div class="footer-bottom">
-        <div class="sponsors-section">
-          <p class="font-display">APOIADORES</p>
-          <div class="sponsors-logos font-sub">
-             <!-- Placeholder para os logos -->
-             <span>[ LOGO ]</span>
-             <span>[ LOGO ]</span>
-             <span>[ LOGO ]</span>
-          </div>
-        </div>
-        <p class="footer-legal font-sub text-white">É PROIBIDO VENDER E/OU ENTREGAR BEBIDAS ALCOÓLICAS PARA MENORES DE 18 ANOS. BEBA COM MODERAÇÃO.</p>
+      <div style="text-align: center;">
+        <p class="footer-legal font-sub text-white" style="margin: 0 auto; max-width: 100%;">É PROIBIDO VENDER E/OU ENTREGAR BEBIDAS ALCOÓLICAS PARA MENORES DE 18 ANOS. BEBA COM MODERAÇÃO.</p>
       </div>
     </footer>
   </main>

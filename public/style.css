@@ -40,11 +40,9 @@
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 
 body {
-  background-color: #FFCC00 !important;
-  background-image: radial-gradient(rgba(8, 7, 6, 0.12) 15%, transparent 15%);
-  background-size: 16px 16px;
-  background-attachment: fixed;
-  color: #080706 !important;
+  background-color: #622791 !important;
+  background: #622791 !important;
+  color: #FFFFFF !important;
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
@@ -54,14 +52,24 @@ body {
 }
 
 body[data-theme="light"], body[data-theme="dark"], body[data-theme="purple"] {
-  background-color: #FFCC00 !important;
-  color: #080706 !important;
+  background-color: #622791 !important;
+  background: #622791 !important;
+  color: #FFFFFF !important;
 }
 
 .hero, .sabores, .lineup-section, .venue-section, .faq-section, .cta-final {
-  background-color: transparent !important;
-  color: #080706 !important;
+  background-color: #622791 !important;
+  background: #622791 !important;
+  color: #FFFFFF !important;
   border-bottom: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, a, label, button {
+  color: #FFFFFF;
+}
+
+.promo-subtitle, .venue-subtitle, .lineup-cta-text, .cta-final-sub, .lineup-time {
+  color: #FFFFFF !important;
 }
 
 /* Hide body overflow during splash */
@@ -181,14 +189,12 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
    ========================================================================= */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 480px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  background: #622791 !important;
   overflow: hidden;
-  padding: 4rem 1.5rem;
 }
 
 /* SADIA #POPSTARS HERO STYLING */

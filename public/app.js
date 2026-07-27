@@ -117,39 +117,7 @@ function initSmoothScroll() {
 }
 
 // ─── Senior Dev Theme Transition on Scroll ────────────────────────────────────
-function initThemeScroll() {
-  const sections = document.querySelectorAll('section[data-theme]');
-  if (!sections.length) return;
-
-  function updateTheme() {
-    const viewportCenter = window.innerHeight * 0.45;
-    let activeTheme = null;
-
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
-        activeTheme = sec.dataset.theme;
-      }
-    });
-
-    if (activeTheme && document.body.dataset.theme !== activeTheme) {
-      document.body.dataset.theme = activeTheme;
-    }
-  }
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateTheme();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  updateTheme();
-}
+// Theme scroll disabled for solid purple #622791 background
 
 // ─── UTM Parameter Tracking & Lead Preservation ──────────────────────────────
 function initUTMTracking() {
@@ -184,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initTiltCards();
   initSmoothScroll();
-  initThemeScroll();
   initUTMTracking();
 
   // Lucide icons

@@ -40,10 +40,9 @@
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 
 body {
-  background-color: #1A0533;
-  background-image: radial-gradient(circle at 50% 0%, #3D0973 0%, #1A0533 70%);
-  background-attachment: fixed;
-  color: var(--pop-white);
+  background-color: #622791 !important;
+  background: #622791 !important;
+  color: #FFFFFF !important;
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
@@ -53,12 +52,16 @@ body {
 }
 
 body[data-theme="light"], body[data-theme="dark"], body[data-theme="purple"] {
-  background-color: #1A0533 !important;
-  color: var(--pop-white);
+  background-color: #622791 !important;
+  background: #622791 !important;
+  color: #FFFFFF !important;
 }
 
 .hero, .sabores, .lineup-section, .venue-section, .faq-section, .cta-final {
-  transition: background-color 0.65s cubic-bezier(0.25, 1, 0.5, 1), color 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  background-color: #622791 !important;
+  background: #622791 !important;
+  color: #FFFFFF !important;
+  border-bottom: none !important;
 }
 
 /* Hide body overflow during splash */
@@ -160,11 +163,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   align-items: center;
   gap: 1.5rem;
   padding: 1.2rem 1rem;
-  background: rgba(26, 5, 51, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+  background: #622791;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .org-box {
@@ -191,25 +191,22 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
    ========================================================================= */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   overflow: hidden;
-  border-bottom: var(--border-fat);
+  background: #622791;
 }
 
 .hero-parallax-bg {
   position: absolute;
-  top: -20%; left: 0;
-  width: 100%; height: 140%;
-  background-image: linear-gradient(rgba(8, 7, 6, 0.3), rgba(8, 7, 6, 0.8)), url('hero-party.webp?v=101');
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('hero-party.webp?v=101');
   background-size: cover;
   background-position: center;
   z-index: 0;
-  will-change: transform;
 }
 
 .hero-content {
@@ -304,43 +301,33 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 /* Buttons — Aztro Energy Pill Shape Signature */
 .btn-pop {
   display: inline-block;
-  background: var(--pop-yellow);
-  color: #000000;
+  background: var(--pop-green);
+  color: #FFFFFF;
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 900;
-  padding: 1.1rem 3.5rem;
+  padding: 1.1rem 3rem;
   border-radius: var(--radius-pill);
   text-decoration: none;
   border: none;
-  box-shadow: 0 8px 30px rgba(255, 230, 0, 0.4);
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   text-transform: uppercase;
   -webkit-tap-highlight-color: transparent;
-  will-change: transform;
 }
 
 .btn-pop:hover {
-  transform: translateY(-5px) scale(1.04);
-  box-shadow: 0 16px 40px rgba(255, 230, 0, 0.6);
-  background: #FFF066;
+  transform: translateY(-3px);
+  background: #20BA5A;
 }
 
 .btn-pop:active {
-  transform: translateY(0px) scale(0.98);
-  box-shadow: 0 4px 15px rgba(255, 230, 0, 0.3);
+  transform: translateY(0px);
 }
 
 .btn-green {
   background: var(--pop-green);
   color: #FFFFFF;
-  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
-}
-.btn-green:hover {
-  background: #34E075;
-  color: #FFFFFF;
-  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.6);
 }
 
 /* =========================================================================
@@ -407,20 +394,16 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 
 .sticker-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-card);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+  transition: transform 0.3s ease;
   text-align: left;
   display: flex;
   flex-direction: column;
   color: #FFFFFF;
   -webkit-tap-highlight-color: transparent;
-  will-change: transform;
 }
 
 .card-tag {
@@ -435,7 +418,6 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
   letter-spacing: 1px;
   border-radius: var(--radius-pill);
   z-index: 2;
-  box-shadow: 0 4px 15px rgba(255, 230, 0, 0.4);
 }
 
 .card-content {
@@ -445,9 +427,8 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter
 }
 
 .sticker-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 45px rgba(123, 31, 162, 0.4);
-  border-color: var(--pop-yellow);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .flavor-img {
@@ -821,23 +802,15 @@ img.lineup-card-img {
 
 /* =========================================================================
    FOOTER
-   ========================================================================= */
+   ========================================================================= * Footer Clean & Organized */
 .footer-new {
-  width: 100%;
-  background: var(--pop-black);
-  color: var(--pop-white);
+  background: #080706 !important;
+  color: #FFFFFF !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 4rem 2rem 2rem;
   gap: 2.5rem;
-  border-top: var(--border-fat);
-}
-
-.footer-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.footer-logo-area, .footer-spacer { flex: 1; }
-.footer-logo-area { display: flex; justify-content: flex-start; }
-.footer-main-logo { height: 140px; width: auto; filter: drop-shadow(2px 2px 0px rgba(255,255,255,0.1)); }
 
 .footer-event-info { flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
 .footer-event-info h3 { font-size: 3rem; line-height: 1; margin: 0; }

@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Função do loop de inércia (deslize extra ao soltar)
         function beginMomentumLoop() {
             slider.scrollLeft += velX;
-            velX *= 0.95; // Fricção (quanto menor, mais rápido para)
+            velX *= 0.90; // Aumentei a fricção para parar mais rápido (era 0.95)
             if (Math.abs(velX) > 0.5) {
                 momentumID = requestAnimationFrame(beginMomentumLoop);
             }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isDown = true;
             isDragging = false;
             slider.classList.add('active-drag');
-            cancelAnimationFrame(momentumID); // Para a inércia se o usuário clicar
+            cancelAnimationFrame(momentumID); 
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if(!isDown) return;
             isDown = false;
             slider.classList.remove('active-drag');
-            beginMomentumLoop(); // Inicia o deslize se o mouse sair da área
+            beginMomentumLoop(); 
         });
         
         slider.addEventListener('mouseup', () => {
             isDown = false;
             slider.classList.remove('active-drag');
-            beginMomentumLoop(); // Inicia o deslize ao soltar
+            beginMomentumLoop(); 
         });
         
         slider.addEventListener('mousemove', (e) => {
@@ -80,9 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             isDragging = true;
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; 
+            const walk = (x - startX) * 1; // Reduzido de 2 para 1 para ficar mais pesado/lento
             
-            // Calcula a velocidade do movimento atual
             const prevScrollLeft = slider.scrollLeft;
             slider.scrollLeft = scrollLeft - walk;
             velX = slider.scrollLeft - prevScrollLeft;

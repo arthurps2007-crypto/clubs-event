@@ -727,3 +727,97 @@ body {
     justify-content: center;
   }
 }
+
+/* =========================================================================
+   MOBILE FIXES (GERALZONA)
+   ========================================================================= */
+@media (max-width: 768px) {
+  /* Header & Top Bar */
+  .header {
+    padding: 1rem 1.5rem;
+  }
+  .logo-img {
+    max-width: 120px;
+    height: auto;
+  }
+  .btn-header {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Hero */
+  .hero {
+    margin-top: -80px; /* Ajusta pois o header ficou menor */
+  }
+
+  /* Cards de Sabores */
+  .card-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  /* Lineup */
+  .lineup-section {
+    padding: 3rem 1rem;
+  }
+  .lineup-header .section-title {
+    font-size: 3.8rem; /* Muito mais legível no mobile */
+    -webkit-text-stroke: 1px var(--pop-black);
+    text-shadow: 
+      1px 1px 0 var(--pop-black),
+      2px 2px 0 var(--pop-black),
+      3px 3px 0 var(--pop-black),
+      4px 4px 0 var(--pop-black);
+  }
+  .lineup-subtitle {
+    font-size: 1.1rem;
+  }
+
+  /* Venue / Map */
+  .venue-info-dark {
+    padding: 3rem 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .venue-info-dark h2 {
+    font-size: 2.8rem;
+  }
+  .venue-details-dark {
+    font-size: 1rem;
+  }
+  .btn-pop {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  .dark-img-wrap {
+    height: 250px;
+  }
+
+  /* CTA Final */
+  .cta-final {
+    padding: 4rem 1.5rem;
+  }
+  .cta-final-content h2 {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px var(--pop-black);
+    text-shadow: 
+      1px 1px 0 var(--pop-black),
+      2px 2px 0 var(--pop-black),
+      3px 3px 0 var(--pop-black);
+  }
+  
+  /* Footer */
+  .footer-complex {
+    padding: 3rem 1.5rem 2rem 1.5rem;
+  }
+  .footer-col-left {
+    gap: 2rem;
+  }
+  .footer-col-center h3 {
+    font-size: 2rem;
+  }
+  .footer-divider {
+    margin: 2rem auto;
+  }
+}

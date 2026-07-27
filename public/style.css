@@ -278,10 +278,10 @@ body {
   .sticker-card { flex: 0 0 calc(33.333% - 1rem); min-width: calc(33.333% - 1rem); }
 }
 @media (max-width: 768px) {
-  .sticker-card { flex: 0 0 calc(50% - 0.75rem); min-width: calc(50% - 0.75rem); }
+  .sticker-card { flex: 0 0 calc(33.333% - 0.75rem); min-width: calc(33.333% - 0.75rem); }
 }
 @media (max-width: 480px) {
-  .sticker-card { flex: 0 0 85%; min-width: 85%; }
+  .sticker-card { flex: 0 0 calc(33.333% - 0.5rem); min-width: calc(33.333% - 0.5rem); }
 }
 
 .flavor-img {
@@ -430,8 +430,9 @@ body {
 
 @media (max-width: 768px) {
   .lineup-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    gap: 0.5rem;
   }
 }
 
@@ -765,13 +766,39 @@ body {
   }
 
   /* Cards de Sabores */
+  .sticker-card { 
+    border-width: 2px !important;
+    box-shadow: 4px 4px 0px var(--pop-black) !important;
+    border-radius: 12px !important;
+  }
+  .card-content {
+    padding: 0.6rem 0.4rem !important;
+  }
   .card-content h3 {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
+  }
+  .card-content p {
+    font-size: 0.65rem !important;
   }
   
   /* Lineup */
   .lineup-section {
     padding: 3rem 1rem !important;
+  }
+  .lineup-item {
+    border-width: 2px !important;
+    box-shadow: 4px 4px 0px var(--pop-black) !important;
+    border-radius: 8px !important;
+  }
+  .lineup-name-container {
+    padding: 1rem 0.2rem 0.5rem 0.2rem !important;
+  }
+  .lineup-name {
+    font-size: 1rem !important;
+  }
+  .lineup-role {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.5px !important;
   }
   .lineup-header .section-title {
     font-size: 3.5rem !important; 

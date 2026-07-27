@@ -742,13 +742,13 @@ body {
     gap: 1rem;
   }
   .header {
-    padding: 0.8rem 1rem !important;
+    padding: 1.2rem 1.2rem !important;
   }
   .header-content {
     gap: 0.5rem;
   }
   .logo-img {
-    max-width: 90px !important;
+    max-width: 110px !important;
     height: auto !important;
   }
   .btn-header {
@@ -786,6 +786,9 @@ body {
   }
 
   /* Venue / Map */
+  .venue-dark-container {
+    flex-direction: column !important;
+  }
   .venue-info-dark {
     padding: 3rem 1.5rem !important;
     align-items: center !important;
@@ -796,6 +799,11 @@ body {
   }
   .venue-details-dark {
     font-size: 1rem !important;
+  }
+  .venue-map-dark {
+    height: 350px !important;
+    min-height: unset !important;
+    width: 100% !important;
   }
   .btn-pop {
     font-size: 1rem !important;

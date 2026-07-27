@@ -435,7 +435,7 @@ body {
   padding: 8rem 1.5rem;
   text-align: center;
   background-color: var(--pop-black);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/55555.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/54444.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Efeito parallax de leve */

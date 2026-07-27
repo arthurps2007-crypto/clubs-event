@@ -132,17 +132,22 @@ body {
 }
 
 .btn-header {
-  background: var(--pop-black);
-  color: var(--pop-white);
-  padding: 0.6rem 1.2rem;
+  background: var(--pop-yellow);
+  color: var(--pop-black);
+  border: 2px solid var(--pop-black);
+  box-shadow: 4px 4px 0px var(--pop-black);
+  padding: 0.6rem 1.5rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-display);
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: transform 0.2s;
+  font-size: 1.2rem;
+  transition: all 0.2s;
 }
 
-.btn-header:hover { transform: scale(1.05); }
+.btn-header:hover { 
+  transform: translate(-2px, -2px); 
+  box-shadow: 6px 6px 0px var(--pop-black); 
+}
 
 /* =========================================================================
    HERO

@@ -102,7 +102,7 @@ body {
 .header-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   font-family: var(--font-sub);
   font-weight: 700;
   color: var(--pop-black);
@@ -491,7 +491,8 @@ body {
 .footer-col-left {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza a logo com os ícones */
+  align-items: center;
+  width: 254px;
   gap: 1.5rem;
 }
 
@@ -501,12 +502,14 @@ body {
 }
 
 .footer-logo {
-  height: 90px;
+  width: 100%;
+  height: auto;
 }
 
 .footer-socials {
   display: flex;
-  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .footer-socials a {

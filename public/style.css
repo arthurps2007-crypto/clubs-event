@@ -510,7 +510,9 @@ body {
 
 .footer-col-right {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .footer-logo {

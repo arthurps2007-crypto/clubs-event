@@ -531,11 +531,9 @@ body {
 
 .footer-col-center h3 {
   font-size: 3rem;
-  color: var(--pop-yellow);
+  color: var(--pop-white);
   line-height: 1.1;
   margin-bottom: 0.2rem;
-  -webkit-text-stroke: 1.5px var(--pop-black);
-  text-shadow: 3px 3px 0 var(--pop-white);
 }
 
 .footer-col-center p {

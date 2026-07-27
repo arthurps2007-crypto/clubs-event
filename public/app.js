@@ -88,20 +88,20 @@ function initTiltCards() {
     let ticking = false;
 
     card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Fast, responsive 14-degree 3D tilt angle tracking mouse
+      const rotateX = (((y - centerY) / centerY) * -14).toFixed(2);
+      const rotateY = (((x - centerX) / centerX) * 14).toFixed(2);
+
       if (!ticking) {
         requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          // Max tilt angle 10 degrees for clean, non-distorting 3D tilt
-          const rotateX = (((y - centerY) / centerY) * -10).toFixed(2);
-          const rotateY = (((x - centerX) / centerX) * 10).toFixed(2);
-
-          card.style.transition = 'transform 0.1s ease-out';
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+          card.style.transition = 'transform 0.05s ease-out';
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
           ticking = false;
         });
         ticking = true;
@@ -109,7 +109,7 @@ function initTiltCards() {
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     });
   });

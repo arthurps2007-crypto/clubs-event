@@ -802,9 +802,7 @@ img.lineup-card-img {
   padding: 1.2rem 3rem;
 }
 
-/* =========================================================================
-   FOOTER
-   ========================================================================= * Footer Clean & Organized */
+/* Footer Clean & Organized */
 .footer-new {
   background: #080706 !important;
   color: #FFFFFF !important;
@@ -813,6 +811,8 @@ img.lineup-card-img {
   align-items: center;
   padding: 4rem 2rem 2rem;
   gap: 2.5rem;
+  border-top: none;
+}
 
 .footer-event-info { flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
 .footer-event-info h3 { font-size: 3rem; line-height: 1; margin: 0; }

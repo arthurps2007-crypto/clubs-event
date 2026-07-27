@@ -500,7 +500,7 @@ body {
 }
 
 .footer-logo {
-  height: 50px;
+  height: 90px;
 }
 
 .footer-socials {
@@ -509,19 +509,32 @@ body {
 }
 
 .footer-socials a {
-  color: var(--pop-white);
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: var(--pop-white);
+  color: var(--pop-black);
+  border-radius: 8px;
+  border: 2px solid var(--pop-black);
+  box-shadow: 4px 4px 0px var(--pop-yellow);
+  transition: all 0.2s;
 }
 
 .footer-socials a:hover {
-  color: var(--pop-yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--pop-yellow);
+  color: var(--pop-black);
 }
 
 .footer-col-center h3 {
-  font-size: 2.5rem;
-  color: var(--pop-white);
+  font-size: 3rem;
+  color: var(--pop-yellow);
   line-height: 1.1;
   margin-bottom: 0.2rem;
+  -webkit-text-stroke: 1.5px var(--pop-black);
+  text-shadow: 3px 3px 0 var(--pop-white);
 }
 
 .footer-col-center p {
@@ -531,7 +544,7 @@ body {
 
 .footer-divider {
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 2px dashed rgba(255, 255, 255, 0.2);
   margin: 3rem auto;
   max-width: 1200px;
 }
@@ -556,9 +569,21 @@ body {
 .sponsors-logos {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  opacity: 0.6;
+}
+
+.sponsors-logos span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .footer-legal {

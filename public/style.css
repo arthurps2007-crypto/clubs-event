@@ -836,10 +836,11 @@ body {
   
   /* Promo Highlight */
   .promo-highlight {
-    margin: 3rem 1rem 0 1rem !important;
+    margin: 3rem 0 0 0 !important;
+    padding: 0 0.5rem !important; /* Reduz padding lateral para aproveitar a tela */
   }
   .promo-highlight h3 {
-    font-size: 6.5vw !important;
+    font-size: 5.4vw !important; /* Reduzido levemente de 6.5vw para acomodar a exclamação e centralizar perfeitamente */
     white-space: nowrap !important;
     text-shadow: 2px 2px 0 var(--pop-black) !important;
   }

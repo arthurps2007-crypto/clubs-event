@@ -814,21 +814,39 @@ body {
   }
 
   /* Venue / Map */
-  .venue-dark-container {
+  .venue-section {
+    display: flex !important;
     flex-direction: column !important;
   }
+  .venue-dark-container {
+    display: contents !important;
+  }
   .venue-info-dark {
-    padding: 3rem 1.5rem !important;
+    order: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 3rem 1.5rem 1.5rem 1.5rem !important;
     align-items: center !important;
     text-align: center !important;
   }
+  .venue-info-dark .btn-pop {
+    order: -1;
+    margin-top: 0 !important;
+    margin-bottom: 2.5rem !important;
+  }
   .venue-info-dark h2 {
+    order: 0;
     font-size: 2.8rem !important;
   }
   .venue-details-dark {
+    order: 1;
     font-size: 1rem !important;
   }
+  .venue-gallery-dark {
+    order: 2;
+  }
   .venue-map-dark {
+    order: 3;
     height: 350px !important;
     min-height: unset !important;
     width: 100% !important;

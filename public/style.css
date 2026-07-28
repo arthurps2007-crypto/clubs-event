@@ -281,8 +281,18 @@ body {
   font-size: 4.5rem;
   letter-spacing: 1px;
   line-height: 0.95;
-  -webkit-text-stroke: 1px var(--pop-black);
-  text-shadow: 3px 3px 0 var(--pop-black);
+  -webkit-text-stroke: 2px var(--pop-black);
+  text-shadow: 
+    1px 1px 0 var(--pop-black),
+    2px 2px 0 var(--pop-black),
+    3px 3px 0 var(--pop-black),
+    4px 4px 0 var(--pop-black),
+    5px 5px 0 var(--pop-black),
+    6px 6px 0 var(--pop-black),
+    7px 7px 0 var(--pop-black),
+    8px 8px 0 var(--pop-black),
+    9px 9px 0 var(--pop-black),
+    10px 10px 0 var(--pop-black);
 }
 .promo-highlight p {
   font-size: 1.1rem;
@@ -839,9 +849,13 @@ body {
     padding: 0 0.5rem !important; /* Reduz padding lateral para aproveitar a tela */
   }
   .promo-highlight h3 {
-    font-size: 5.4vw !important; /* Reduzido levemente de 6.5vw para acomodar a exclamação e centralizar perfeitamente */
+    font-size: 4.8vw !important; /* Reduzido para igualar a largura do subtítulo */
     white-space: nowrap !important;
-    text-shadow: 2px 2px 0 var(--pop-black) !important;
+    -webkit-text-stroke: 1px var(--pop-black) !important;
+    text-shadow: 
+      1px 1px 0 var(--pop-black),
+      2px 2px 0 var(--pop-black),
+      3px 3px 0 var(--pop-black) !important;
   }
   .promo-highlight p {
     font-size: 0.95rem !important;

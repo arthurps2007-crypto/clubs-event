@@ -773,16 +773,18 @@ body {
     border-radius: 12px !important;
   }
   .flavor-img {
-    aspect-ratio: 4 / 3 !important;
+    aspect-ratio: 16 / 9 !important;
   }
   .card-content {
-    padding: 0.6rem 0.4rem !important;
+    padding: 0.4rem 0.3rem !important;
   }
   .card-content h3 {
-    font-size: 1.2rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 0.1rem !important;
   }
   .card-content p {
-    font-size: 0.75rem !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.5px !important;
   }
   
   /* Lineup */

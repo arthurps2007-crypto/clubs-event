@@ -278,10 +278,10 @@ body {
   .sticker-card { flex: 0 0 calc(33.333% - 1rem); min-width: calc(33.333% - 1rem); }
 }
 @media (max-width: 768px) {
-  .sticker-card { flex: 0 0 calc(33.333% - 0.75rem); min-width: calc(33.333% - 0.75rem); }
+  .sticker-card { flex: 0 0 calc(42% - 0.75rem); min-width: calc(42% - 0.75rem); }
 }
 @media (max-width: 480px) {
-  .sticker-card { flex: 0 0 calc(33.333% - 0.5rem); min-width: calc(33.333% - 0.5rem); }
+  .sticker-card { flex: 0 0 calc(42% - 0.5rem); min-width: calc(42% - 0.5rem); }
 }
 
 .flavor-img {
@@ -770,10 +770,10 @@ body {
     padding: 0.6rem 0.4rem !important;
   }
   .card-content h3 {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
   }
   .card-content p {
-    font-size: 0.65rem !important;
+    font-size: 0.75rem !important;
   }
   
   /* Lineup */

@@ -772,6 +772,9 @@ body {
     box-shadow: 4px 4px 0px var(--pop-black) !important;
     border-radius: 12px !important;
   }
+  .flavor-img {
+    aspect-ratio: 4 / 3 !important;
+  }
   .card-content {
     padding: 0.6rem 0.4rem !important;
   }

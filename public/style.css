@@ -261,12 +261,18 @@ body {
    PROMO HIGHLIGHT (SABORES)
    ========================================================================= */
 .promo-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: 4rem 1.5rem 1rem 1.5rem;
+  width: 100%;
+  margin: 4rem auto 1rem auto;
+  padding: 0 1.5rem;
 }
 .promo-highlight h3 {
   color: var(--pop-yellow);
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   letter-spacing: 1px;
   line-height: 0.95;
   -webkit-text-stroke: 1px var(--pop-black);

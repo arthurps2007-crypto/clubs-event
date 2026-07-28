@@ -182,9 +182,8 @@ body {
 
 .hero-banner-img {
   width: 100%;
-  height: 100vh;
+  height: auto; /* Permite que a imagem mostre 100% do seu conteúdo sem cortar */
   display: block;
-  object-fit: cover;
 }
 
 /* =========================================================================

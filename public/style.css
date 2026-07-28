@@ -878,11 +878,6 @@ body {
     align-items: center !important;
     text-align: center !important;
   }
-  .venue-info-dark .btn-pop {
-    order: -1;
-    margin-top: 0 !important;
-    margin-bottom: 2.5rem !important;
-  }
   .venue-info-dark h2 {
     order: 0;
     font-size: 2.8rem !important;

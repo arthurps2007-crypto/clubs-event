@@ -822,7 +822,8 @@ body {
     margin: 3rem 1rem 0 1rem !important;
   }
   .promo-highlight h3 {
-    font-size: 2.2rem !important;
+    font-size: 6.5vw !important;
+    white-space: nowrap !important;
     text-shadow: 2px 2px 0 var(--pop-black) !important;
   }
   .promo-highlight p {

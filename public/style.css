@@ -905,6 +905,10 @@ body {
   .footer-col-center h3 {
     font-size: 2rem !important;
   }
+  .footer-location {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
   .footer-divider {
     margin: 2rem auto !important;
   }

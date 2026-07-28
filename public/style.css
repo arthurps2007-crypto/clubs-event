@@ -248,12 +248,35 @@ body {
 .cards-grid {
   display: flex;
   gap: 1.5rem;
-  overflow-x: auto;
+  /* padding-bottom removed, using promo-highlight margin */
+  transition: transform 0.1s ease-out; /* Adiciona suavidade manual */
   padding: 1rem 1rem 2rem 1rem; /* Espaço para a sombra 3D não ser cortada */
   margin: 0 -1rem; /* Compensa o padding para manter o alinhamento central */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   cursor: grab;
+}
+
+/* =========================================================================
+   PROMO HIGHLIGHT (SABORES)
+   ========================================================================= */
+.promo-highlight {
+  text-align: center;
+  margin: 4rem 1.5rem 1rem 1.5rem;
+}
+.promo-highlight h3 {
+  color: var(--pop-yellow);
+  font-size: 3.5rem;
+  letter-spacing: 1px;
+  line-height: 0.95;
+  -webkit-text-stroke: 1px var(--pop-black);
+  text-shadow: 3px 3px 0 var(--pop-black);
+}
+.promo-highlight p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1.5rem auto 0 auto;
+  max-width: 600px;
 }
 
 .cards-grid.active-drag {
@@ -784,8 +807,21 @@ body {
     margin-bottom: 0.2rem !important;
   }
   .card-content p {
-    font-size: 0.75rem !important;
+    font-size: 0.6rem !important;
     letter-spacing: 0.5px !important;
+  }
+  
+  /* Promo Highlight */
+  .promo-highlight {
+    margin: 3rem 1rem 0 1rem !important;
+  }
+  .promo-highlight h3 {
+    font-size: 2.2rem !important;
+    text-shadow: 2px 2px 0 var(--pop-black) !important;
+  }
+  .promo-highlight p {
+    font-size: 0.95rem !important;
+    margin-top: 1rem !important;
   }
   
   /* Lineup */

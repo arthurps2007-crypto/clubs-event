@@ -289,7 +289,7 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   margin: 1.5rem auto 0 auto;
-  max-width: 600px;
+  max-width: 1000px; /* Aumentado para não quebrar a frase */
 }
 
 .cards-grid.active-drag {

@@ -849,13 +849,17 @@ body {
     padding: 0 0.5rem !important; /* Reduz padding lateral para aproveitar a tela */
   }
   .promo-highlight h3 {
-    font-size: 4.8vw !important; /* Reduzido para igualar a largura do subtítulo */
+    font-size: 6.8vw !important; /* Aumentado para preencher a tela */
     white-space: nowrap !important;
     -webkit-text-stroke: 1px var(--pop-black) !important;
     text-shadow: 
       1px 1px 0 var(--pop-black),
       2px 2px 0 var(--pop-black),
-      3px 3px 0 var(--pop-black) !important;
+      3px 3px 0 var(--pop-black),
+      4px 4px 0 var(--pop-black),
+      5px 5px 0 var(--pop-black),
+      6px 6px 0 var(--pop-black),
+      7px 7px 0 var(--pop-black) !important;
   }
   .promo-highlight p {
     font-size: 0.95rem !important;

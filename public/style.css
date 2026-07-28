@@ -773,17 +773,18 @@ body {
     border-radius: 12px !important;
   }
   .flavor-img {
-    aspect-ratio: 16 / 9 !important;
+    height: 38vw !important; /* Força a imagem a ser quadrada baseada na largura da tela */
+    object-fit: cover !important;
   }
   .card-content {
-    padding: 0.4rem 0.3rem !important;
+    padding: 0.8rem 0.5rem !important;
   }
   .card-content h3 {
-    font-size: 0.95rem !important;
-    margin-bottom: 0.1rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.2rem !important;
   }
   .card-content p {
-    font-size: 0.6rem !important;
+    font-size: 0.75rem !important;
     letter-spacing: 0.5px !important;
   }
   

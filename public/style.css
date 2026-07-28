@@ -175,6 +175,11 @@ body {
   z-index: 1;
 }
 
+.hero picture {
+  width: 100%;
+  display: block;
+}
+
 .hero-banner-img {
   width: 100%;
   height: 100vh;

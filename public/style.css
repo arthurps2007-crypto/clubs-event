@@ -66,7 +66,7 @@ body {
 .text-white { color: var(--pop-white) !important; }
 .font-display { font-family: var(--font-display) !important; }
 .font-sub { font-family: var(--font-sub) !important; }
-.num-font { font-family: 'Anton', sans-serif !important; }
+.num-font { font-family: var(--font-display) !important; }
 .text-center { text-align: center; }
 
 /* =========================================================================

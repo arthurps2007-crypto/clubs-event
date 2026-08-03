@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: clubs-event
+    env: static
+    buildCommand: ""
+    staticPublishPath: ./public

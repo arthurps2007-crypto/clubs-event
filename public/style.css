@@ -21,6 +21,25 @@
   font-display: swap;
 }
 
+/* LAQONIC PARA NÚMEROS (BURlando a marca d'água da Sugo) */
+@font-face {
+  font-family: 'Sugo Pro Display Trial';
+  src: url('fonts/Laqonic4FUnicase.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0030-0039, U+002C, U+002E; /* Números, Ponto e Vírgula */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sugo Pro Display Trial';
+  src: url('fonts/Laqonic4FUnicase-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  unicode-range: U+0030-0039, U+002C, U+002E;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'Cartograph Mono CF';
   src: local('Cartograph Mono CF'), url('fonts/cartograph.ttf') format('truetype');

@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 whatsapp: formData.get('whatsapp')
             };
 
-            // URL do Webhook da sua Automação (Make/n8n)
-            const WEBHOOK_URL = ""; 
+            // URL do Webhook da sua Automação (Backend da ANA)
+            const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento"; 
 
             if (WEBHOOK_URL !== "") {
                 try {

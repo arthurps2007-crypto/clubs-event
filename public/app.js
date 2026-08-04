@@ -122,8 +122,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     // 3. INIT ICONS
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+
+    // 4. CAPTURE FORM SUBMIT LOGIC
+    const captureForm = document.getElementById('captureForm');
+    if (captureForm) {
+        captureForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(captureForm);
+            const data = {
+                nome: formData.get('nome'),
+                email: formData.get('email'),
+                whatsapp: formData.get('whatsapp')
+            };
+
+            // URL do Webhook da sua Automação (Make/n8n)
+            const WEBHOOK_URL = ""; 
+
+            if (WEBHOOK_URL !== "") {
+                try {
+                    // Disparo silencioso pro banco de dados / automação
+                    fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                        mode: 'no-cors' // Ajuda a evitar erros de CORS para envios simples
+                    }).catch(err => console.error("Webhook error:", err));
+                } catch(e) {}
+            }
+
+            // REDIRECIONAMENTO IMEDIATO PARA O GRUPO
+            window.location.href = "https://chat.whatsapp.com/sample";
+        });
+    }
 });
+
+// FUNÇÕES GLOBAIS PARA A MODAL
+function openModal(e) {
+    if (e) e.preventDefault();
+    const modal = document.getElementById('captureModal');
+    if (modal) modal.classList.add('active');
+}
+
+function closeModal() {
+    const modal = document.getElementById('captureModal');
+    if (modal) modal.classList.remove('active');
+}

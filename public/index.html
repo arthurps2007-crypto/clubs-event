@@ -6,13 +6,13 @@
   <meta name="theme-color" content="#080706" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <title>CLUBS Draft Night | A Rua Vira Festa — 29/08 Sorocaba</title>
-  <meta name="description" content="Chopp em dobro + entrada gratuita. 5 sabores insanos. 29 de agosto no Empório Ibiti, Sorocaba. Garanta seu Passe VIP agora!" />
+  <title>Lançamento CLUBS | A Rua Vira Festa — 29/08 Sorocaba</title>
+  <meta name="description" content="Chopp em dobro + entrada gratuita. 5 sabores insanos. 29 de agosto no Empório Ibiti, Sorocaba. Receba informações e cupons exclusivos antes de todo mundo!" />
 
   <!-- Open Graph / WhatsApp Sharing -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CLUBS Eventos" />
-  <meta property="og:title" content="CLUBS Draft Night — Chopp em Dobro + Entrada Gratuita" />
+  <meta property="og:title" content="Lançamento CLUBS — Chopp em Dobro + Entrada Gratuita" />
   <meta property="og:description" content="A noite em que a rua vira festa. 5 sabores insanos de chopp, entrada gratuita e muito mais. 29/08 no Empório Ibiti, Sorocaba." />
   <meta property="og:image" content="https://clubs-event.onrender.com/banner.jpeg" />
   <meta property="og:url" content="https://clubs-event.onrender.com" />
@@ -43,7 +43,7 @@
             <span aria-hidden="true">S</span><span aria-hidden="true">O</span><span aria-hidden="true">R</span><span aria-hidden="true">O</span><span aria-hidden="true">C</span><span aria-hidden="true">A</span><span aria-hidden="true">B</span><span aria-hidden="true">A</span><span aria-hidden="true">-</span><span aria-hidden="true">S</span><span aria-hidden="true">P</span>
           </span>
         </div>
-      <a href="https://chat.whatsapp.com/sample" target="_blank" class="btn-header">INSCRIÇÃO GRATUITA</a>
+      <a href="#" onclick="openModal(event)" class="btn-header">INSCRIÇÃO GRATUITA</a>
     </div>
   </header>
 
@@ -52,7 +52,7 @@
     <section class="hero" id="topo">
       <picture>
         <source media="(max-width: 768px)" srcset="hero-mobile.jpg?v=4" />
-        <img src="hero-desktop.jpg?v=4" alt="CLUBS Draft Night Banner" class="hero-banner-img" />
+        <img src="hero-desktop.jpg?v=4" alt="Lançamento CLUBS Banner" class="hero-banner-img" />
       </picture>
     </section>
 
@@ -208,7 +208,7 @@
         </div>
       </div>
       <div style="text-align: center; margin-top: 3.5rem;">
-        <a href="https://chat.whatsapp.com/sample" target="_blank" rel="noopener noreferrer" class="btn-pop btn-solid" style="font-size: 1.2rem; padding: 1rem 2.5rem;">INSCRIÇÃO GRATUITA</a>
+        <a href="#" onclick="openModal(event)" class="btn-pop btn-solid" style="font-size: 1.2rem; padding: 1rem 2.5rem;">INSCRIÇÃO GRATUITA</a>
       </div>
     </section>
 
@@ -226,7 +226,7 @@
             </p>
             
             <p class="venue-desc-style">
-              O lugar ideal para o lançamento oficial da CLubs.<br>Espaço amplo, com estrutura premium.
+              O lugar ideal para o Lançamento oficial da CLUBS.<br>Espaço amplo, com estrutura premium.
             </p>
           </div>
         </div>
@@ -253,7 +253,7 @@
     <section class="cta-promoter" id="promoter">
       <div class="cta-promoter-content">
         <h2 class="font-display">QUER SER UM PROMOTER?</h2>
-        <a href="https://chat.whatsapp.com/sample" target="_blank" rel="noopener noreferrer" class="btn-pop btn-solid">QUERO!</a>
+        <a href="#" onclick="openModal(event)" class="btn-pop btn-solid">QUERO!</a>
       </div>
     </section>
 
@@ -305,6 +305,31 @@
     </footer>
   </main>
 
-  <script src="/app.js?v=202607281003" defer></script>
+  <!-- MODAL DE CAPTURA -->
+  <div class="modal-overlay" id="captureModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h2 class="font-display" style="color: var(--pop-black); font-size: 2.5rem; line-height: 1.1; margin-bottom: 0.5rem;">GARANTA SUA<br>VAGA AGORA</h2>
+      <p class="font-sub" style="color: #444; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.4;">Preencha os dados abaixo para entrar no <strong style="color: var(--bg-purple);">Grupo VIP</strong> e receber informações do evento e cupons antes de todo mundo.</p>
+      
+      <form id="captureForm" class="capture-form">
+        <div class="form-group">
+          <label for="leadName" class="font-sub">Nome Completo</label>
+          <input type="text" id="leadName" name="nome" placeholder="Seu nome" required />
+        </div>
+        <div class="form-group">
+          <label for="leadEmail" class="font-sub">E-mail</label>
+          <input type="email" id="leadEmail" name="email" placeholder="seu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="leadPhone" class="font-sub">WhatsApp</label>
+          <input type="tel" id="leadPhone" name="whatsapp" placeholder="(11) 99999-9999" required />
+        </div>
+        <button type="submit" class="btn-pop btn-solid" style="width: 100%; margin-top: 1rem;">CONFIRMAR</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/app.js?v=202608041112" defer></script>
 </body>
 </html>

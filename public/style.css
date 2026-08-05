@@ -177,7 +177,6 @@ body {
   color: var(--pop-black);
   border: 2px solid var(--pop-black);
   box-shadow: 4px 4px 0px var(--pop-black);
-  padding: 0.6rem 1.5rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-display);
   text-decoration: none;

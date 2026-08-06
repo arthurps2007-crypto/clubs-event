@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
   
+  <link rel="preload" as="image" href="hero-mobile.webp?v=6" media="(max-width: 768px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="hero-desktop.webp?v=6" media="(min-width: 769px)" fetchpriority="high" />
+
   <link rel="stylesheet" href="style.css?v=20260806" />
 </head>
 <body>
@@ -53,7 +56,7 @@
     <!-- BANNER HEADLINE -->
     <section class="hero" id="topo">
       <picture>
-        <source media="(max-width: 768px)" srcset="hero-mobile.webp?v=6" />
+        <source media="(max-width: 768px)" srcset="hero-mobile.webp?v=6" width="768" height="1195" />
         <img src="hero-desktop.webp?v=6" alt="Lançamento CLUBS Banner" class="hero-banner-img" width="1920" height="890" fetchpriority="high" />
       </picture>
     </section>

@@ -1153,3 +1153,5 @@ body {
 .form-group input:focus {
   border-color: var(--pop-black);
 }
+
+section { content-visibility: auto; contain-intrinsic-size: 500px; }

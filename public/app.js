@@ -164,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = true;
             }
 
-            const formData = new FormData(captureForm);
             const data = {
                 nome: formData.get('nome'),
                 email: formData.get('email'),

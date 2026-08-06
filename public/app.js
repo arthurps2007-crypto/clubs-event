@@ -133,7 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (captureForm) {
         captureForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+            const btn = captureForm.querySelector('button[type="submit"]');
+            if (btn) {
+                btn.textContent = 'AGUARDE...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+            }
+
             const formData = new FormData(captureForm);
             const data = {
                 nome: formData.get('nome'),
@@ -146,17 +152,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (WEBHOOK_URL !== "") {
                 try {
-                    // Disparo silencioso pro banco de dados / automação
-                    fetch(WEBHOOK_URL, {
+                    // Espera o disparo terminar para garantir que o lead foi salvo
+                    await fetch(WEBHOOK_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data),
-                        keepalive: true  // Garante que o disparo aconteça mesmo se o Render estiver dormindo e o usuário mudar de página
-                    }).catch(err => console.error("Webhook error:", err));
-                } catch(e) {}
+                        body: JSON.stringify(data)
+                    });
+                } catch(e) {
+                    console.error("Webhook error:", e);
+                }
             }
 
-            // REDIRECIONAMENTO IMEDIATO PARA O GRUPO
+            // REDIRECIONAMENTO PARA O GRUPO APÓS SALVAR
             window.location.href = "https://chat.whatsapp.com/sample";
         });
     }

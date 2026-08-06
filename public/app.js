@@ -138,6 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const rawPhone = formData.get('whatsapp') || '';
             const rawEmail = formData.get('email') || '';
 
+            // Validação de Nome (Sem números e tamanho mínimo 2)
+            const nomeClean = formData.get('nome') ? formData.get('nome').trim() : '';
+            if (nomeClean.length < 2 || /\d/.test(nomeClean)) {
+                alert("Por favor, insira um nome válido (apenas letras).");
+                return;
+            }
+
             // Validação de E-mail
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(rawEmail.trim())) {
@@ -153,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const isAllSame = phoneClean.split('').every(char => char === phoneClean[0]);
             if (isAllSame) {
-                alert("O número de WhatsApp inválido (não pode ter todos os números iguais).");
+                alert("Número de WhatsApp inválido (não pode ter todos os números iguais).");
                 return;
             }
 
@@ -165,24 +172,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = {
-                nome: formData.get('nome'),
-                email: formData.get('email'),
-                whatsapp: formData.get('whatsapp')
+                nome: nomeClean,
+                email: rawEmail.trim(),
+                whatsapp: rawPhone
             };
 
-            // URL do Webhook da sua Automação (Backend da ANA)
             const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento"; 
-
+            
             if (WEBHOOK_URL !== "") {
                 try {
-                    // Espera o disparo terminar para garantir que o lead foi salvo
-                    await fetch(WEBHOOK_URL, {
+                    // Configura um timeout de 8 segundos
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+                    const res = await fetch(WEBHOOK_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(data),
+                        signal: controller.signal
                     });
+                    
+                    clearTimeout(timeoutId);
+
+                    if (!res.ok) {
+                        throw new Error(`Erro do servidor: ${res.status}`);
+                    }
                 } catch(e) {
                     console.error("Webhook error:", e);
+                    // Avisa o usuário se falhou por timeout ou erro de rede
+                    alert("Tivemos um problema de conexão com o servidor. Por favor, tente novamente.");
+                    if (btn) {
+                        btn.textContent = 'QUERO ENTRAR PARA A LISTA VIP';
+                        btn.style.opacity = '1';
+                        btn.disabled = false;
+                    }
+                    return; // Bloqueia o redirecionamento
                 }
             }
 

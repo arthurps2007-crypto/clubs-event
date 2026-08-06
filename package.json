@@ -16,6 +16,19 @@
     "mongoose": "^9.6.3",
     "node-cron": "^4.6.0",
     "qrcode": "^1.5.3",
+    "sharp": "^0.35.3",
     "uuid": "^10.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurps2007-crypto/clubs-event.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arthurps2007-crypto/clubs-event/issues"
+  },
+  "homepage": "https://github.com/arthurps2007-crypto/clubs-event#readme"
 }

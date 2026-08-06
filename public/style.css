@@ -43,6 +43,7 @@
 @font-face {
   font-family: 'Cartograph Mono CF';
   src: local('Cartograph Mono CF'), url('fonts/cartograph.ttf') format('truetype');
+  font-display: swap;
 }
 
 :root {
@@ -69,7 +70,7 @@ html {
 
 body {
   background-color: var(--pop-black) !important;
-  background-image: url('bg-roxo.webp');
+  background-image: url('bg-roxo-opt.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -416,7 +417,7 @@ body {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('bg-lineup.jpeg');
+  background-image: url('bg-lineup.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -880,7 +881,7 @@ body {
 
   /* Cards de Sabores */
   .sabores {
-    background-image: url('bg-sabores.webp') !important;
+    background-image: url('bg-sabores-opt.webp') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;

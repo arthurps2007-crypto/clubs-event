@@ -151,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data),
-                        mode: 'no-cors', // Ajuda a evitar erros de CORS para envios simples
                         keepalive: true  // Garante que o disparo aconteça mesmo se o Render estiver dormindo e o usuário mudar de página
                     }).catch(err => console.error("Webhook error:", err));
                 } catch(e) {}

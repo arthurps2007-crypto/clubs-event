@@ -227,3 +227,21 @@ function closeModal() {
     const modal = document.getElementById('captureModal');
     if (modal) modal.classList.remove('active');
 }
+
+// Lazy load Google Maps
+const mapIframe = document.getElementById('venue-map-iframe');
+if(mapIframe) {
+  const mapObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const iframe = entry.target;
+        if(iframe.dataset.src) {
+          iframe.src = iframe.dataset.src;
+          iframe.removeAttribute('data-src');
+          mapObserver.unobserve(iframe);
+        }
+      }
+    });
+  }, { rootMargin: '200px' });
+  mapObserver.observe(mapIframe);
+}

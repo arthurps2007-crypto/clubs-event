@@ -133,6 +133,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (captureForm) {
         captureForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            const formData = new FormData(captureForm);
+            const rawPhone = formData.get('whatsapp') || '';
+            const rawEmail = formData.get('email') || '';
+
+            // Validação de E-mail
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(rawEmail.trim())) {
+                alert("Por favor, insira um e-mail válido.");
+                return;
+            }
+
+            // Validação de WhatsApp
+            const phoneClean = rawPhone.replace(/\D/g, '');
+            if (phoneClean.length < 10 || phoneClean.length > 11) {
+                alert("O WhatsApp deve ter 10 ou 11 números (com DDD). Verifique se não digitou a mais ou a menos.");
+                return;
+            }
+            const isAllSame = phoneClean.split('').every(char => char === phoneClean[0]);
+            if (isAllSame) {
+                alert("O número de WhatsApp inválido (não pode ter todos os números iguais).");
+                return;
+            }
+
             const btn = captureForm.querySelector('button[type="submit"]');
             if (btn) {
                 btn.textContent = 'AGUARDE...';

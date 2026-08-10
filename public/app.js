@@ -210,6 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+            // Dispara o evento Lead para o Meta Pixel (rastreia conversão)
+            if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+
             // REDIRECIONAMENTO PARA O GRUPO APÓS SALVAR
             window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
         });

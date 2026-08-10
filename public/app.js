@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // REDIRECIONAMENTO PARA O GRUPO APÓS SALVAR
-            window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO?s=cl&p=i&mlu=4&amv=0";
+            window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
         });
     }
 });

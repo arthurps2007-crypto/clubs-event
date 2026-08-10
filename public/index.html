@@ -1189,6 +1189,23 @@ body {
 
 section { content-visibility: auto; contain-intrinsic-size: 500px; }
 </style>
+<!-- Meta Pixel Code (Placeholder) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'ID_DO_SEU_PIXEL_AQUI');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=ID_DO_SEU_PIXEL_AQUI&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -1419,7 +1436,7 @@ section { content-visibility: auto; contain-intrinsic-size: 500px; }
     <section class="cta-promoter" id="promoter">
       <div class="cta-promoter-content">
         <h2 class="font-display">QUER SER UM PROMOTER?</h2>
-        <a href="https://wa.me/5515998595194?text=Quero%20ser%20um%20promoter%20da%20Clubs!" target="_blank" rel="noopener noreferrer" class="btn-pop btn-solid">QUERO!</a>
+        <a href="https://api.whatsapp.com/send?phone=5515998595194&text=Quero%20ser%20um%20promoter%20da%20Clubs!" target="_blank" rel="noopener noreferrer" class="btn-pop btn-solid">QUERO!</a>
       </div>
     </section>
 
@@ -1503,4 +1520,5 @@ section { content-visibility: auto; contain-intrinsic-size: 500px; }
   <script src="/app.js?v=30260806-8" defer></script>
 </body>
 </html>
+
 

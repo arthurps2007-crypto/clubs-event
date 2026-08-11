@@ -193,24 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     
                     clearTimeout(timeoutId);
-
-                    if (!res.ok) {
-                        throw new Error(`Erro do servidor: ${res.status}`);
-                    }
                 } catch(e) {
-                    console.error("Webhook error:", e);
-                    // Avisa o usuário se falhou por timeout ou erro de rede
-                    alert("Tivemos um problema de conexão com o servidor. Por favor, tente novamente.");
-                    if (btn) {
-                        btn.textContent = 'QUERO ENTRAR PARA A LISTA VIP';
-                        btn.style.opacity = '1';
-                        btn.disabled = false;
-                    }
-                    return; // Bloqueia o redirecionamento
+                    // Erro no servidor: apenas loga e CONTINUA o fluxo normalmente
+                    // O Lead do Facebook é mais importante que o servidor backend
+                    console.error("Webhook error (non-blocking):", e);
                 }
             }
 
-            // O evento Lead será disparado nativamente na página de Sucesso
+            // SEMPRE redireciona para a página de sucesso (Lead é disparado lá)
             window.location.href = "/sucesso.html";
         });
     }

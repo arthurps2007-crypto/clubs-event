@@ -179,10 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento";
 
-            // 1. DISPARA O LEAD
-            if (window.fbq) { window.fbq('track', 'Lead'); }
-
-            // 2. WEBHOOK EM PARALELO
+            // 1. WEBHOOK EM PARALELO (fire-and-forget)
             fetch(WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -190,8 +187,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 keepalive: true
             }).catch(e => console.error("Webhook error:", e));
 
-            // 3. REDIRECIONA PRO WHATSAPP
-            window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
+            // 2. DISPARA O LEAD E ESPERA A CONFIRMAÇÃO DO FACEBOOK ANTES DE REDIRECIONAR
+            const wppUrl = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
+            
+            if (window.fbq) {
+                // Configura um timeout de segurança de 2 segundos caso o Facebook demore
+                let redirected = false;
+                const safeRedirect = () => {
+                    if (!redirected) {
+                        redirected = true;
+                        window.location.href = wppUrl;
+                    }
+                };
+                
+                setTimeout(safeRedirect, 2000); // Fallback máximo de 2s
+
+                // O Facebook avisa neste callback quando o evento foi salvo nos servidores deles
+                window.fbq('track', 'Lead', {}, safeRedirect);
+            } else {
+                // Se o AdBlock bloqueou o Facebook, redireciona direto
+                window.location.href = wppUrl;
+            }
         });
     }
 });

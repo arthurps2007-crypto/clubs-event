@@ -181,27 +181,26 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (WEBHOOK_URL !== "") {
                 try {
-                    // Configura um timeout de 8 segundos
+                    // Timeout de 8 segundos (non-blocking: erro não impede o fluxo)
                     const controller = new AbortController();
                     const timeoutId = setTimeout(() => controller.abort(), 8000);
-
                     const res = await fetch(WEBHOOK_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data),
                         signal: controller.signal
                     });
-                    
                     clearTimeout(timeoutId);
                 } catch(e) {
-                    // Erro no servidor: apenas loga e CONTINUA o fluxo normalmente
-                    // O Lead do Facebook é mais importante que o servidor backend
                     console.error("Webhook error (non-blocking):", e);
                 }
             }
 
-            // SEMPRE redireciona para a página de sucesso (Lead é disparado lá)
-            window.location.href = "/sucesso.html";
+            // Dispara o evento Lead (o Pixel usa sendBeacon internamente — funciona mesmo com redirect)
+            if (window.fbq) { window.fbq('track', 'Lead'); }
+
+            // Redireciona direto pro grupo VIP
+            window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
         });
     }
 });

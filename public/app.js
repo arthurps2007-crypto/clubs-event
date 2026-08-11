@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Dispara o evento Lead para o Meta Pixel (rastreia conversão)
-            if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+            if (window.fbq) { window.fbq('track', 'Lead'); }
 
             // Aguarda 1 segundo para garantir que o Pixel disparou e apareceu no painel de teste
             setTimeout(() => {

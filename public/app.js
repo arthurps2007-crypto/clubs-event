@@ -213,10 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Dispara o evento Lead para o Meta Pixel (rastreia conversão)
             if (window.fbq) { window.fbq('track', 'Lead'); }
 
-            // Aguarda 1 segundo e redireciona
+            // Aguarda 2 segundos e redireciona (tempo suficiente pro painel do FB registrar)
             setTimeout(() => {
                 window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
-            }, 1000);
+            }, 2000);
         });
     }
 });

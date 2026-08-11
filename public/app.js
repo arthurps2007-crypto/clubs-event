@@ -177,30 +177,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 whatsapp: rawPhone
             };
 
-            const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento"; 
-            
-            if (WEBHOOK_URL !== "") {
-                try {
-                    // Timeout de 8 segundos (non-blocking: erro não impede o fluxo)
-                    const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 8000);
-                    const res = await fetch(WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data),
-                        signal: controller.signal
-                    });
-                    clearTimeout(timeoutId);
-                } catch(e) {
-                    console.error("Webhook error (non-blocking):", e);
-                }
-            }
-
-            // Dispara o evento Lead (o Pixel usa sendBeacon internamente — funciona mesmo com redirect)
+            // 1. DISPARA O LEAD IMEDIATAMENTE (antes de qualquer outra coisa)
             if (window.fbq) { window.fbq('track', 'Lead'); }
 
-            // Redireciona direto pro grupo VIP
-            window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
+            // 2. ENVIA PARA O SERVIDOR EM PARALELO (fire-and-forget, não bloqueia)
+            if (WEBHOOK_URL !== "") {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                    keepalive: true // garante o envio mesmo após o redirect
+                }).catch(e => console.error("Webhook error:", e));
+            }
+
+            // 3. REDIRECIONA APÓS 800ms (tempo para o sendBeacon do Pixel ser enviado)
+            setTimeout(() => {
+                window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
+            }, 800);
         });
     }
 });

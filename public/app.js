@@ -213,20 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Dispara o evento Lead para o Meta Pixel (rastreia conversão)
             if (window.fbq) { window.fbq('track', 'Lead'); }
 
-            // Modo de teste: se o link tiver ?test=1, ele NÃO redireciona, para o Facebook conseguir ler com calma
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('test')) {
-                alert("TESTE: Evento Lead disparado! O redirecionamento foi pausado para você conferir no Gerenciador de Eventos.");
-                if (btn) {
-                    btn.textContent = 'TESTE CONCLUÍDO';
-                    btn.style.opacity = '1';
-                }
-            } else {
-                // Modo normal: Aguarda 1 segundo e redireciona
-                setTimeout(() => {
-                    window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
-                }, 1000);
-            }
+            // Aguarda 1 segundo e redireciona
+            setTimeout(() => {
+                window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
+            }, 1000);
         });
     }
 });

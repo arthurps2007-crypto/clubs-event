@@ -131,14 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. CAPTURE FORM SUBMIT LOGIC
     const captureForm = document.getElementById('captureForm');
     if (captureForm) {
+        let isSubmitting = false; // Trava contra duplo clique
+
         captureForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            if (isSubmitting) return; // Se já estiver enviando, ignora novos cliques
             
             const formData = new FormData(captureForm);
             const rawPhone = formData.get('whatsapp') || '';
             const rawEmail = formData.get('email') || '';
 
-            // Validação de Nome (Sem números e tamanho mínimo 2)
+            // Validação de Nome
             const nomeClean = formData.get('nome') ? formData.get('nome').trim() : '';
             if (nomeClean.length < 2 || /\d/.test(nomeClean)) {
                 alert("Por favor, insira um nome válido (apenas letras).");
@@ -164,17 +168,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // Bloqueia o form visualmente e via código
+            isSubmitting = true;
             const btn = captureForm.querySelector('button[type="submit"]');
             if (btn) {
                 btn.textContent = 'AGUARDE...';
                 btn.style.opacity = '0.7';
+                btn.style.pointerEvents = 'none';
                 btn.disabled = true;
             }
+
+            // Captura UTMs da URL (Tráfego Pago)
+            const urlParams = new URLSearchParams(window.location.search);
+            const utm_source = urlParams.get('utm_source') || '';
+            const utm_medium = urlParams.get('utm_medium') || '';
+            const utm_campaign = urlParams.get('utm_campaign') || '';
+            const utm_term = urlParams.get('utm_term') || '';
+            const utm_content = urlParams.get('utm_content') || '';
 
             const data = {
                 nome: nomeClean,
                 email: rawEmail.trim(),
-                whatsapp: rawPhone
+                whatsapp: rawPhone,
+                utm_source,
+                utm_medium,
+                utm_campaign,
+                utm_term,
+                utm_content
             };
 
             const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento";
@@ -202,8 +222,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 setTimeout(safeRedirect, 2000); // Fallback máximo de 2s
 
+                // Envia Email e Telefone (Advanced Matching) para o Facebook melhorar a inteligência da campanha
+                const advancedMatching = {
+                    em: rawEmail.trim().toLowerCase(),
+                    ph: '55' + phoneClean // Assume Brasil (55)
+                };
+
                 // O Facebook avisa neste callback quando o evento foi salvo nos servidores deles
-                window.fbq('track', 'Lead', {}, safeRedirect);
+                window.fbq('track', 'Lead', advancedMatching, safeRedirect);
             } else {
                 // Se o AdBlock bloqueou o Facebook, redireciona direto
                 window.location.href = wppUrl;

@@ -179,10 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento";
 
-            // 1. DISPARA O LEAD IMEDIATAMENTE (antes de qualquer outra coisa)
+            // 1. DISPARA O LEAD IMEDIATAMENTE
             if (window.fbq) { window.fbq('track', 'Lead'); }
 
-            // 2. ENVIA PARA O SERVIDOR EM PARALELO (fire-and-forget, não bloqueia)
+            // 2. ENVIA PARA O SERVIDOR EM PARALELO (fire-and-forget)
             fetch(WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -190,10 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 keepalive: true
             }).catch(e => console.error("Webhook error:", e));
 
-            // 3. REDIRECIONA APÓS 800ms (tempo para o sendBeacon do Pixel ser enviado)
+            // 3. ABRE O WHATSAPP EM NOVA ABA (mantém a página atual aberta para o Pixel registrar)
             setTimeout(() => {
-                window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
-            }, 800);
+                window.open("https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO", "_blank");
+            }, 500);
         });
     }
 });

@@ -177,18 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 whatsapp: rawPhone
             };
 
+            const WEBHOOK_URL = "https://novo-clubs.onrender.com/webhook/captura-evento";
+
             // 1. DISPARA O LEAD IMEDIATAMENTE (antes de qualquer outra coisa)
             if (window.fbq) { window.fbq('track', 'Lead'); }
 
             // 2. ENVIA PARA O SERVIDOR EM PARALELO (fire-and-forget, não bloqueia)
-            if (WEBHOOK_URL !== "") {
-                fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
-                    keepalive: true // garante o envio mesmo após o redirect
-                }).catch(e => console.error("Webhook error:", e));
-            }
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+                keepalive: true
+            }).catch(e => console.error("Webhook error:", e));
 
             // 3. REDIRECIONA APÓS 800ms (tempo para o sendBeacon do Pixel ser enviado)
             setTimeout(() => {

@@ -190,10 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 keepalive: true
             }).catch(e => console.error("Webhook error:", e));
 
-            // 3. ABRE O WHATSAPP EM NOVA ABA (mantém a página atual aberta para o Pixel registrar)
-            setTimeout(() => {
-                window.open("https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO", "_blank");
-            }, 500);
+            // 3. SUBSTITUI O MODAL POR TELA DE SUCESSO
+            // (mantém a página aberta → Pixel registra → Lead aparece no painel do FB)
+            const modal = document.getElementById('captureModal');
+            if (modal) {
+                modal.innerHTML = `
+                  <div style="background:#111;border-radius:16px;padding:40px 24px;text-align:center;max-width:440px;margin:auto;position:relative;top:50%;transform:translateY(-50%);">
+                    <div style="font-size:52px;margin-bottom:16px;">✅</div>
+                    <h2 style="color:#fff;font-size:24px;font-weight:900;text-transform:uppercase;margin:0 0 10px;">Cadastro Confirmado!</h2>
+                    <p style="color:#aaa;font-size:16px;margin:0 0 28px;">Você está dentro. Clique abaixo para entrar no grupo VIP e garantir seu Chopp em Dobro.</p>
+                    <a href="https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO" target="_blank"
+                      style="display:block;background:#25D366;color:#fff;font-weight:900;font-size:18px;padding:18px 24px;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;">
+                      ENTRAR NO GRUPO VIP
+                    </a>
+                  </div>`;
+            }
         });
     }
 });

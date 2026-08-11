@@ -213,10 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Dispara o evento Lead para o Meta Pixel (rastreia conversão)
             if (typeof fbq === 'function') { fbq('track', 'Lead'); }
 
-            // Aguarda 300ms para garantir que o Pixel disparou antes de trocar de página
+            // Aguarda 1 segundo para garantir que o Pixel disparou e apareceu no painel de teste
             setTimeout(() => {
                 window.location.href = "https://chat.whatsapp.com/IWrimwZMKZ1AZLDoMZ5RBO";
-            }, 300);
+            }, 1000);
         });
     }
 });

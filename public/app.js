@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
 
                 // O Facebook avisa neste callback quando o evento foi salvo nos servidores deles
-                window.fbq('track', 'Lead', advancedMatching, safeRedirect);
+                window.fbq('trackCustom', 'DEUS', advancedMatching, safeRedirect);
             } else {
                 // Se o AdBlock bloqueou o Facebook, redireciona direto
                 window.location.href = wppUrl;
